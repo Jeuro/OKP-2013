@@ -7,9 +7,9 @@
 \usepackage{comment}
 
 \begin{document}
-\doublespacing
+%\doublespacing
 %\singlespacing
-%\onehalfspacing
+\onehalfspacing
 
 \title{Otsikko}
 \author{Erkki Heino \and Tero Huomo \and Eeva Terkki}
@@ -28,9 +28,43 @@
 
 Pythonin lohkorakenne on syvä, ja ohjelman suoritusaikana käytössä on ainakin kolme sisäkkäistä näkyvyysaluetta \cite{pythonclasses}. Näkyvyysalueita käytetään dynaamisesti. Sisimmällä näkyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ympäröivillä funktioilla on omat näkyvyysalueensa, joiden sisältämät nimet eivät ole paikallisia eivätkä globaaleja. Toisiksi uloimmalla näkyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet.
 
+Seuraavassa esimerkissä on kaksi sisäkkäistä funktiota:
+
+% voisi varmaan nimetä fiksummin
+\begin{samepage}
 \begin{verbatim}
-(esimerkki)
+def f1():
+    a = 	1	
+    def f2():
+        b = 2
+        print a + b            
+    print a
+    f2()
+    
+f1()
 \end{verbatim}
+\end{samepage}
+
+Funktio \verb+f1+ määrittelee muuttujan \verb+a+ ja funktion \verb+f2+, tulostaa \verb+a+:n arvon ja kutsuu määrittelemäänsä funktiota. Funktio \verb+f2+ määrittelee muuttujan \verb+b+ ja tulostaa muuttujien \verb+a+ ja \verb+b+ arvojen summan. Ohjelma tulostaa luvut 1 ja 3. Muuttuja \verb+a+ on näkyvissä funktion \verb+f1+ ja sen sisäisten funktioiden sisällä. Muuttuja \verb+b+ puolestaan on paikallinen muuttuja, joka on näkyvissä vain \verb+f2+-funktion sisällä. Siihen viittaaminen \verb+f2+-funktion ulkopuolella johtaisi virhetilanteeseen.
+
+Seuraavassa esimerkissä käytetään globaalia muuttujaa:
+
+% nämäkin voisi nimetä fiksummin
+\begin{samepage}
+\begin{verbatim}
+g = 1
+
+def f3():
+    global g
+    g = 2
+    print g
+    
+f3()
+print g
+\end{verbatim}
+\end{samepage}
+
+Esimerkissä globaalin muuttujan \verb+g+ arvoksi alustetaan ensin luku 1. Funktio \verb+f3+ asettaa \verb+g+:n arvoksi luvun 2 ja myös tulostaa muuttujan arvon. Kun funktiota \verb+f3+ kutsutaan ja sen jälkeen vielä tulostetaan \verb+g+:n arvo, ohjelma tulostaa kaksi kertaa luvun 2. Funktio \verb+f3+ siis käsittelee globaalia muuttujaa. Avainsana \verb+global+ on tärkeä, sillä se ilmaisee, että kyseinen tunnus tulkitaan globaalin muuttujan tunnukseksi. Ilman koodiriviä \verb+global g+ funktion määritelmän sisällä oleva muuttuja olisi paikallinen muuttuja, ja esimerkkiohjelma tulostaisi luvut 2 ja 1.
 
 Pythonissa kaikki asiat, jotka voidaan nimetä, ovat ensimmäisen luokan arvoja -- myös funktiot, metodit ja moduulit \cite{pythonhistory}. 
 
