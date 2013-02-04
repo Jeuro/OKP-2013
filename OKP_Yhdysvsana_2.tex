@@ -68,6 +68,36 @@ Esimerkissä globaalin muuttujan \verb+g+ arvoksi alustetaan ensin luku 1. Funkti
 
 Pythonissa kaikki asiat, jotka voidaan nimetä, ovat ensimmäisen luokan arvoja -- myös funktiot, metodit ja moduulit \cite{pythonhistory}. 
 
+
+\section{Sidonta}
+
+\subsection{Cobol}
+
+\subsection{Python}
+
+Python on dynaamisesti sidottu kieli \cite{staticvsdynamic}. Jokainen muuttujanimi sidotaan objektiin. Jos muuttujaa ei ole sidottu objektiin, muuttujalla on Null-arvo. Suoritusaikana muuttujan tyyppi ei ole sidottu, vaan muuttujaan voi dynaamisesti sitoa eri vaiheessa eri tyyppisiä objekteja.
+
+\begin{samepage}
+\begin{verbatim}
+a = 5
+a = "Hei"
+\end{verbatim}
+\end{samepage}
+
+Esimerkissä muuttuja \verb+a+ saa ensin kokonaislukuarvon 5. Sen jälkeen muuttujan \verb+a+ arvoksi muutetaan merkkijono "hei".
+
+Python on myös vahvasti tyypitetty kieli \cite{staticvsdynamic}. Tietyn tyyppiselle muuttujalle ei voida tehdä toisen tyypin operaatioita ennen eksplisiittistä tyyppimuunnosta.
+
+\begin{samepage}
+\begin{verbatim}
+a = 5
+b = "9"
+c = a + int(b)
+\end{verbatim}
+\end{samepage}
+
+Esimerkissä \verb+b+ sisältää merkkijonon "9", mutta yhteenlaskussa merkkijonosta jäsennetään kokonaisluku. Jos kokonaislukujäsennyksen jättää tekemättä, antaa ohjelma kyseisellä rivillä poikkeuksen.
+
 \newpage
  
 \bibliographystyle{tktl}
