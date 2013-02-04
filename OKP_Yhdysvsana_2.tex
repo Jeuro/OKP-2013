@@ -26,7 +26,9 @@
 
 \subsection{Python}
 
-Pythonin lohkorakenne on syvä, ja ohjelman suoritusaikana käytössä on ainakin kolme sisäkkäistä näkyvyysaluetta \cite{pythonclasses}. Näkyvyysalueita käytetään dynaamisesti. Sisimmällä näkyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ympäröivillä funktioilla on omat näkyvyysalueensa, joiden sisältämät nimet eivät ole paikallisia eivätkä globaaleja. Toisiksi uloimmalla näkyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet.
+Pythonin lohkorakenne on syvä, ja ohjelman suoritusaikana käytössä on ainakin kolme sisäkkäistä näkyvyysaluetta \cite{pythonclasses}. Näkyvyysalueita käytetään dynaamisesti. Sisimmällä näkyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ympäröivillä funktioilla on omat näkyvyysalueensa, joiden sisältämät nimet eivät ole paikallisia eivätkä globaaleja. Toisiksi uloimmalla näkyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet. 
+
+Pythonissa luokan näkyvyysalueella määritellyt nimet eivät näy luokan metodeille \cite{pythonexec}. Metodin ensimmäinen argumentti, jolle on tapana antaa nimi \verb+self+, edustaa luokan ilmentymää. Sen kautta metodi voi käyttää luokan ilmentymän muita metodeja ja attribuutteja.
 
 Seuraavassa esimerkissä on kaksi sisäkkäistä funktiota:
 
