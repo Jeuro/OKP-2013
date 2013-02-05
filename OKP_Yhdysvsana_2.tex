@@ -77,28 +77,7 @@ Pythonissa kaikki asiat, jotka voidaan nimet‰, ovat ensimm‰isen luokan arvoja --
 
 \subsection{Python}
 
-Python on dynaamisesti sidottu kieli \cite{staticvsdynamic}. Jokainen muuttujanimi sidotaan objektiin. Jos muuttujaa ei ole sidottu objektiin, muuttujalla on Null-arvo. Suoritusaikana muuttujan tyyppi ei ole sidottu, vaan muuttujaan voi dynaamisesti sitoa eri vaiheessa eri tyyppisi‰ objekteja.
 
-\begin{samepage}
-\begin{verbatim}
-a = 5
-a = "Hei"
-\end{verbatim}
-\end{samepage}
-
-Esimerkiss‰ muuttuja \verb+a+ saa ensin kokonaislukuarvon 5. Sen j‰lkeen muuttujan \verb+a+ arvoksi muutetaan merkkijono "hei".
-
-Python on myˆs vahvasti tyypitetty kieli \cite{staticvsdynamic}. Tietyn tyyppiselle muuttujalle ei voida tehd‰ toisen tyypin operaatioita ennen eksplisiittist‰ tyyppimuunnosta.
-
-\begin{samepage}
-\begin{verbatim}
-a = 5
-b = "9"
-c = a + int(b)
-\end{verbatim}
-\end{samepage}
-
-Esimerkiss‰ \verb+b+ sis‰lt‰‰ merkkijonon "9", mutta yhteenlaskussa merkkijonosta j‰sennet‰‰n kokonaisluku. Jos kokonaislukuj‰sennyksen j‰tt‰‰ tekem‰tt‰, antaa ohjelma kyseisell‰ rivill‰ poikkeuksen. 
 
 \newpage
  
