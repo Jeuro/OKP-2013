@@ -92,7 +92,59 @@ Pythonissa kaikki asiat, jotka voidaan nimetä, ovat ensimmäisen luokan arvoja --
 
 \subsubsection{Valinta}
 
+Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{}. COBOL ei tue esimerkiksi Javassa tunnettua \verb+else if+ -valintaa. Usean vaihtoehdon välinen valinta saadaan aikaan sisäkkäisillä if-else lauseilla.
+
+\begin{samepage}
+\begin{verbatim}
+* Yksinkertainen valinta
+	IF NUMERO = 2
+		DISPLAY 'KAKSI'
+	END-IF
+* IF ELSE lause
+	IF NUMERO IS EQUAL TO 2 THEN
+		DISPLAY 'KAKSI'
+	ELSE
+		DISPLAY 'EI KAKSI'
+	END-IF
+* sisäkkäinen IF ELSE lause
+	IF NUMERO = 1
+		DISPLAY 'NUMERO'
+	ELSE
+		IF NUMERO = 2
+			DISPLAY 'KAKSI'
+		ELSE
+			DISPLAY 'EI YKSI EIKÄ KAKSI'
+   		END-IF
+    END-IF
+\end{verbatim}
+\end{samepage}
+
+COBOLin vastaavuus Javan tai C:n Switch-case -rakenteelle on \verb+EVALUATE+ -verbi \cite{}.
+
+\begin{samepage}
+\begin{verbatim}
+EVALUATE  VALIKKO-SYOTE
+    WHEN "0"
+        PERFORM INIT-PROC
+    WHEN "1" THRU "9"
+        PERFORM PROCESS-PROC
+    WHEN "R"
+        PERFORM READ-PARMS
+    WHEN "X"
+        PERFORM CLEANUP-PROC
+    WHEN OTHER
+        PERFORM ERROR-PROC
+END-EVALUATE.
+\end{verbatim}
+\end{samepage}
+
+Esimerkissä EVALUATE -verbiä seuraa evaluaation subjekti eli kohde, esimerkissä \verb+VALIKKO-SYOTE+. Avainsana \verb+WHEN+ vastaa . Evaluaation lopettaa avainsana \verb+END-EVALUATE+.
+
+
+
 \subsubsection{Toisto}
+
+
 
 \subsubsection{Rekursio}
 
