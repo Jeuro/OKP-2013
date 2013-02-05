@@ -97,24 +97,24 @@ Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{}. COBOL e
 \begin{samepage}
 \begin{verbatim}
 * Yksinkertainen valinta
-	IF NUMERO = 2
-		DISPLAY 'KAKSI'
-	END-IF
+    IF NUMERO = 2
+      DISPLAY 'KAKSI'
+    END-IF
 * IF ELSE lause
-	IF NUMERO IS EQUAL TO 2 THEN
-		DISPLAY 'KAKSI'
-	ELSE
-		DISPLAY 'EI KAKSI'
-	END-IF
+    IF NUMERO IS EQUAL TO 2 THEN
+        DISPLAY 'KAKSI'
+    ELSE
+        DISPLAY 'EI KAKSI'
+    END-IF
 * sisäkkäinen IF ELSE lause
-	IF NUMERO = 1
-		DISPLAY 'NUMERO'
-	ELSE
-		IF NUMERO = 2
-			DISPLAY 'KAKSI'
-		ELSE
-			DISPLAY 'EI YKSI EIKÄ KAKSI'
-   		END-IF
+    IF NUMERO = 1
+        DISPLAY 'NUMERO'
+    ELSE
+        IF NUMERO = 2
+            DISPLAY 'KAKSI'
+        ELSE
+            DISPLAY 'EI YKSI EIKÄ KAKSI'
+        END-IF
     END-IF
 \end{verbatim}
 \end{samepage}
