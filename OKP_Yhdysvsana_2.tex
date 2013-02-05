@@ -90,9 +90,15 @@ Pythonissa kaikki asiat, jotka voidaan nimet‰, ovat ensimm‰isen luokan arvoja --
 
 \subsection{COBOL}
 
+\subsubsection{Aritmeettisten operaatioiden laskentaj‰rjestys}
+
+COBOLin aritmeettisten lausekkeiden evaluoinnin j‰rjestys riippuu COBOLin versiosta ja k‰‰nt‰j‰n toteuttajasta. Compaqin COBOLissa laskentaj‰rjestyksess‰ on nelj‰ tasoa \cite{compaqcobol}. Ensimm‰isen‰ m‰‰ritet‰‰n muuttujien etumerkit. T‰m‰n j‰lkeen potenssit, jonka j‰lkeen kerto- ja jakolaskut. Viimeisen‰ suoritetaan yhteen- ja v‰hennyslaskut.
+
+COBOLin viimeisimmiss‰ versioissa kieleen tuli mukaan myˆs bittioperaatiot. Micro Focus'n Visual COBOL toteutuksess‰ t‰m‰ on nostanut laskentatasoja seitsem‰‰n \cite{visualcobol}. Bittioperaatioista \verb+NOT+ evaluoidaan yhdess‰ etumerkkien kanssa. Muuten bittioperaatiot evaluoidaan viimeisin‰ j‰rjestyksess‰ \verb+AND+, \verb+XOR+ ja \verb+OR+. 
+
 \subsubsection{Valinta}
 
-Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{}. COBOL ei tue esimerkiksi Javassa tunnettua \verb+else if+ -valintaa. Usean vaihtoehdon v‰linen valinta saadaan aikaan sis‰kk‰isill‰ if-else lauseilla.
+Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{}.
 
 \begin{samepage}
 \begin{verbatim}
@@ -100,13 +106,15 @@ Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{}. COBOL e
     IF NUMERO = 2
       DISPLAY 'KAKSI'
     END-IF
-* IF ELSE lause
+    
+* IF ELSE -lause
     IF NUMERO IS EQUAL TO 2 THEN
         DISPLAY 'KAKSI'
     ELSE
         DISPLAY 'EI KAKSI'
     END-IF
-* sis‰kk‰inen IF ELSE lause
+    
+* sis‰kk‰inen IF ELSE -lause
     IF NUMERO = 1
         DISPLAY 'NUMERO'
     ELSE
@@ -119,36 +127,64 @@ Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{}. COBOL e
 \end{verbatim}
 \end{samepage}
 
-COBOLin vastaavuus Javan tai C:n Switch-case -rakenteelle on \verb+EVALUATE+ -verbi \cite{}.
+
+Esimerkist‰ huomataan, ett‰ rakenne vastaa pitk‰lti Javan If-valintalausetta. Avainsana \verb+THEN+ on vapaaehtoinen \cite{easytrieve}, mutta mahdollistaa luonnollisen englanninkielen kaltaisen lausemuodon. If-rakenne lopetetaan avainsanalla \verb+END-IF+, joka on mahdollista korvata myˆs pisteell‰. COBOL ei kuitenkaan tue monen modernin kielen k‰ytt‰m‰‰ else-if -valintaa. Else-if on korvattava esimerkin kaltaisilla sis‰kk‰isill‰ if-else -valintalauseilla.
+
+COBOLin vastaavuus Javan tai C:n Switch-case -rakenteelle on \verb+EVALUATE+ -verbi \cite{cobolintro}.
 
 \begin{samepage}
 \begin{verbatim}
-EVALUATE  VALIKKO-SYOTE
+EVALUATE VALIKKO-SYOTE
     WHEN "0"
-        PERFORM INIT-PROC
+        DISPLAY 'VALITSIT 0'
     WHEN "1" THRU "9"
-        PERFORM PROCESS-PROC
-    WHEN "R"
-        PERFORM READ-PARMS
-    WHEN "X"
-        PERFORM CLEANUP-PROC
-    WHEN OTHER
-        PERFORM ERROR-PROC
+        DISPLAY 'VALITSIT 1-9'
 END-EVALUATE.
 \end{verbatim}
 \end{samepage}
 
-Esimerkiss‰ EVALUATE -verbi‰ seuraa evaluaation subjekti eli kohde, esimerkiss‰ \verb+VALIKKO-SYOTE+. Avainsana \verb+WHEN+ vastaa . Evaluaation lopettaa avainsana \verb+END-EVALUATE+.
-
+Esimerkiss‰ EVALUATE -verbi‰ seuraa evaluaation subjekti, \verb+VALIKKO-SYOTE+. Avainsana \verb+WHEN+ vastaa pitk‰lti Switch-case -rakenteen \verb+case+a. Evaluaation lopettaa avainsana \verb+END-EVALUATE+. Esimerkiss‰ jos \verb+VALIKKO-SYOTE+ on 0, n‰ytet‰‰n k‰ytt‰j‰lle "VALITSIT 0". Jos se on yhden ja yhdeks‰n v‰lilt‰, n‰ytet‰‰n "VALITSIT 1-9". Toisin kuin Javan Switch-Case, EVALUATE tukee useita samanaikaisia vertailuja - muuttujia ja ehtoja voi ketjuttaa avainsanan \verb+ALSO+ avulla.
 
 
 \subsubsection{Toisto}
 
+COBOL tukee pitk‰lti samoja toistorakenteita kuin Java. T‰ss‰ lueteltavat toistorakenteet esittelee Cobol Tutorial \cite{cobolintro2}. COBOLin vastaavuudet while-rakenteelle ja do-while -rakenteelle on \verb+PERFORM UNTIL+, jossa toistoehdon voi sijoittaa alkuun tai loppuun.
+
+Javan For-looppia vastaa \verb+PERFORM - TIMES+ ja \verb+PERFORM VARYING+. Seuraava esimerkki tulostaa k‰ytt‰j‰lle viisi kertaa sanan "HEI":
+
+\begin{samepage}
+\begin{verbatim}
+PERFORM 5 TIMES
+    DISPLAY "HEI"
+END-PERFORM
+\end{verbatim}
+\end{samepage}
+
+\verb+PERFORM VARYING+ mahdollistaa Javan tapaisen for-loopin, jossa muuttujan arvoa korotetaan yhden kierroksen j‰lkeen muulla kuin yhdell‰.
+
+\begin{samepage}
+\begin{verbatim}
+PERFORM VARYING NUMERO FROM 1 BY 2 
+    UNTIL NUMERO > 5
+	DISPLAY 'Numero on nyt: ' NUMERO
+END-PERFORM
+\end{verbatim}
+\end{samepage}
+
+Esimerkiss‰ muuttujaa NUMERO korotetaan jokaisen kierroksen j‰lkeen kahdella. Esimerkin tulostus:
+
+\begin{samepage}
+\begin{verbatim}
+Numero on nyt: 1
+Numero on nyt: 3
+Numero on nyt: 5
+\end{verbatim}
+\end{samepage}
 
 
 \subsubsection{Rekursio}
 
-Alunperin COBOL ei mahdollistanut rekursiota lainkaan \cite{wikipediacobol}. Uudemmista COBOLin versioista ainakin IBM:n COBOL-toteutus tukee rekursiota. IBM:n toteutuksessa rekursiivisesti kutsuttavan ohjelman tai aliohjelman Program-ID:ss‰ on annettava ehto \verb+RECURSIVE+ \cite{enterprisecobol}. Mik‰li ohjelmaa kutsuu rekursiivisesti ilman ehtoa, ohjelman suoritus p‰‰ttyy.   
+Alunperin COBOL ei mahdollistanut rekursiota lainkaan \cite{wikipediacobol}. Uudemmista COBOLin versioista ainakin IBM:n COBOL-toteutus tukee rekursiota. IBM:n toteutuksessa rekursiivisesti kutsuttavan ohjelman tai aliohjelman Program-ID:ss‰ on annettava ehto \verb+RECURSIVE+ \cite{enterprisecobol}. Mik‰li ohjelmaa kutsuu rekursiivisesti ilman rekursiosta eksplisiittisesti kertovaa \verb+RECURSIVE+-ehtoa, ohjelman suoritus p‰‰ttyy. 
 
 
 \newpage
