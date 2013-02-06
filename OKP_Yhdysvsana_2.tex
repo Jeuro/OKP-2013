@@ -11,8 +11,8 @@
 %\singlespacing
 \onehalfspacing
 
-\title{Otsikko}
-\author{Erkki Heino \and Tero Huomo \and Eeva Terkki}
+\title{COBOL ja Python: Näkyvyysalueet ja laskennan ohjaus}
+\author{Erkki Heino, Tero Huomo, Eeva Terkki}
 \date{\today}
 
 \maketitle
@@ -206,7 +206,7 @@ Numero on nyt: 5
 Alunperin COBOL ei mahdollistanut rekursiota lainkaan \cite{wikipediacobol}. Uudemmista COBOLin versioista ainakin IBM:n COBOL-toteutus tukee rekursiota. IBM:n toteutuksessa rekursiivisesti kutsuttavan ohjelman tai aliohjelman Program-ID:ssä on annettava ehto \verb+RECURSIVE+ \cite{enterprisecobol}. Mikäli ohjelmaa kutsuu rekursiivisesti ilman rekursiosta eksplisiittisesti kertovaa \verb+RECURSIVE+-ehtoa, ohjelman suoritus päättyy.
 
 \section{Etuja ja haittoja}
-Pythonissa kaikki arvot ovat ensimmäisen luokan arvoja, ja funktiot ensimmäisen luokan arvoina mahdollistavat kielen käyttämisen myös funktionaaliseen ohjelmointiin. Häntärekursion optimoinnin puuttuminen tosin rajoittaa tehokasta funktionaalista ohjelmointia. 
+Pythonissa kaikki arvot ovat ensimmäisen luokan arvoja, ja funktiot ensimmäisen luokan arvoina mahdollistavat kielen käyttämisen myös funktionaaliseen ohjelmointiin. Häntärekursion optimoinnin puuttuminen tosin rajoittaa tehokasta funktionaalista ohjelmointia.
 
 COBOLin valintalauseiden haittana on else if -avainsanan puuttuminen, jolloin haaroittuvan valinnan voi joutua rakentamaan useilla sisäkkäisille if-else -valinnoilla. Toisaalta kielelle ominainen \verb+EVALUATE+ helpottaa useiden ehtojen yhtäaikaista vertailua.
 
