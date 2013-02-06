@@ -75,20 +75,27 @@ Pythonissa kaikki esitet‰‰n olioina. Lis‰ksi kaikki asiat, jotka voidaan nimet‰,
 \subsection{Python}
 
 \subsubsection{Laskentaj‰rjestys}
+Pythonin operaattoreiden laskentaj‰rjestys on 16-tasoinen \cite{pythonprecedence}. Ensimm‰isen‰ laskentaj‰rjestyksess‰ huomioidaan esimerkiksi listojen ja hajautustaulujen alkioiden erottimet. Viimeisen‰ lasketaan lambda-lausekkeet, joilla Pythonissa ilmaistaan anonyymeja funktioita. Aritmeettiset operaatiot ja bittioperaatiot lasketaan samassa j‰rjestyksess‰ kuin C-pohjaisissa kieliss‰. Laskentaj‰rjestyksen tasojen runsaan m‰‰r‰n vuoksi operaatioiden laskentaj‰rjestyksen ilmaisemiseen kannattaa yleens‰ k‰ytt‰‰ sulkuja. 
 
 \subsubsection{Valinta ja toisto}
 Pythonissa k‰ytet‰‰n valintaan ehtolauseita \verb+if+, \verb+elif+ ja \verb+else+. Ehtolauseita k‰ytett‰ess‰ ehto tulkitaan ep‰todeksi, jos ehdon arvo on \verb+False+, \verb+None+ (olio, jota k‰ytet‰‰n ilmaisemaan arvon puuttumista), mink‰ hyv‰ns‰ tyyppinen numeerinen arvo nolla tai tyhj‰ merkkijono tai tietorakenne (kuten lista tai hajautustaulu) \cite{pythoncompound}. Muussa tapauksessa ehto tulkitaan todeksi, ellei oliota ole erikseen m‰‰ritelty tulkittavaksi ep‰todeksi.
 
 Toistoon voidaan k‰ytt‰‰ \verb+for+-toistolausetta tai ehdollista \verb+while+-lausetta. K‰ytett‰ess‰ \verb+while+-lausetta ehto tulkitaan samalla tavalla kuin ehtolauseiden yhteydess‰. Muutoin \verb+while+ toimii samalla periaatteella kuin Javassa. Monessa muussa kieless‰ esiintyv‰‰ \verb+do-while+-toistorakennetta Pythonissa ei ole.
 
-Pythonin \verb+for+-lause muistuttaa Javan \verb+for-each+-silmukkaa, ja sill‰ voidaan iteroida iteroitavia olioita, kuten listoja, merkkijonoja ja iteraattoreita. 
+Pythonin \verb+for+-lause muistuttaa Javan \verb+for-each+-silmukkaa, ja sill‰ voidaan iteroida iteroitavia olioita, kuten listoja, merkkijonoja ja iteraattoreita \cite{pythoncompound}. Iteraattori on olio, jolla on metodi \verb+next()+, joka palauttaa seuraavan alkion. Iteraattori voi k‰yd‰ l‰pi esimerkiksi listan alkioita tai luonnollisten lukujen joukkoa.
 
+Seuraava esimerkki ohjelma tulostaa parittomat luvut v‰lilt‰ [1, 10[:
 \begin{samepage}
 \begin{verbatim}
+for luku in range(1, 10):
+    if (luku % 2 != 0):
+    	    print luku
 \end{verbatim}
 \end{samepage}
 
-Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydess‰ voidaan k‰ytt‰‰ \verb+else+-lausetta. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on ep‰tosi ja silmukka p‰‰ttyy \cite{pythoncompound}. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka p‰‰ttyy \verb+break+- tai \verb+continue+-komentoon.
+Ohjelmassa k‰ytet‰‰n Pythonin (version 2) funktiota \verb+range+, joka t‰ss‰ esimerkiss‰ palauttaa j‰rjestetyn listan kaikista kokonaisluvuista funktion argumentteina annettujen kahden luvun v‰lill‰. Lista k‰yd‰‰n l‰pi \verb+for+-silmukassa, ja jokaisen parittoman luvun kohdalla kyseinen luku tulostetaan.
+
+Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydess‰ voidaan k‰ytt‰‰ \verb+else+-lausetta \cite{pythoncompound}. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on ep‰tosi ja silmukka p‰‰ttyy. Jos \verb+for+-lauseen lopussa on \verb+else+, \verb+else+-haara suoritetaan, kun iteroitavan olion kaikki alkiot on k‰yty l‰pi. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka p‰‰ttyy \verb+break+- tai \verb+continue+-komentoon. Pythonin \verb+break+ ja \verb+continue+ toimivat samat samalla tavalla kuin Javan vastaavat komennot.
 
 \subsubsection{Rekursio}
 
@@ -129,8 +136,6 @@ Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{cobolintro
     END-IF
 \end{verbatim}
 
-
-
 Esimerkist‰ huomataan, ett‰ rakenne vastaa pitk‰lti Javan If-valintalausetta. Avainsana \verb+THEN+ on vapaaehtoinen \cite{easytrieve}, mutta mahdollistaa luonnollisen englanninkielen kaltaisen lausemuodon. If-rakenne lopetetaan avainsanalla \verb+END-IF+, joka on mahdollista korvata myˆs pisteell‰. COBOL ei kuitenkaan tue monen modernin kielen k‰ytt‰m‰‰ else-if -valintaa. Else-if on korvattava esimerkin kaltaisilla sis‰kk‰isill‰ if-else -valintalauseilla.
 
 COBOLin vastaavuus Javan tai C:n switch-case -rakenteelle on \verb+EVALUATE+-verbi \cite{cobolintro}.
@@ -147,7 +152,6 @@ END-EVALUATE.
 \end{samepage}
 
 Esimerkiss‰ EVALUATE -verbi‰ seuraa evaluaation subjekti, \verb+VALIKKO-SYOTE+. Avainsana \verb+WHEN+ vastaa pitk‰lti switch-case -rakenteen \verb+case+a. Evaluaation lopettaa avainsana \verb+END-EVALUATE+. Esimerkiss‰ jos \verb+VALIKKO-SYOTE+ on 0, n‰ytet‰‰n k‰ytt‰j‰lle "VALITSIT 0". Jos se on yhden ja yhdeks‰n v‰lilt‰, n‰ytet‰‰n "VALITSIT 1-9". Toisin kuin Javan switch-case, EVALUATE tukee useita samanaikaisia vertailuja - muuttujia ja ehtoja voi ketjuttaa avainsanan \verb+ALSO+ avulla.
-
 
 \subsubsection{Toisto}
 
