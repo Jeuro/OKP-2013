@@ -25,8 +25,7 @@
 \subsection{COBOL}
 
 \subsection{Python}
-
-Pythonin lohkorakenne on syv‰, ja ohjelman suoritusaikana k‰ytˆss‰ on ainakin kolme sis‰kk‰ist‰ n‰kyvyysaluetta \cite{pythonclasses}. N‰kyvyysalueita k‰ytet‰‰n dynaamisesti. Sisimm‰ll‰ n‰kyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ymp‰rˆivill‰ funktioilla on omat n‰kyvyysalueensa, joiden sis‰lt‰m‰t nimet eiv‰t ole paikallisia eiv‰tk‰ globaaleja. Toisiksi uloimmalla n‰kyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet. 
+Python k‰ytt‰‰ dynaamista sidontaa \cite{glue}. Pythonin lohkorakenne on syv‰, ja ohjelman suoritusaikana k‰ytˆss‰ on ainakin kolme sis‰kk‰ist‰ n‰kyvyysaluetta \cite{pythonclasses}. N‰kyvyysalueita k‰ytet‰‰n dynaamisesti. Sisimm‰ll‰ n‰kyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ymp‰rˆivill‰ funktioilla on omat n‰kyvyysalueensa, joiden sis‰lt‰m‰t nimet eiv‰t ole paikallisia eiv‰tk‰ globaaleja. Toisiksi uloimmalla n‰kyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet. 
 
 Pythonissa luokan n‰kyvyysalueella m‰‰ritellyt nimet eiv‰t n‰y luokan metodeille \cite{pythonexec}. Metodin ensimm‰inen argumentti, jolle on tapana antaa nimi \verb+self+, edustaa luokan ilmentym‰‰. Sen kautta metodi voi k‰ytt‰‰ luokan ilmentym‰n muita metodeja ja attribuutteja.
 
@@ -68,6 +67,7 @@ print g
 
 Esimerkiss‰ globaalin muuttujan \verb+g+ arvoksi alustetaan ensin luku 1. Funktio \verb+f3+ asettaa \verb+g+:n arvoksi luvun 2 ja myˆs tulostaa muuttujan arvon. Kun funktiota \verb+f3+ kutsutaan ja sen j‰lkeen viel‰ tulostetaan \verb+g+:n arvo, ohjelma tulostaa kaksi kertaa luvun 2. Funktio \verb+f3+ siis k‰sittelee globaalia muuttujaa. Avainsana \verb+global+ on t‰rke‰, sill‰ se ilmaisee, ett‰ kyseinen tunnus tulkitaan globaalin muuttujan tunnukseksi. Ilman koodirivi‰ \verb+global g+ funktion m‰‰ritelm‰n sis‰ll‰ oleva muuttuja olisi paikallinen muuttuja, ja esimerkkiohjelma tulostaisi luvut 2 ja 1.
 
+%Python 2 ei varsinaisesti tue sulkeumia, mutta versio 3 tukee. 
 Pythonissa kaikki esitet‰‰n olioina. Lis‰ksi kaikki asiat, jotka voidaan nimet‰, ovat ensimm‰isen luokan arvoja -- myˆs funktiot, metodit ja moduulit \cite{pythonhistory}. 
 
 \section{Kontrollin ohjaus}
@@ -80,7 +80,7 @@ Pythonin operaattoreiden laskentaj‰rjestys on 16-tasoinen \cite{pythonprecedence
 \subsubsection{Valinta ja toisto}
 Pythonissa k‰ytet‰‰n valintaan ehtolauseita \verb+if+, \verb+elif+ ja \verb+else+. Ehtolauseita k‰ytett‰ess‰ ehto tulkitaan ep‰todeksi, jos ehdon arvo on \verb+False+, \verb+None+ (olio, jota k‰ytet‰‰n ilmaisemaan arvon puuttumista), mink‰ hyv‰ns‰ tyyppinen numeerinen arvo nolla tai tyhj‰ merkkijono tai tietorakenne (kuten lista tai hajautustaulu) \cite{pythoncompound}. Muussa tapauksessa ehto tulkitaan todeksi, ellei oliota ole erikseen m‰‰ritelty tulkittavaksi ep‰todeksi.
 
-Toistoon voidaan k‰ytt‰‰ \verb+for+-toistolausetta tai ehdollista \verb+while+-lausetta. K‰ytett‰ess‰ \verb+while+-lausetta ehto tulkitaan samalla tavalla kuin ehtolauseiden yhteydess‰. Muutoin \verb+while+ toimii samalla periaatteella kuin Javassa. Monessa muussa kieless‰ esiintyv‰‰ \verb+do-while+-toistorakennetta Pythonissa ei ole.
+Toistoon voidaan k‰ytt‰‰ \verb+for+-toistolausetta, ehdollista \verb+while+-lausetta tai rekursiota. K‰ytett‰ess‰ \verb+while+-lausetta ehto tulkitaan samalla tavalla kuin ehtolauseiden yhteydess‰. Muutoin \verb+while+ toimii samalla periaatteella kuin Javassa. Monessa muussa kieless‰ esiintyv‰‰ \verb+do-while+-toistorakennetta Pythonissa ei ole.
 
 Pythonin \verb+for+-lause muistuttaa Javan \verb+for-each+-silmukkaa, ja sill‰ voidaan iteroida iteroitavia olioita, kuten listoja, merkkijonoja ja iteraattoreita \cite{pythoncompound}. Iteraattori on olio, jolla on metodi \verb+next()+, joka palauttaa seuraavan alkion. Iteraattori voi k‰yd‰ l‰pi esimerkiksi listan alkioita tai luonnollisten lukujen joukkoa.
 
@@ -96,8 +96,6 @@ for luku in range(1, 10):
 Ohjelmassa k‰ytet‰‰n Pythonin (version 2) funktiota \verb+range+, joka t‰ss‰ esimerkiss‰ palauttaa j‰rjestetyn listan kaikista kokonaisluvuista funktion argumentteina annettujen kahden luvun v‰lill‰. Lista k‰yd‰‰n l‰pi \verb+for+-silmukassa, ja jokaisen parittoman luvun kohdalla kyseinen luku tulostetaan.
 
 Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydess‰ voidaan k‰ytt‰‰ \verb+else+-lausetta \cite{pythoncompound}. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on ep‰tosi ja silmukka p‰‰ttyy. Jos \verb+for+-lauseen lopussa on \verb+else+, \verb+else+-haara suoritetaan, kun iteroitavan olion kaikki alkiot on k‰yty l‰pi. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka p‰‰ttyy \verb+break+- tai \verb+continue+-komentoon. Pythonin \verb+break+ ja \verb+continue+ toimivat samat samalla tavalla kuin Javan vastaavat komennot.
-
-\subsubsection{Rekursio}
 
 \subsection{COBOL}
 
