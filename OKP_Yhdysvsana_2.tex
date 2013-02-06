@@ -73,7 +73,6 @@ print g
 
 Esimerkiss‰ globaalin muuttujan \verb+g+ arvoksi alustetaan ensin luku 1. Funktio \verb+f3+ asettaa \verb+g+:n arvoksi luvun 2 ja myˆs tulostaa muuttujan arvon. Kun funktiota \verb+f3+ kutsutaan ja sen j‰lkeen viel‰ tulostetaan \verb+g+:n arvo, ohjelma tulostaa kaksi kertaa luvun 2. Funktio \verb+f3+ siis k‰sittelee globaalia muuttujaa. Avainsana \verb+global+ on t‰rke‰, sill‰ se ilmaisee, ett‰ kyseinen tunnus tulkitaan globaalin muuttujan tunnukseksi. Ilman koodirivi‰ \verb+global g+ funktion m‰‰ritelm‰n sis‰ll‰ oleva muuttuja olisi paikallinen muuttuja, ja esimerkkiohjelma tulostaisi luvut 2 ja 1.
 
-%Python 2 ei varsinaisesti tue sulkeumia, mutta versio 3 tukee. 
 Pythonissa kaikki esitet‰‰n olioina. Lis‰ksi kaikki asiat, jotka voidaan nimet‰, ovat ensimm‰isen luokan arvoja -- myˆs funktiot, metodit ja moduulit \cite{pythonhistory}. 
 
 \section{Kontrollin ohjaus}
@@ -94,7 +93,7 @@ Toistoon voidaan k‰ytt‰‰ \verb+for+-toistolausetta, ehdollista \verb+while+-laus
 
 Pythonin \verb+for+-lause muistuttaa Javan \verb+for-each+-silmukkaa, ja sill‰ voidaan iteroida iteroitavia olioita, kuten listoja, merkkijonoja ja iteraattoreita \cite{pythoncompound}. Iteraattori on olio, jolla on metodi \verb+next()+, joka palauttaa seuraavan alkion. Iteraattori voi k‰yd‰ l‰pi esimerkiksi listan alkioita tai luonnollisten lukujen joukkoa.
 
-Seuraava esimerkki ohjelma tulostaa parittomat luvut v‰lilt‰ [1, 10[:
+Seuraava esimerkkiohjelma tulostaa parittomat luvut v‰lilt‰ [1, 10[:
 \begin{samepage}
 \begin{verbatim}
 for luku in range(1, 10):
@@ -105,7 +104,7 @@ for luku in range(1, 10):
 
 Ohjelmassa k‰ytet‰‰n Pythonin (version 2) funktiota \verb+range+, joka t‰ss‰ esimerkiss‰ palauttaa j‰rjestetyn listan kaikista kokonaisluvuista funktion argumentteina annettujen kahden luvun v‰lill‰. Lista k‰yd‰‰n l‰pi \verb+for+-silmukassa, ja jokaisen parittoman luvun kohdalla kyseinen luku tulostetaan.
 
-Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydess‰ voidaan k‰ytt‰‰ \verb+else+-lausetta \cite{pythoncompound}. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on ep‰tosi ja silmukka p‰‰ttyy. Jos \verb+for+-lauseen lopussa on \verb+else+, \verb+else+-haara suoritetaan, kun iteroitavan olion kaikki alkiot on k‰yty l‰pi. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka p‰‰ttyy \verb+break+- tai \verb+continue+-komentoon. Pythonin \verb+break+ ja \verb+continue+ toimivat samat samalla tavalla kuin Javan vastaavat komennot.
+Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydess‰ voidaan k‰ytt‰‰ \verb+else+-lausetta \cite{pythoncompound}. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on ep‰tosi ja silmukka p‰‰ttyy. Jos \verb+for+-lauseen lopussa on \verb+else+, \verb+else+-haara suoritetaan, kun iteroitavan olion kaikki alkiot on k‰yty l‰pi. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka p‰‰ttyy \verb+break+- tai \verb+continue+-komentoon. Pythonin \verb+break+ ja \verb+continue+ toimivat samalla tavalla kuin Javan vastaavat komennot.
 
 Pythonissa toisto voidaan toteuttaa myˆs k‰ytt‰m‰ll‰ rekursiota. Python ei kuitenkaan tue h‰nt‰rekursion eliminointia \cite{pythontre}, mink‰ vuoksi h‰nt‰rekursiota hyˆdynt‰vi‰ funktioita ei voi toteuttaa tehokkaasti.
 
