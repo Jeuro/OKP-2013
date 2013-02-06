@@ -28,7 +28,9 @@ Näkyvyysalueet määrittävät, missä osissa koodia muuttujat ovat käytettävissä. Tä
 
 COBOLissa kaikki muuttujat on määritettävä \verb+DATA DIVISION+ -osiossa ja nämä muuttujat ovat käytettävissä koko kyseisessä ohjelmassa \cite[s. I-97]{ansicobol74}. COBOLin lohkorakenne on siis selvästi litteä.
 
-Ohjelmien muuttujat eivät näy ohjelman ulkopuolelle, joten aliohjelmat eivät voi käsitellä suoraan näitä kutsuvien ohjelmien muuttujia. Aliohjelmalle voidaan kuitenkin välittää muuttujia viiteparametreina, jolloin se voi muuttaa näiden muuttujien arvoja myös kutsuvan ohjelman kontekstissa \cite[s. XII-2]{ansicobol74}.
+Vielä vuoden 1974 ANSI-standardin mukaisessa COBOLissa jokainen ohjelma oli määriteltävä omassa tiedostossaan eivätkä aliohjelmat voineet käsitellä suoraan näitä kutsuvien ohjelmien muuttujia. Ohjelmalle voidaan kuitenkin välittää muuttujia viiteparametreina, jolloin se voi muuttaa näiden muuttujien arvoja myös kutsuvan ohjelman kontekstissa \cite[s. XII-2]{ansicobol74}.
+
+COBOL-85 esitteli sisäkkäiset ohjelmat ja \verb+GLOBAL+-lausekkeen.  COBOL-85:ssa ohjelman sisällä voi määritellä aliohjelmia. Oletusarvoisesti kunkin ohjelman muuttujat ovat käytettävissä ainoastaan kyseisen ohjelman sisällä, mutta jos muuttujan määrittelyssä on käytetty \verb+GLOBAL+-lauseketta, on se käytettävissä myös sisemmissä ohjelmissa. Jos useammassa sisäkkäisessä ohjelmassa on määritelty sama ''globaali'' muuttuja, näkyy sisimpiin ohjelmiin näihin nähden sisin määritelmä muuttujasta \cite[s. 439-441]{roy1989cobol}.
 
 \subsection{Python}
 Python käyttää dynaamista sidontaa \cite{glue}. Pythonin lohkorakenne on syvä, ja ohjelman suoritusaikana käytössä on ainakin kolme sisäkkäistä näkyvyysaluetta \cite{pythonclasses}. Näkyvyysalueita käytetään dynaamisesti. Sisimmällä näkyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ympäröivillä funktioilla on omat näkyvyysalueensa, joiden sisältämät nimet eivät ole paikallisia eivätkä globaaleja. Toisiksi uloimmalla näkyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet. 
@@ -209,7 +211,7 @@ Pythonissa kaikki arvot ovat ensimmäisen luokan arvoja, ja funktiot ensimmäisen 
 
 COBOLin valintalauseiden haittana on else if -avainsanan puuttuminen, jolloin haaroittuvan valinnan voi joutua rakentamaan useilla sisäkkäisille if-else -valinnoilla. Toisaalta kielelle ominainen \verb+EVALUATE+ helpottaa useiden ehtojen yhtäaikaista vertailua.
 
-Rekursion ja laskentatasojen vähäisyys voi vaikeuttaa koodillisesti siistien algoritmien ohjelmoimista. COBOLin pääkäyttökohteena on kuitenkin yritysmaailman ohjelmistot, joissa rekursiolle on tarvetta vähemmän kuin tieteellisen laskennan piirissä.
+Rekursion ja laskentatasojen vähäisyys voi vaikeuttaa koodillisesti siistien algoritmien ohjelmoimista. COBOLin pääkäyttökohteena on kuitenkin yritysmaailman ohjelmistot, joissa rekursiolle lienee vähemmän tarvetta kuin tieteellisen laskennan piirissä.
 
 
 \newpage
