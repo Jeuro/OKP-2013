@@ -193,7 +193,15 @@ Numero on nyt: 5
 
 \subsubsection{Rekursio}
 
-Alunperin COBOL ei mahdollistanut rekursiota lainkaan \cite{wikipediacobol}. Uudemmista COBOLin versioista ainakin IBM:n COBOL-toteutus tukee rekursiota. IBM:n toteutuksessa rekursiivisesti kutsuttavan ohjelman tai aliohjelman Program-ID:ss‰ on annettava ehto \verb+RECURSIVE+ \cite{enterprisecobol}. Mik‰li ohjelmaa kutsuu rekursiivisesti ilman rekursiosta eksplisiittisesti kertovaa \verb+RECURSIVE+-ehtoa, ohjelman suoritus p‰‰ttyy. 
+Alunperin COBOL ei mahdollistanut rekursiota lainkaan \cite{wikipediacobol}. Uudemmista COBOLin versioista ainakin IBM:n COBOL-toteutus tukee rekursiota. IBM:n toteutuksessa rekursiivisesti kutsuttavan ohjelman tai aliohjelman Program-ID:ss‰ on annettava ehto \verb+RECURSIVE+ \cite{enterprisecobol}. Mik‰li ohjelmaa kutsuu rekursiivisesti ilman rekursiosta eksplisiittisesti kertovaa \verb+RECURSIVE+-ehtoa, ohjelman suoritus p‰‰ttyy.
+
+\section{Edut ja haitat}
+
+\subsection{COBOL}
+
+COBOLin valintalauseiden haittana on else if -avainsanan puuttuminen, jolloin haaroittuvan valinnan voi joutua rakentamaan useilla sis‰kk‰isille if-else -valinnoilla. Toisaalta kielelle ominainen \verb+EVALUATE+ helpottaa useiden ehtojen yht‰aikaista vertailua.
+
+Rekursion ja laskentatasojen v‰h‰isyys voi vaikeuttaa koodillisesti siistien algoritmien ohjelmoimista. COBOLin p‰‰k‰yttˆkohteena on kuitenkin yritysmaailman ohjelmistot, joissa rekursiolle on tarvetta v‰hemm‰n kuin tieteellisen laskennan piiriss‰.
 
 
 \newpage
