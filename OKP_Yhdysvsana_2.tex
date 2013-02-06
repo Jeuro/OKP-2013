@@ -101,6 +101,8 @@ Ohjelmassa käytetään Pythonin (version 2) funktiota \verb+range+, joka tässä esi
 
 Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydessä voidaan käyttää \verb+else+-lausetta \cite{pythoncompound}. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on epätosi ja silmukka päättyy. Jos \verb+for+-lauseen lopussa on \verb+else+, \verb+else+-haara suoritetaan, kun iteroitavan olion kaikki alkiot on käyty läpi. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka päättyy \verb+break+- tai \verb+continue+-komentoon. Pythonin \verb+break+ ja \verb+continue+ toimivat samat samalla tavalla kuin Javan vastaavat komennot.
 
+Pythonissa toisto voidaan toteuttaa myös käyttämällä rekursiota. Python ei kuitenkaan tue häntärekursion eliminointia \cite{pythontre}, minkä vuoksi häntärekursiota hyödyntäviä funktioita ei voi toteuttaa tehokkaasti.
+
 \subsection{COBOL}
 
 \subsubsection{Laskentajärjestys}
@@ -195,9 +197,8 @@ Numero on nyt: 5
 
 Alunperin COBOL ei mahdollistanut rekursiota lainkaan \cite{wikipediacobol}. Uudemmista COBOLin versioista ainakin IBM:n COBOL-toteutus tukee rekursiota. IBM:n toteutuksessa rekursiivisesti kutsuttavan ohjelman tai aliohjelman Program-ID:ssä on annettava ehto \verb+RECURSIVE+ \cite{enterprisecobol}. Mikäli ohjelmaa kutsuu rekursiivisesti ilman rekursiosta eksplisiittisesti kertovaa \verb+RECURSIVE+-ehtoa, ohjelman suoritus päättyy.
 
-\section{Edut ja haitat}
-
-\subsection{COBOL}
+\section{Etuja ja haittoja}
+Pythonissa kaikki arvot ovat ensimmäisen luokan arvoja, ja funktiot ensimmäisen luokan arvoina mahdollistavat kielen käyttämisen myös funktionaaliseen ohjelmointiin. Häntärekursion optimoinnin puuttuminen tosin rajoittaa tehokasta funktionaalista ohjelmointia. 
 
 COBOLin valintalauseiden haittana on else if -avainsanan puuttuminen, jolloin haaroittuvan valinnan voi joutua rakentamaan useilla sisäkkäisille if-else -valinnoilla. Toisaalta kielelle ominainen \verb+EVALUATE+ helpottaa useiden ehtojen yhtäaikaista vertailua.
 
