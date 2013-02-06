@@ -22,6 +22,8 @@
 
 \section{N‰kyvyysalueet}
 
+N‰kyvyysalueet m‰‰ritt‰v‰t, miss‰ osissa koodia muuttujat ovat k‰ytett‰viss‰. T‰m‰n suhteen COBOL ja Python eroavat toisistaan paljon.
+
 \subsection{COBOL}
 
 COBOLissa kaikki muuttujat on m‰‰ritett‰v‰ \verb+DATA DIVISION+ -osiossa ja n‰m‰ muuttujat ovat k‰ytett‰viss‰ koko kyseisess‰ ohjelmassa \cite[s. I-97]{ansicobol74}. COBOLin lohkorakenne on siis selv‰sti litte‰.
@@ -76,7 +78,11 @@ Pythonissa kaikki esitet‰‰n olioina. Lis‰ksi kaikki asiat, jotka voidaan nimet‰,
 
 \section{Kontrollin ohjaus}
 
+Ohjelmointikielen tarjoamat rakenteet kontrollin ohjaukseen ovat hyvin t‰rkeit‰ kielen k‰ytˆn kannalta. Monipuoliset kontrollinohjausrakenteet mahdollistavat erilaisten ongelmien ratkaisemisen selke‰ll‰ tavalla.
+
 \subsection{Python}
+
+Modernina kielen‰ Python sis‰lt‰‰ tehokkaita keinoja ohjata laskentaa.
 
 \subsubsection{Laskentaj‰rjestys}
 Pythonin operaattoreiden laskentaj‰rjestys on 16-tasoinen \cite{pythonprecedence}. Ensimm‰isen‰ laskentaj‰rjestyksess‰ huomioidaan esimerkiksi listojen ja hajautustaulujen alkioiden erottimet. Viimeisen‰ lasketaan lambda-lausekkeet, joilla Pythonissa ilmaistaan anonyymeja funktioita. Aritmeettiset operaatiot ja bittioperaatiot lasketaan samassa j‰rjestyksess‰ kuin C-pohjaisissa kieliss‰. Laskentaj‰rjestyksen tasojen runsaan m‰‰r‰n vuoksi operaatioiden laskentaj‰rjestyksen ilmaisemiseen kannattaa yleens‰ k‰ytt‰‰ sulkuja. 
@@ -105,11 +111,13 @@ Pythonissa toisto voidaan toteuttaa myˆs k‰ytt‰m‰ll‰ rekursiota. Python ei kuite
 
 \subsection{COBOL}
 
+COBOLissa on Pythonia yksinkertaisempi kontrollin ohjaus. Vanhana kielen‰ se ei alunperin sis‰lt‰nyt nykyaikaisissa kieliss‰ l‰hes itsest‰‰n selvi‰ ominaisuuksia kuten rekursiota.
+
 \subsubsection{Laskentaj‰rjestys}
 
 COBOLin aritmeettisten lausekkeiden evaluoinnin j‰rjestys riippuu COBOLin versiosta ja k‰‰nt‰j‰n toteuttajasta. Compaqin COBOLissa laskentaj‰rjestyksess‰ on nelj‰ tasoa \cite{compaqcobol}. Ensimm‰isen‰ m‰‰ritet‰‰n muuttujien etumerkit. T‰m‰n j‰lkeen potenssit, jonka j‰lkeen kerto- ja jakolaskut. Viimeisen‰ suoritetaan yhteen- ja v‰hennyslaskut.
 
-COBOLin viimeisimmiss‰ versioissa kieleen tuli mukaan myˆs bittioperaatiot. Micro Focus'n Visual COBOL -toteutuksessa t‰m‰ on nostanut laskentatasoja seitsem‰‰n \cite{visualcobol}. Bittioperaatioista \verb+NOT+ evaluoidaan yhdess‰ etumerkkien kanssa. Muuten bittioperaatiot evaluoidaan viimeisin‰ j‰rjestyksess‰ \verb+AND+, \verb+XOR+ ja \verb+OR+. 
+COBOLin viimeisimmiss‰ versioissa kieleen tulivat mukaan myˆs bittioperaatiot. Micro Focus'n Visual COBOL -toteutuksessa t‰m‰ on nostanut laskentatasoja seitsem‰‰n \cite{visualcobol}. Bittioperaatioista \verb+NOT+ evaluoidaan yhdess‰ etumerkkien kanssa. Muuten bittioperaatiot evaluoidaan viimeisin‰ j‰rjestyksess‰ \verb+AND+, \verb+XOR+ ja \verb+OR+. 
 
 \subsubsection{Valinta}
 
