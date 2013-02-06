@@ -24,6 +24,10 @@
 
 \subsection{COBOL}
 
+COBOLissa kaikki muuttujat on määritettävä \verb+DATA DIVISION+ -osiossa ja nämä muuttujat ovat käytettävissä koko kyseisessä ohjelmassa \cite[s. I-97]{ansicobol74}. COBOLin lohkorakenne on siis selvästi litteä.
+
+Ohjelmien muuttujat eivät näy ohjelman ulkopuolelle, joten aliohjelmat eivät voi käsitellä suoraan näitä kutsuvien ohjelmien muuttujia. Aliohjelmalle voidaan kuitenkin välittää muuttujia viiteparametreina, jolloin se voi muuttaa näiden muuttujien arvoja myös kutsuvan ohjelman kontekstissa \cite[s. XII-2]{ansicobol74}.
+
 \subsection{Python}
 Python käyttää dynaamista sidontaa \cite{glue}. Pythonin lohkorakenne on syvä, ja ohjelman suoritusaikana käytössä on ainakin kolme sisäkkäistä näkyvyysaluetta \cite{pythonclasses}. Näkyvyysalueita käytetään dynaamisesti. Sisimmällä näkyvyysalueella ovat paikalliset nimet. Mahdollisilla funktioita ympäröivillä funktioilla on omat näkyvyysalueensa, joiden sisältämät nimet eivät ole paikallisia eivätkä globaaleja. Toisiksi uloimmalla näkyvyysalueella ovat moduulin globaalit nimet ja kaikkein uloimmalla kieleen rakennetut nimet. 
 
