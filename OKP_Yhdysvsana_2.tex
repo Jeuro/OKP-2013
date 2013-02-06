@@ -68,29 +68,33 @@ print g
 
 Esimerkiss‰ globaalin muuttujan \verb+g+ arvoksi alustetaan ensin luku 1. Funktio \verb+f3+ asettaa \verb+g+:n arvoksi luvun 2 ja myˆs tulostaa muuttujan arvon. Kun funktiota \verb+f3+ kutsutaan ja sen j‰lkeen viel‰ tulostetaan \verb+g+:n arvo, ohjelma tulostaa kaksi kertaa luvun 2. Funktio \verb+f3+ siis k‰sittelee globaalia muuttujaa. Avainsana \verb+global+ on t‰rke‰, sill‰ se ilmaisee, ett‰ kyseinen tunnus tulkitaan globaalin muuttujan tunnukseksi. Ilman koodirivi‰ \verb+global g+ funktion m‰‰ritelm‰n sis‰ll‰ oleva muuttuja olisi paikallinen muuttuja, ja esimerkkiohjelma tulostaisi luvut 2 ja 1.
 
-Pythonissa kaikki asiat, jotka voidaan nimet‰, ovat ensimm‰isen luokan arvoja -- myˆs funktiot, metodit ja moduulit \cite{pythonhistory}. 
-
-
-\section{Sidonta}
-
-\subsection{Cobol}
-
-\subsection{Python}
-
+Pythonissa kaikki esitet‰‰n olioina. Lis‰ksi kaikki asiat, jotka voidaan nimet‰, ovat ensimm‰isen luokan arvoja -- myˆs funktiot, metodit ja moduulit \cite{pythonhistory}. 
 
 \section{Kontrollin ohjaus}
 
 \subsection{Python}
 
-\subsubsection{Valinta}
+\subsubsection{Laskentaj‰rjestys}
 
-\subsubsection{Toisto}
+\subsubsection{Valinta ja toisto}
+Pythonissa k‰ytet‰‰n valintaan ehtolauseita \verb+if+, \verb+elif+ ja \verb+else+. Ehtolauseita k‰ytett‰ess‰ ehto tulkitaan ep‰todeksi, jos ehdon arvo on \verb+False+, \verb+None+ (olio, jota k‰ytet‰‰n ilmaisemaan arvon puuttumista), mink‰ hyv‰ns‰ tyyppinen numeerinen arvo nolla tai tyhj‰ merkkijono tai tietorakenne (kuten lista tai hajautustaulu) \cite{pythoncompound}. Muussa tapauksessa ehto tulkitaan todeksi, ellei oliota ole erikseen m‰‰ritelty tulkittavaksi ep‰todeksi.
+
+Toistoon voidaan k‰ytt‰‰ \verb+for+-toistolausetta tai ehdollista \verb+while+-lausetta. K‰ytett‰ess‰ \verb+while+-lausetta ehto tulkitaan samalla tavalla kuin ehtolauseiden yhteydess‰. Muutoin \verb+while+ toimii samalla periaatteella kuin Javassa. Monessa muussa kieless‰ esiintyv‰‰ \verb+do-while+-toistorakennetta Pythonissa ei ole.
+
+Pythonin \verb+for+-lause muistuttaa Javan \verb+for-each+-silmukkaa, ja sill‰ voidaan iteroida iteroitavia olioita, kuten listoja, merkkijonoja ja iteraattoreita. 
+
+\begin{samepage}
+\begin{verbatim}
+\end{verbatim}
+\end{samepage}
+
+Pythonin erikoisuutena \verb+while+- ja \verb+for+-lauseiden yhteydess‰ voidaan k‰ytt‰‰ \verb+else+-lausetta. Jos \verb+while+-silmukan lopussa on \verb+else+, \verb+else+-haaran koodi suoritetaan, kun \verb+while+:n ehto on ep‰tosi ja silmukka p‰‰ttyy \cite{pythoncompound}. Kummassakaan tapauksessa \verb+else+-haaran koodia ei suoriteta, jos silmukka p‰‰ttyy \verb+break+- tai \verb+continue+-komentoon.
 
 \subsubsection{Rekursio}
 
 \subsection{COBOL}
 
-\subsubsection{Aritmeettisten operaatioiden laskentaj‰rjestys}
+\subsubsection{Laskentaj‰rjestys}
 
 COBOLin aritmeettisten lausekkeiden evaluoinnin j‰rjestys riippuu COBOLin versiosta ja k‰‰nt‰j‰n toteuttajasta. Compaqin COBOLissa laskentaj‰rjestyksess‰ on nelj‰ tasoa \cite{compaqcobol}. Ensimm‰isen‰ m‰‰ritet‰‰n muuttujien etumerkit. T‰m‰n j‰lkeen potenssit, jonka j‰lkeen kerto- ja jakolaskut. Viimeisen‰ suoritetaan yhteen- ja v‰hennyslaskut.
 
@@ -100,7 +104,6 @@ COBOLin viimeisimmiss‰ versioissa kieleen tuli mukaan myˆs bittioperaatiot. Micr
 
 Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{cobolintro}.
 
-\begin{samepage}
 \begin{verbatim}
 * Yksinkertainen valinta
     IF NUMERO = 2
@@ -125,7 +128,7 @@ Valinta suoritetaan rakenteella \verb+IF - THEN - ELSE - ENDIF+ \cite{cobolintro
         END-IF
     END-IF
 \end{verbatim}
-\end{samepage}
+
 
 
 Esimerkist‰ huomataan, ett‰ rakenne vastaa pitk‰lti Javan If-valintalausetta. Avainsana \verb+THEN+ on vapaaehtoinen \cite{easytrieve}, mutta mahdollistaa luonnollisen englanninkielen kaltaisen lausemuodon. If-rakenne lopetetaan avainsanalla \verb+END-IF+, joka on mahdollista korvata myˆs pisteell‰. COBOL ei kuitenkaan tue monen modernin kielen k‰ytt‰m‰‰ else-if -valintaa. Else-if on korvattava esimerkin kaltaisilla sis‰kk‰isill‰ if-else -valintalauseilla.
