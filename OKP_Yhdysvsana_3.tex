@@ -24,6 +24,27 @@
 
 \subsection{COBOL}
 
+COBOL on vahvasti ja staattisesti tyypitetty kieli \cite{wikipediacobol}. Olio-orientointunut COBOL (Object Oriented COBOL) sis‰lt‰‰ sek‰ vahvan ett‰ heikon tyypityksen piirteit‰. \cite{objectorientedcobol}
+
+"In COBOL, there are really only three data types -
+
+- numeric
+
+- alphanumeric (text/string)
+
+- alphabetic
+
+The distinction between these data types is a little blurred and only weakly enforced by the compiler. For instance, it is perfectly possible to assign a non-numeric value to a data item that has been declared to be numeric.
+
+The problem with this lax approach to data typing is that, since COBOL programs crash (halt unexpectedly) if they attempt to do computations on items that contain non-numeric data, it is up to the programmer to make sure this never happens."
+
+- http://www.csis.ul.ie/cobol/course/DataDeclaration.htm
+
+
+Eli k‰‰nt‰j‰ ei tee tyyppitarkistuksia (ei olisi staattinen)? Vai puhuiko teksti k‰ytt‰j‰n syˆtteist‰? (Mik‰ COBOLin versio?)
+
+
+
 \subsection{Python}
 
 Python on vahvasti tyypitetty kieli \cite{staticvsdynamic}. Tietyn tyyppiselle muuttujalle ei voida tehd‰ toisen tyypin operaatioita ennen eksplisiittist‰ tyyppimuunnosta.
@@ -51,6 +72,15 @@ a = "Hei"
 
 \subsection{COBOL}
 
+Muistilistaa:
+
+- "Support for complexity management is minimal in COBOL, with no language features which support any structures larger than subprogram modules." ( http://archive.adaic.com/docs/reports/lawlis/m.htm )
+
+-  Funktioista COBOL ANSI-85 ( http://public.support.unisys.com/aseries/docs/clearpath-mcp-13.0/pdf/86001518-310.pdf )
+
+- Object Oriented COBOL (2002) tukee nimettyj‰ funktioita ja funktioprototyyppej‰, sek‰ tietysti olioita/perint‰‰/polyformismia (http://en.wikipedia.org/wiki/COBOL)
+
+- Kieless‰ ei luontaista tukea rinnakkaislaskennalle ( http://archive.adaic.com/docs/reports/lawlis/m.htm ) mutta osa vendoreista tarjoaa apuv‰lineit‰ rinnakkaisuuteen (esim. http://supportline.microfocus.com/documentation/books/oc41books/prconc.htm )
 \subsection{Python}
 
 \section{Etuja ja haittoja}
