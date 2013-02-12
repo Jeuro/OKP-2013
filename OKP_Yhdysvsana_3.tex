@@ -119,7 +119,7 @@ Pythonissa funktioiden parametrit ovat arvoparametreja. L‰hestulkoon kaikki esit
 
 Funktioiden parametrit ovat tavallisesti ns. \textit{positional-or-keyword}-parametreja \cite{glossary}. T‰m‰ tarkoittaa sit‰, ett‰ funktiokutsussa voi v‰litt‰‰ argumentin joko sen sijainnin perusteella tai k‰ytt‰m‰ll‰ avainsanaa. Parametrille voi m‰‰ritell‰ oletusarvon. T‰llˆin vastaavan argumentin voi j‰tt‰‰ funktiokutsusta pois ja parametrin arvoksi annetaan m‰‰r‰tty oletusarvo. Ilman oletusarvoa olevat parametrit on listattava funktion m‰‰ritelm‰ss‰ ensimm‰isen‰, ja niiden j‰lkeen tulevat oletusarvolliset parametrit.
 
-Funktiokutsussa funktiolle v‰litett‰v‰t argumentit voivat olla avainsana-argumentteja (keyword argument) tai "tavallisia" argumentteja \cite{glossary}. Avainsana-argumentissa argumenttia edelt‰‰ tunniste, joka kertoo, mist‰ funktion parametrista on kyse. Avainsana-argumentit voivat olla funktiokutsussa kesken‰‰n eri j‰rjestyksess‰ kuin vastaavat parametrit funktion m‰‰ritelm‰ss‰. Argumentit, joissa ei k‰ytet‰ parametrin tunnistetta, on annettava funktion m‰‰ritelm‰n parametrilistauksen mukaisessa j‰rjestyksess‰.  
+
 
 Seuraavan funktion parametreista kahdella on oletusarvo ja yhdell‰ ei:
 
@@ -130,7 +130,11 @@ def tervehdi(nimi, tervehdys="Hei", viesti=None):
         print viesti      
 \end{verbatim}
 
-Funktiota \verb+tervehdi+ kutsuttaessa vain yksi argumentti on pakollinen. Funktiokutsut erilaisilla argumenteilla tuottavat seuraavanlaisia tulostuksia:
+Parametrilla \verb+tervehdys+ on oletusarvo \verb+hei+ ja parametrilla \verb+viesti+ oletusarvo \verb+None+. Funktio tulostaa parametrit \verb+tervehdys+ ja \verb+nimi+, ja tutkii parametrin \verb+viesti+ arvoa. Jos se on jotakin muuta kuin tyhj‰ merkkijono tai \verb+None+, arvo tulostetaan.  
+
+Pythonissa funktiokutsussa funktiolle v‰litett‰v‰t argumentit voivat olla avainsana-argumentteja (keyword argument) tai "tavallisia" argumentteja \cite{glossary}. Avainsana-argumentissa argumenttia edelt‰‰ tunniste, joka kertoo, mist‰ funktion parametrista on kyse. Avainsana-argumentit voivat olla funktiokutsussa kesken‰‰n eri j‰rjestyksess‰ kuin vastaavat parametrit funktion m‰‰ritelm‰ss‰. Argumentit, joissa ei k‰ytet‰ parametrin tunnistetta, on annettava funktion m‰‰ritelm‰n parametrilistauksen mukaisessa j‰rjestyksess‰. 
+
+Yll‰ m‰‰ritelty‰ funktiota \verb+tervehdi+ kutsuttaessa vain yksi argumentti on  akollinen. Funktiokutsut erilaisilla argumenteilla tuottavat seuraavanlaisia tulostuksia:
 
 \begin{samepage}
 \begin{verbatim}
