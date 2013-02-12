@@ -28,7 +28,7 @@ Kielen eri toteutuksille yhten‰isten perustyyppien lis‰ksi COBOLin k‰‰nt‰jien to
 
 \subsubsection{Tyypitys}
 
-COBOLin tyypityksest‰ on ristiriitaisia k‰sityksi‰. Wikipedian \cite{wikipediacobol} mukaan COBOL on vahvasti ja staattisesti tyypitetty kieli. Michael Coughlanin COBOL Tutorial \cite{cobolintro} kuitenkin v‰itt‰‰, ettei k‰‰nt‰j‰ tee tyyppitarkistuksia ja COBOL olisi heikosti tyypitetty. Doughlanin mukaan esimerkiksi ei-numeerinen arvo on mahdollista sijoittaa numeerista tietoa sis‰lt‰v‰‰n muuttujaan. Kun v‰‰r‰‰ tietotyyppi‰ sis‰lt‰v‰ll‰ muuttujalla yritet‰‰n tehd‰ laskutoimituksia, COBOL-ohjelma kaatuu suorituksenaikaiseen virheeseen. 
+COBOLin tyypityksest‰ on ristiriitaisia k‰sityksi‰. Wikipedian \cite{wikipediacobol} mukaan COBOL on vahvasti ja staattisesti tyypitetty kieli. Michael Coughlanin COBOL Tutorial \cite{cobolintro} kuitenkin v‰itt‰‰, ettei k‰‰nt‰j‰ tee tyyppitarkistuksia, ja COBOL olisi heikosti tyypitetty. Doughlanin mukaan esimerkiksi ei-numeerinen arvo on mahdollista sijoittaa numeerista tietoa sis‰lt‰v‰‰n muuttujaan. Kun v‰‰r‰‰ tietotyyppi‰ sis‰lt‰v‰ll‰ muuttujalla yritet‰‰n tehd‰ laskutoimituksia, COBOL-ohjelma kaatuu suorituksenaikaiseen virheeseen. 
 
 Vuonna 2002 julkaistu Object Oriented COBOL sis‰lt‰‰ sek‰ vahvan ett‰ heikon tyypityksen piirteit‰ \cite{objectorientedcobol}.
 
@@ -40,7 +40,7 @@ Pythonissa ei ole erikseen alkeistyyppej‰, vaan Pythonissa kaikki on ilmaistu ol
 
 Kun kaikki on ilmaistu olioina, Pythonissa myˆs esimerkiksi None on olio. None on vastaavuus Java-kielen null-arvolle. Toisin kuin Pythonin None, Javan null ei kuitenkaan ole olio, eik‰ sill‰ ole tyyppi‰.
 
-Kieless‰ on valmiina useita kymmeni‰ sis‰‰nrakennettuja tyyppej‰, jotka on lueteltu Pythonin tyyppihierarkiassa \cite{python2ref}. Valmiita numeerisia tyyppej‰ ovat esimerkiksi totuusarvot, kompleksiluvut, kokonaisluvut ja reaaliluvut. Tavalliset kokonaisluvut ovat Javan tapaan 32-bittisi‰. Pythonin versiossa 3 ei ole kiinte‰n pituisia kokonaislukuja \cite{python3ref}. Reaalilukujen ja kompleksilukujen arvoalueet voivat riippua k‰ytett‰v‰st‰ konearkkitehtuurista, virtuaalimuistin m‰‰r‰st‰ sek‰ k‰‰nt‰j‰n asetuksista. Pythonissa ei lis‰ksi ole valmiina olemassa erillist‰ Character-tyyppi‰, vaan yksitt‰iset merkit ovat merkkijonoja. Erilaiset laajennusmoduulit lis‰‰v‰t valmiita luokkia Javan kirjastojen tapaan.
+Kieless‰ on valmiina useita kymmeni‰ sis‰‰nrakennettuja tyyppej‰, jotka on lueteltu Pythonin tyyppihierarkiassa \cite{python2ref}. Valmiita numeerisia tyyppej‰ ovat esimerkiksi totuusarvot, kompleksiluvut, kokonaisluvut ja reaaliluvut. Pythonin versiossa 2 kokonaislukuja kuvaavat kiinte‰n mittainen \verb+int+ ja rajattoman pituisen kokonaisluvun mahdollistava \verb+long+. Pythonin versiossa 3 ei en‰‰ ole kiinte‰n pituisia kokonaislukuja lainkaan, vaan ainoastaan \verb+long+ \cite{python3ref}. Reaalilukujen ja kompleksilukujen arvoalueet voivat riippua k‰ytett‰v‰st‰ konearkkitehtuurista, virtuaalimuistin m‰‰r‰st‰ sek‰ k‰‰nt‰j‰n asetuksista. Pythonissa ei ole valmiina olemassa erillist‰ character-tyyppi‰, vaan yksitt‰iset merkit ovat merkkijonoja. Erilaiset laajennusmoduulit lis‰‰v‰t tyyppej‰ Javan kirjastojen tapaan.
 
 \subsubsection{Tyypitys}
 
@@ -56,7 +56,7 @@ c = a + int(b)
 
 Esimerkiss‰ \verb+b+ sis‰lt‰‰ merkkijonon "9", mutta yhteenlaskussa merkkijonosta j‰sennet‰‰n kokonaisluku. Jos kokonaislukuj‰sennyksen j‰tt‰‰ tekem‰tt‰, antaa ohjelma kyseisell‰ rivill‰ poikkeuksen. 
 
-Suoritusaikana muuttujan tyyppi ei ole sidottu, vaan muuttujaan voi dynaamisesti sitoa eri vaiheessa eri tyyppisi‰ olioita. Seuraavassa esimerkiss‰ muuttuja \verb+a+ saa ensin kokonaislukuarvon 5. Sen j‰lkeen muuttujan \verb+a+ arvoksi muutetaan merkkijono "hei".
+Suoritusaikana muuttujan tyyppi ei ole sidottu, vaan muuttujaan voi dynaamisesti sitoa eri vaiheessa eri tyyppisi‰ olioita. Seuraavassa esimerkiss‰ muuttuja \verb+a+ saa ensin kokonaislukuarvon 5. Sen j‰lkeen muuttujan \verb+a+ arvoksi muutetaan merkkijono "Hei".
 
 \begin{samepage}
 \begin{verbatim}
@@ -65,7 +65,7 @@ a = "Hei"
 \end{verbatim}
 \end{samepage}
 
-Pythonissa k‰ytet‰‰n lis‰ki \textit{duck typing} -ohjelmointiparadigmaa \cite{ducktyping}. Olioiden tyyppi‰ t‰rke‰mp‰‰ ovat niiden ominaisuudet ja metodit. K‰yt‰nnˆss‰ t‰m‰ tarkoittaa sit‰, ett‰ metodien parametreina annettujen olioiden tyyppi‰ ei tarkisteta. Jos parametreina ollut olio ei toteuta funktion parametrilt‰ kutsuttavia metodeja, funktio signaloi suorituksenaikaisen virhetilanteen.
+Pythonissa k‰ytet‰‰n lis‰ki \textit{duck typing} -ohjelmointiparadigmaa \cite{ducktyping}. Olioiden tyyppi‰ t‰rke‰mp‰‰ ovat niiden toteuttamat ominaisuudet ja metodit. K‰yt‰nnˆss‰ t‰m‰ tarkoittaa sit‰, ett‰ funktioiden parametreina annettujen olioiden tyyppi‰ ei tarkisteta suoritettavassa funktiossa. Jos parametrina ollut olio ei toteuta funktion parametrilta kutsuttavia metodeja, funktio signaloi suorituksenaikaisen virhetilanteen.
 
 \begin{samepage}
 \begin{verbatim}
@@ -83,21 +83,21 @@ class Ihminen:
     def name(self):
         print("Arto Wikla")
  
-def villi_luonto(ankka):
+def ankkalampi(ankka):
     ankka.vaaku()
     ankka.ui()
  
 aku = Ankka()
 arto = Ihminen()
-villi_luonto(aku)
-villi_luonto(arto)
+ankkalampi(aku)
+ankkalampi(arto)
 
 \end{verbatim}
 \end{samepage}
 
-Esimerkiss‰ m‰‰ritell‰‰n kaksi luokkaa, \verb+Ankka+ ja \verb+Ihminen+ sek‰ funktio \verb+villi_luonto+. Funktio ei v‰lit‰ siit‰, onko sen parametrin tyyppin‰ \verb+Ankka+, vaan sit‰ voi kutsua myˆs luokan \verb+Ihminen+ ilmentym‰ll‰, sill‰ luokassa toteutetaan funktion vaatimat metodit. Javassa samantapainen k‰ytt‰ytyminen toteutettaisiin perinn‰n tai rajapintojen avulla.
+Esimerkiss‰ m‰‰ritell‰‰n kaksi luokkaa, \verb+Ankka+ ja \verb+Ihminen+ sek‰ funktio \verb+ankkalampi+. Funktio ei v‰lit‰ siit‰, onko sen parametrin tyyppin‰ \verb+Ankka+, vaan sit‰ voi kutsua myˆs luokan \verb+Ihminen+ ilmentym‰ll‰, sill‰ luokassa toteutetaan funktion vaatimat metodit. Javassa samantapainen k‰ytt‰ytyminen toteutettaisiin perinn‰n tai rajapintojen avulla.
 
-Duck typingin lis‰ksi Pythonissa k‰ytet‰‰n tyyppip‰‰ttely‰ \cite{python2ref}. Tyyppip‰‰ttelyn s‰‰nnˆt vaihtelevat Pythonin versioissa suuresti, jonka vuoksi ohjelmointikielen referenssi ei anna tarkkaa tyyppip‰‰ttelys‰‰nnˆstˆ‰, vaan ainoastaan ep‰virallisia ohjenuoria. Pythonin versio 3 ei tue lainkaan tyyppip‰‰ttely‰.
+Duck typingin lis‰ksi Pythonissa k‰ytet‰‰n tyyppip‰‰ttely‰ ennen versiota 3 \cite{python2ref}. Tyyppip‰‰ttelyn s‰‰nnˆt vaihtelevat Pythonin varhaisempien versioiden v‰lill‰ suuresti, jonka vuoksi ohjelmointikielen referenssi ei tarjoa tarkkaa tyyppip‰‰ttelys‰‰nnˆstˆ‰, vaan ainoastaan ep‰virallisia ohjenuoria. Pythonin versiosta 3 tyyppip‰‰ttely on kokonaan karsittu.
 
 \section{Laskennan kapselointi}
 
@@ -116,7 +116,7 @@ Muistilistaa:
 
 \section{Etuja ja haittoja}
 
-Pythonin rankasti k‰ytt‰m‰ Duck typing mahdollistaa samojen funktioiden k‰ytt‰misen useille olioille ilman rajapintoja ja perint‰‰. Tyyppitarkistusten puutteessa Duck typing kuitenkin turvautuu siihen, ett‰ sit‰ hyˆdynt‰v‰t funktiot ja ohjelmakoodi on luotettavasti dokumentoitu ja testattu. Esimerkiksi Javan rajapinnat ja perint‰ toimivat osaltaan selkeytyksen‰ ja dokumentaationa sille, mit‰ eri metodit vaativat parametreilt‰‰n.
+Pythonissa laajasti hyˆdynnetty duck typing mahdollistaa samojen funktioiden k‰ytt‰misen useille olioille ilman rajapintoja ja perint‰‰. Tyyppitarkistusten puutteessa duck typing kuitenkin turvautuu siihen, ett‰ sit‰ hyˆdynt‰v‰t funktiot ja ohjelmakoodi on luotettavasti dokumentoitu ja testattu. Esimerkiksi Javan rajapinnat ja perint‰ toimivat osaltaan selkeytyksen‰ ja dokumentaationa sille, mit‰ eri metodit vaativat parametreilt‰‰n.
 
 
 
