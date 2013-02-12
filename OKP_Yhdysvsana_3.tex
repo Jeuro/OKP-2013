@@ -5,6 +5,7 @@
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{comment}
+\usepackage{caption}
 
 \begin{document}
 %\doublespacing
@@ -28,7 +29,7 @@ Kielen eri toteutuksille yhten‰isten perustyyppien lis‰ksi COBOLin k‰‰nt‰jien to
 
 \subsubsection{Tyypitys}
 
-COBOLin tyypityksest‰ on ristiriitaisia k‰sityksi‰. Wikipedian \cite{wikipediacobol} mukaan COBOL on vahvasti ja staattisesti tyypitetty kieli. Michael Coughlanin COBOL Tutorial \cite{cobolintro} kuitenkin v‰itt‰‰, ettei k‰‰nt‰j‰ tee tyyppitarkistuksia, ja COBOL olisi heikosti tyypitetty. Coughlanin mukaan esimerkiksi ei-numeerinen arvo on mahdollista sijoittaa numeerista tietoa sis‰lt‰v‰‰n muuttujaan. Kun v‰‰r‰‰ tietotyyppi‰ sis‰lt‰v‰ll‰ muuttujalla yritet‰‰n tehd‰ laskutoimituksia, COBOL-ohjelma kaatuu suorituksenaikaiseen virheeseen. 
+COBOLin tyypityksest‰ on ristiriitaisia k‰sityksi‰. Wikipedian \cite{wikipediacobol} mukaan COBOL on vahvasti ja staattisesti tyypitetty kieli. Michael Coughlanin COBOL Tutorial \cite{cobolintro} kuitenkin v‰itt‰‰, ettei k‰‰nt‰j‰ tee tyyppitarkistuksia, ja COBOL olisi heikosti tyypitetty. Coughlanin mukaan esimerkiksi ei-numeerinen arvo on mahdollista sijoittaa numeerista tietoa sis‰lt‰v‰‰n muuttujaan. Kun v‰‰r‰‰ tietotyyppi‰ sis‰lt‰v‰ll‰ muuttujalla yritet‰‰n tehd‰ laskutoimituksia, COBOL-ohjelma kaatuu suorituksenaikaiseen virheeseen.
 
 Vuonna 2002 julkaistu Object Oriented COBOL sis‰lt‰‰ sek‰ vahvan ett‰ heikon tyypityksen piirteit‰ \cite{objectorientedcobol}.
 
@@ -65,7 +66,7 @@ a = "Hei"
 \end{verbatim}
 \end{samepage}
 
-Pythonissa k‰ytet‰‰n lis‰ki \textit{duck typing} -ohjelmointiparadigmaa \cite{ducktyping}. Olioiden tyyppi‰ t‰rke‰mp‰‰ ovat niiden toteuttamat ominaisuudet ja metodit. K‰yt‰nnˆss‰ t‰m‰ tarkoittaa sit‰, ett‰ funktioiden parametreina annettujen olioiden tyyppi‰ ei tarkisteta suoritettavassa funktiossa. Jos parametrina ollut olio ei toteuta funktion parametrilta kutsuttavia metodeja, funktio signaloi suorituksenaikaisen virhetilanteen.
+Pythonissa k‰ytet‰‰n lis‰ksi \textit{duck typing} -ohjelmointiparadigmaa \cite{ducktyping}. Olioiden tyyppi‰ t‰rke‰mp‰‰ ovat niiden toteuttamat ominaisuudet ja metodit. K‰yt‰nnˆss‰ t‰m‰ tarkoittaa sit‰, ett‰ funktioiden parametreina annettujen olioiden tyyppi‰ ei tarkisteta suoritettavassa funktiossa. Jos parametrina ollut olio ei toteuta funktion parametrilta kutsuttavia metodeja, funktio signaloi suorituksenaikaisen virhetilanteen.
 
 \begin{samepage}
 \begin{verbatim}
@@ -103,6 +104,64 @@ Duck typingin lis‰ksi Pythonissa k‰ytet‰‰n tyyppip‰‰ttely‰ ennen versiota 3 \cit
 
 \subsection{COBOL}
 
+\subsection{Parametriv‰litys}
+COBOLissa parametreja voidaan v‰litt‰‰ joko arvo- tai viiteparametreina. Kutsuja m‰‰ritt‰‰, v‰litet‰‰nkˆ parametri arvo- vai viitesemantiikalla. Kuvassa 1 n‰hd‰‰n esimerkki aliohjelmakutsuista.
+
+\begin{small}
+\begin{minipage}[t]{0.55\textwidth}
+\begin{verbatim}
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ENSIMMAINEN.
+ENVIRONMENT DIVISION.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+77 OMA    PIC X(20) VALUE "EKAN ARVO".
+PROCEDURE DIVISION.
+   * KUTSUTAAN TOISTA (ARVOPARAMETRI)
+   CALL "TOINEN" USING BY VALUE OMA.
+   * ENSIMMAISEN MUUTTUJA EI MUUTTUNUT
+   DISPLAY OMA.
+   * KUTSUTAAN TOISTA (VIITEPARAMETRI)
+   CALL "TOINEN" USING BY REFERENCE OMA.
+   * ENSIMMAISEN MUUTTUJA MUUTTUI
+   DISPLAY OMA.
+   END RUN.
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\begin{verbatim}
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TOINEN.
+ENVIRONMENT DIVISION.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+LINKAGE SECTION.
+77 PARAMETRI    PIC X(20).
+PROCEDURE DIVISION USING PARAMETRI.
+   MOVE "TOKAN ARVO" TO PARAMETRI.
+   EXIT PROGRAM.
+\end{verbatim}
+\end{minipage}
+\captionof{figure}{Parametriv‰litys COBOLissa}
+\label{fig:listings}
+\end{small}
+
+Ohjelmassa \verb+ENSIMMAINEN+ kutsutaan kaksi kertaa ohjelmaa \verb+TOINEN+: ensimm‰isell‰ kerralla v‰litet‰‰n muuttujan \verb+OMA+ arvo ja toisella viite samaiseen muuttujaan. Aliohjelma \verb+TOINEN+ muuttaa parametrina saadun muuttujan arvoa. Ohjelma tulostaa:
+\begin{verbatim}
+EKAN ARVO
+TOKAN ARVO
+\end{verbatim}
+
+Kutsu 
+
+\verb+CALL "TOINEN" USING BY VALUE OMA+ 
+
+tarkoittaa, ett‰ kutsutaan ohjelmaa \verb+TOINEN+ ja v‰litet‰‰n parametrina muuttujan \verb+OMA+ arvo. 
+
+\verb+CALL "TOINEN" USING BY REFERENCE OMA+ 
+
+sen sijaan tarkoittaa, ett‰ samaiselle aliohjelmalle v‰litet‰‰n parametrina viite muuttujaan \verb+OMA+.
+
 Muistilistaa:
 
 - "Support for complexity management is minimal in COBOL, with no language features which support any structures larger than subprogram modules." ( http://archive.adaic.com/docs/reports/lawlis/m.htm )
@@ -119,8 +178,6 @@ Pythonissa funktioiden parametrit ovat arvoparametreja. L‰hestulkoon kaikki esit
 
 Funktioiden parametrit ovat tavallisesti ns. \textit{positional-or-keyword}-parametreja \cite{glossary}. T‰m‰ tarkoittaa sit‰, ett‰ funktiokutsussa voi v‰litt‰‰ argumentin joko sen sijainnin perusteella tai k‰ytt‰m‰ll‰ avainsanaa. Parametrille voi m‰‰ritell‰ oletusarvon. T‰llˆin vastaavan argumentin voi j‰tt‰‰ funktiokutsusta pois ja parametrin arvoksi annetaan m‰‰r‰tty oletusarvo. Ilman oletusarvoa olevat parametrit on listattava funktion m‰‰ritelm‰ss‰ ensimm‰isen‰, ja niiden j‰lkeen tulevat oletusarvolliset parametrit.
 
-
-
 Seuraavan funktion parametreista kahdella on oletusarvo ja yhdell‰ ei:
 
 \begin{verbatim}
@@ -130,9 +187,9 @@ def tervehdi(nimi, tervehdys="Hei", viesti=None):
         print viesti      
 \end{verbatim}
 
-Parametrilla \verb+tervehdys+ on oletusarvo \verb+hei+ ja parametrilla \verb+viesti+ oletusarvo \verb+None+. Funktio tulostaa parametrit \verb+tervehdys+ ja \verb+nimi+, ja tutkii parametrin \verb+viesti+ arvoa. Jos se on jotakin muuta kuin tyhj‰ merkkijono tai \verb+None+, arvo tulostetaan.  
+Parametrilla \verb+tervehdys+ on oletusarvo \verb+hei+ ja parametrilla \verb+viesti+ oletusarvo \verb+None+. Funktio tulostaa parametrit \verb+tervehdys+ ja \verb+nimi+, ja tutkii parametrin \verb+viesti+ arvoa. Jos se on jotakin muuta kuin tyhj‰ merkkijono tai \verb+None+, arvo tulostetaan.
 
-Pythonissa funktiokutsussa funktiolle v‰litett‰v‰t argumentit voivat olla avainsana-argumentteja (keyword argument) tai "tavallisia" argumentteja \cite{glossary}. Avainsana-argumentissa argumenttia edelt‰‰ tunniste, joka kertoo, mist‰ funktion parametrista on kyse. Avainsana-argumentit voivat olla funktiokutsussa kesken‰‰n eri j‰rjestyksess‰ kuin vastaavat parametrit funktion m‰‰ritelm‰ss‰. Argumentit, joissa ei k‰ytet‰ parametrin tunnistetta, on annettava funktion m‰‰ritelm‰n parametrilistauksen mukaisessa j‰rjestyksess‰. 
+Pythonissa funktiokutsussa funktiolle v‰litett‰v‰t argumentit voivat olla avainsana-argumentteja (keyword argument) tai "tavallisia" argumentteja \cite{glossary}. Avainsana-argumentissa argumenttia edelt‰‰ tunniste, joka kertoo, mist‰ funktion parametrista on kyse. Avainsana-argumentit voivat olla funktiokutsussa kesken‰‰n eri j‰rjestyksess‰ kuin vastaavat parametrit funktion m‰‰ritelm‰ss‰. Argumentit, joissa ei k‰ytet‰ parametrin tunnistetta, on annettava funktion m‰‰ritelm‰n parametrilistauksen mukaisessa j‰rjestyksess‰.
 
 Yll‰ m‰‰ritelty‰ funktiota \verb+tervehdi+ kutsuttaessa vain yksi argumentti on  akollinen. Funktiokutsut erilaisilla argumenteilla tuottavat seuraavanlaisia tulostuksia:
 
@@ -159,7 +216,29 @@ Opettele Pythonia
 \end{verbatim}
 \end{samepage}
 
-Suoritusaikaiseen virheeseen johtavia funktiokutsuja puolestaan olisivat esimerkiksi kutsut \verb+tervehdi()+, \verb+tervehdi("Pekka", "Moi", tervehdys="Terve")+ sek‰\\ \verb+tervehdi(tervehdys="Moi", "Pekka")+.
+Funktio voidaan m‰‰ritt‰‰ myˆs siten, ett‰ sit‰ voidaan kutsua mielivaltaisilla parametreilla:
+
+\begin{samepage}
+\begin{verbatim}
+def mielivaltainen(*parametrit, **avainsanaparametrit):
+    for parametri in parametrit:
+        print parametri
+    for avain, arvo in avainsanaparametrit.items():
+        print avain, arvo
+\end{verbatim}
+\end{samepage}
+
+Funktio \verb+mielivaltainen+ tulostaa sille annetut argumentit ja avainsana-argumenttien nimet. Esimerkiksi kutsulla \verb+mielivaltainen("eka", "toka", kolmas="kolmonen")+ funktio tulostaa:
+
+\begin{verbatim}
+eka
+toka
+kolmas kolmonen
+\end{verbatim}
+
+Avainsanattomat argumentit ovat saatavilla monikossa (tuple) \verb+parametrit+ ja avainsana-argumentit assosiaatiotaulussa (dictionary) \verb+avainsanaparametrit+. Asteriskit m‰‰ritt‰v‰t muodollisten parametrien tarkoituksen: yhdell‰ asteriskilla alkava parametri kuvaa avainsanattomia argumentteja ja kahdella asteriskilla alkava avainsana-argumentteja. Funktion m‰‰rittelyss‰ voidaan m‰‰ritt‰‰ myˆs nimettyj‰ muodollisia parametreja, kunhan ne ovat ennen asteriskeilla varustettuja parametreja. \verb+*+-alkuinen parametri on oltava aina ennen \verb+**+-alkuista parametria funktion m‰‰rittelyss‰ \cite{pycontrolflow}.
+
+Suoritusaikaiseen virheeseen johtavia funktiokutsuja olisivat esimerkiksi kutsut \verb+tervehdi()+, \verb+tervehdi("Pekka", "Moi", tervehdys="Terve")+ sek‰\\ \verb+tervehdi(tervehdys="Moi", "Pekka")+.
 
 Suoritusaikaisen virheen sattuessa Python-tulkki nostaa poikkeuksen \cite{everythingreturnedexception}. Poikkeus voidaan nostaa myˆs ohjelmakoodissa k‰ytt‰m‰ll‰ \verb+raise+-lausetta. Poikkeusk‰sittelij‰ m‰‰ritell‰‰n \verb+try..except+-lauseella, joka muistuttaa Javan \verb+try..catch+-rakennetta. Poikkeusk‰sittelij‰ll‰ voi olla useita \verb+except+-haaroja, ja Javan tavoin tilanteeseen sopiva haara valitaan poikkeuksen luokan mukaan.
 
