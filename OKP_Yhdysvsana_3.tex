@@ -81,7 +81,54 @@ Muistilistaa:
 - Object Oriented COBOL (2002) tukee nimettyjä funktioita ja funktioprototyyppejä, sekä tietysti olioita/perintää/polyformismia (http://en.wikipedia.org/wiki/COBOL)
 
 - Kielessä ei luontaista tukea rinnakkaislaskennalle ( http://archive.adaic.com/docs/reports/lawlis/m.htm ) mutta osa vendoreista tarjoaa apuvälineitä rinnakkaisuuteen (esim. http://supportline.microfocus.com/documentation/books/oc41books/prconc.htm )
+
 \subsection{Python}
+
+Pythonissa funktioiden parametrit ovat arvoparametreja. Lähestulkoon kaikki esitetään kielessä olioina, ja arvoparametrit ovat viitteitä olioihin; ne siis toimivat samalla tavalla kuin parametrina annetut oliot Javassa. 
+
+Funktioiden parametrit ovat tavallisesti ns. \textit{positional-or-keyword}-parametreja \cite{glossary}. Tämä tarkoittaa sitä, että funktiokutsussa voi välittää argumentin joko sen sijainnin perusteella tai käyttämällä avainsanaa. Parametrille voi määritellä oletusarvon. Tällöin vastaavan argumentin voi jättää funktiokutsusta pois ja parametrin arvoksi annetaan määrätty oletusarvo. Ilman oletusarvoa olevat parametrit on listattava funktion määritelmässä ensimmäisenä, ja niiden jälkeen tulevat oletusarvolliset parametrit.
+
+Funktiokutsussa funktiolle välitettävät argumentit voivat olla avainsana-argumentteja (keyword argument) tai "tavallisia" argumentteja \cite{glossary}. Avainsana-argumentissa argumenttia edeltää tunniste, joka kertoo, mistä funktion parametrista on kyse. Avainsana-argumentit voivat olla funktiokutsussa keskenään eri järjestyksessä kuin vastaavat parametrit funktion määritelmässä. Argumentit, joissa ei käytetä parametrin tunnistetta, on annettava funktion määritelmän parametrilistauksen mukaisessa järjestyksessä.  
+
+Seuraavan funktion parametreista kahdella on oletusarvo ja yhdellä ei:
+
+\begin{verbatim}
+def tervehdi(nimi, tervehdys="Hei", viesti=None):
+    print tervehdys, nimi    
+    if viesti:
+        print viesti      
+\end{verbatim}
+
+Funktiota \verb+tervehdi+ kutsuttaessa vain yksi argumentti on pakollinen. Funktiokutsut erilaisilla argumenteilla tuottavat seuraavanlaisia tulostuksia:
+
+\begin{samepage}
+\begin{verbatim}
+>>> tervehdi("Pekka", "Moi")
+Moi Pekka
+\end{verbatim}
+\end{samepage}
+
+\begin{samepage}
+\begin{verbatim}
+>>> tervehdi("Pekka", viesti="Kvaak kvaak")
+Hei Pekka
+Kvaak kvaak
+\end{verbatim}
+\end{samepage}
+
+\begin{samepage}
+\begin{verbatim}
+>>> tervehdi(viesti="Opettele Pythonia", nimi="Pekka", tervehdys="Terve")
+Terve Pekka
+Opettele Pythonia
+\end{verbatim}
+\end{samepage}
+
+Suoritusaikaiseen virheeseen johtavia funktiokutsuja puolestaan olisivat esimerkiksi kutsut \verb+tervehdi()+, \verb+tervehdi("Pekka", "Moi", tervehdys="Terve")+ sekä\\ \verb+tervehdi(tervehdys="Moi", "Pekka")+.
+
+Suoritusaikaisen virheen sattuessa Python-tulkki nostaa poikkeuksen \cite{everythingreturnedexception}. Poikkeus voidaan nostaa myös ohjelmakoodissa käyttämällä \verb+raise+-lausetta. Poikkeuskäsittelijä määritellään \verb+try..except+-lauseella, joka muistuttaa Javan \verb+try..catch+-rakennetta. Poikkeuskäsittelijällä voi olla useita \verb+except+-haaroja, ja Javan tavoin tilanteeseen sopiva haara valitaan poikkeuksen luokan mukaan.
+
+Pythonissa on tuki rinnakkaiselle ohjelmoinnille. Kielen \verb+threading+-kirjasto tarjoaa tähän esimerkiksi säikeet, lukot ja semaforit. \verb+Queue+-moduuli tarjoaa turvallisen tavan säikeiden käsittelyyn.
 
 \section{Etuja ja haittoja}
 
