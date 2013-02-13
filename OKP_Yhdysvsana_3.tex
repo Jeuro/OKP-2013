@@ -25,6 +25,8 @@
 
 \subsection{COBOL}
 
+\subsubsection{Alkeis- ja perustyypit}
+
 Kielen eri toteutuksille yhten‰isten perustyyppien lis‰ksi COBOLin k‰‰nt‰jien toteuttajat ja levitt‰j‰t tarjoavat usein lis‰‰ valmiita perustyyppej‰ \cite{wikipediacobol}. Suurin osa tarjoaa esimerkiksi osoittimet ja bittikent‰t (bit field).
 
 \subsubsection{Tyypitys}
@@ -162,6 +164,10 @@ tarkoittaa, ett‰ kutsutaan ohjelmaa \verb+TOINEN+ ja v‰litet‰‰n parametrina muut
 
 sen sijaan tarkoittaa, ett‰ samaiselle aliohjelmalle v‰litet‰‰n parametrina viite muuttujaan \verb+OMA+.
 
+\subsubsection{Poikkeusk‰sittely ja rinnakkaisuus}
+
+COBOLista puuttuu luontainen tuki rinnakkaislaskennalle \cite{lawlis}. Osa COBOLin v‰litt‰jist‰ tarjoaa uudempiin COBOLin versioihin apuv‰lineit‰ rinnakkaisuuden toteuttamista varten. Yksi t‰llainen on Micro Focus \cite{mfocus}.
+
 Muistilistaa:
 
 - "Support for complexity management is minimal in COBOL, with no language features which support any structures larger than subprogram modules." ( http://archive.adaic.com/docs/reports/lawlis/m.htm )
@@ -169,8 +175,6 @@ Muistilistaa:
 -  Funktioista COBOL ANSI-85 ( http://public.support.unisys.com/aseries/docs/clearpath-mcp-13.0/pdf/86001518-310.pdf )
 
 - Object Oriented COBOL (2002) tukee nimettyj‰ funktioita ja funktioprototyyppej‰, sek‰ tietysti olioita/perint‰‰/polyformismia (http://en.wikipedia.org/wiki/COBOL)
-
-- Kieless‰ ei luontaista tukea rinnakkaislaskennalle ( http://archive.adaic.com/docs/reports/lawlis/m.htm ) mutta osa vendoreista tarjoaa apuv‰lineit‰ rinnakkaisuuteen (esim. http://supportline.microfocus.com/documentation/books/oc41books/prconc.htm )
 
 \subsection{Python}
 
@@ -265,6 +269,8 @@ Pythonissa on tuki rinnakkaiselle ohjelmoinnille. Kielen standardikirjaston \ver
 Pythonissa laajasti hyˆdynnetty duck typing mahdollistaa samojen funktioiden k‰ytt‰misen useille olioille ilman rajapintoja ja perint‰‰. Tyyppitarkistusten puuttuessa duck typing kuitenkin turvautuu siihen, ett‰ sit‰ hyˆdynt‰v‰t funktiot ja ohjelmakoodi ovat luotettavasti dokumentoituja ja testattuja. Esimerkiksi Javan rajapinnat ja perint‰ toimivat osaltaan selkeytyksen‰ ja dokumentaationa sille, mit‰ eri metodit vaativat parametreilt‰‰n.
 
 Pythonin parametrien oletusarvot mahdollistavat usein lyhyemm‰n ja selke‰mm‰n ilmaisutavan kuin esimerkiksi Java, jossa oletusarvojen puutetta korvataan kuormittamalla metodeja. Jos samasta metodista tarvitsee nelj‰ eri vaihtoehtoa, joutuu Java-ohjelmoija luomaan nelj‰ samannimist‰ metodia eri parametrivaihtoehdoilla. Pythonissa riitt‰‰ yksi, jossa on ilmaistu vapaaehtoisten parametrien oletusarvot.
+
+COBOLin rajattu tuki rinnakkaisohjelmoinnille hankaloittaa tehokkaiden rinnakkaisuuteen perustuvien ohjelmien ohjelmoimista kielell‰. COBOL-ohjelmia k‰ytet‰‰n usein tietokantojen kanssa. T‰llˆin ohjelmasta voi k‰ynnist‰‰ useita instansseja, ja relaatiotietokannan toteutus huolehtii yhteisk‰yttˆisen tietokannan eheydest‰ ja tiedon muokkaamisen rinnakkaisuudesta.
 
 \newpage
  
