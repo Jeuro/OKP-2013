@@ -104,7 +104,7 @@ Duck typingin lisäksi Pythonissa käytetään tyyppipäättelyä ennen versiota 3 \cit
 
 \subsection{COBOL}
 
-\subsection{Parametrivälitys}
+\subsubsection{Parametrivälitys}
 COBOLissa parametreja voidaan välittää joko arvo- tai viiteparametreina. Kutsuja määrittää, välitetäänkö parametri arvo- vai viitesemantiikalla. Kuvassa 1 nähdään esimerkki aliohjelmakutsuista.
 
 \begin{small}
@@ -176,16 +176,20 @@ Muistilistaa:
 
 Pythonissa funktioiden parametrit ovat arvoparametreja. Lähestulkoon kaikki esitetään kielessä olioina, ja arvoparametrit ovat viitteitä olioihin; ne siis toimivat samalla tavalla kuin parametrina annetut oliot Javassa. 
 
+\subsubsection{Parametrivälitys}
+
 Funktioiden parametrit ovat tavallisesti ns. \textit{positional-or-keyword}-parametreja \cite{glossary}. Tämä tarkoittaa sitä, että funktiokutsussa voi välittää argumentin joko sen sijainnin perusteella tai käyttämällä avainsanaa. Parametrille voi määritellä oletusarvon. Tällöin vastaavan argumentin voi jättää funktiokutsusta pois ja parametrin arvoksi annetaan määrätty oletusarvo. Ilman oletusarvoa olevat parametrit on listattava funktion määritelmässä ensimmäisenä, ja niiden jälkeen tulevat oletusarvolliset parametrit.
 
 Seuraavan funktion parametreista kahdella on oletusarvo ja yhdellä ei:
 
+\begin{samepage}
 \begin{verbatim}
 def tervehdi(nimi, tervehdys="Hei", viesti=None):
     print tervehdys, nimi    
     if viesti:
         print viesti      
 \end{verbatim}
+\end{samepage}
 
 Parametrilla \verb+tervehdys+ on oletusarvo \verb+hei+ ja parametrilla \verb+viesti+ oletusarvo \verb+None+. Funktio tulostaa parametrit \verb+tervehdys+ ja \verb+nimi+, ja tutkii parametrin \verb+viesti+ arvoa. Jos se on jotakin muuta kuin tyhjä merkkijono tai \verb+None+, arvo tulostetaan.
 
@@ -216,7 +220,7 @@ Opettele Pythonia
 \end{verbatim}
 \end{samepage}
 
-Funktio voidaan määrittää myös siten, että sitä voidaan kutsua mielivaltaisilla parametreilla:
+Funktio voidaan määrittää myös siten, että sitä voidaan kutsua mielivaltaisilla argumenteilla:
 
 \begin{samepage}
 \begin{verbatim}
@@ -238,7 +242,19 @@ kolmas kolmonen
 
 Avainsanattomat argumentit ovat saatavilla monikossa (tuple) \verb+parametrit+ ja avainsana-argumentit assosiaatiotaulussa (dictionary) \verb+avainsanaparametrit+. Asteriskit määrittävät muodollisten parametrien tarkoituksen: yhdellä asteriskilla alkava parametri kuvaa avainsanattomia argumentteja ja kahdella asteriskilla alkava avainsana-argumentteja. Funktion määrittelyssä voidaan määrittää myös nimettyjä muodollisia parametreja, kunhan ne ovat ennen asteriskeilla varustettuja parametreja. \verb+*+-alkuinen parametri on oltava aina ennen \verb+**+-alkuista parametria funktion määrittelyssä \cite{pycontrolflow}.
 
-Suoritusaikaiseen virheeseen johtavia funktiokutsuja olisivat esimerkiksi kutsut \verb+tervehdi()+, \verb+tervehdi("Pekka", "Moi", tervehdys="Terve")+ sekä\\ \verb+tervehdi(tervehdys="Moi", "Pekka")+.
+\subsubsection{Poikkeuskäsittely ja rinnakkaisuus}
+
+Edellisessä luvussa määritellyn \verb+tervehdi+-funktion kutsuminen esimerkiksi seuraavilla argumenteilla johtaisi suoritusaikaisiin virheisiin:  
+
+\begin{samepage}
+\begin{verbatim}
+>>> tervehdi()
+TypeError: tervehdi() takes at least 1 argument (0 given)
+
+>>> tervehdi("Pekka", "Moi", tervehdys="Terve")
+TypeError: tervehdi() got multiple values for keyword argument 'tervehdys'
+\end{verbatim}
+\end{samepage}
 
 Suoritusaikaisen virheen sattuessa Python-tulkki nostaa poikkeuksen \cite{everythingreturnedexception}. Poikkeus voidaan nostaa myös ohjelmakoodissa käyttämällä \verb+raise+-lausetta. Poikkeuskäsittelijä määritellään \verb+try..except+-lauseella, joka muistuttaa Javan \verb+try..catch+-rakennetta. Poikkeuskäsittelijällä voi olla useita \verb+except+-haaroja, ja Javan tavoin tilanteeseen sopiva haara valitaan poikkeuksen luokan mukaan.
 
@@ -246,7 +262,7 @@ Pythonissa on tuki rinnakkaiselle ohjelmoinnille. Kielen \verb+threading+-kirjas
 
 \section{Etuja ja haittoja}
 
-Pythonissa laajasti hyödynnetty duck typing mahdollistaa samojen funktioiden käyttämisen useille olioille ilman rajapintoja ja perintää. Tyyppitarkistusten puutteessa duck typing kuitenkin turvautuu siihen, että sitä hyödyntävät funktiot ja ohjelmakoodi on luotettavasti dokumentoitu ja testattu. Esimerkiksi Javan rajapinnat ja perintä toimivat osaltaan selkeytyksenä ja dokumentaationa sille, mitä eri metodit vaativat parametreiltään.
+Pythonissa laajasti hyödynnetty duck typing mahdollistaa samojen funktioiden käyttämisen useille olioille ilman rajapintoja ja perintää. Tyyppitarkistusten puuttuessa duck typing kuitenkin turvautuu siihen, että sitä hyödyntävät funktiot ja ohjelmakoodi ovat luotettavasti dokumentoituja ja testattuja. Esimerkiksi Javan rajapinnat ja perintä toimivat osaltaan selkeytyksenä ja dokumentaationa sille, mitä eri metodit vaativat parametreiltään.
 
 
 
