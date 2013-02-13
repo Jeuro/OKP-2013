@@ -41,7 +41,7 @@ Pythonissa ei ole erikseen alkeistyyppej‰, vaan Pythonissa kaikki on ilmaistu ol
 
 Kun kaikki on ilmaistu olioina, Pythonissa myˆs esimerkiksi None on olio. None on vastaavuus Java-kielen null-arvolle. Toisin kuin Pythonin None, Javan null ei kuitenkaan ole olio, eik‰ sill‰ ole tyyppi‰.
 
-Kieless‰ on valmiina useita kymmeni‰ sis‰‰nrakennettuja tyyppej‰, jotka on lueteltu Pythonin tyyppihierarkiassa \cite{python2ref}. Valmiita numeerisia tyyppej‰ ovat esimerkiksi totuusarvot, kompleksiluvut, kokonaisluvut ja reaaliluvut. Pythonin versiossa 2 kokonaislukuja kuvaavat kiinte‰n mittainen \verb+int+ ja rajattoman pituisen kokonaisluvun mahdollistava \verb+long+. Pythonin versiossa 3 ei en‰‰ ole kiinte‰n pituisia kokonaislukuja lainkaan, vaan ainoastaan \verb+long+ \cite{python3ref}. Reaalilukujen ja kompleksilukujen arvoalueet voivat riippua k‰ytett‰v‰st‰ konearkkitehtuurista, virtuaalimuistin m‰‰r‰st‰ sek‰ k‰‰nt‰j‰n asetuksista. Pythonissa ei ole valmiina olemassa erillist‰ character-tyyppi‰, vaan yksitt‰iset merkit ovat merkkijonoja. Erilaiset laajennusmoduulit lis‰‰v‰t tyyppej‰ Javan kirjastojen tapaan.
+Kieless‰ on valmiina useita kymmeni‰ sis‰‰nrakennettuja tyyppej‰, jotka on lueteltu Pythonin tyyppihierarkiassa \cite{python2ref}. Valmiita numeerisia tyyppej‰ ovat esimerkiksi totuusarvot, kompleksiluvut, kokonaisluvut ja reaaliluvut. Pythonin versiossa 2 kokonaislukuja kuvaavat kiinte‰n mittainen \verb+int+ ja rajattoman pituisen kokonaisluvun mahdollistava \verb+long+. Pythonin versiossa 3 ei ole kiinte‰n pituisia kokonaislukuja lainkaan, vaan siin‰ \verb+int+-tyyppi vastaa version 2 \verb+long+-tyyppi‰ \cite{python3ref}. Reaalilukujen ja kompleksilukujen arvoalueet voivat riippua k‰ytett‰v‰st‰ konearkkitehtuurista, virtuaalimuistin m‰‰r‰st‰ sek‰ k‰‰nt‰j‰n asetuksista. Pythonissa ei ole valmiina olemassa erillist‰ character-tyyppi‰, vaan yksitt‰iset merkit ovat merkkijonoja. Erilaiset laajennusmoduulit lis‰‰v‰t tyyppej‰ Javan kirjastojen tapaan.
 
 \subsubsection{Tyypitys}
 
@@ -66,7 +66,7 @@ a = "Hei"
 \end{verbatim}
 \end{samepage}
 
-Pythonissa k‰ytet‰‰n lis‰ksi \textit{duck typing} -ohjelmointiparadigmaa \cite{ducktyping}. Olioiden tyyppi‰ t‰rke‰mp‰‰ ovat niiden toteuttamat ominaisuudet ja metodit. K‰yt‰nnˆss‰ t‰m‰ tarkoittaa sit‰, ett‰ funktioiden parametreina annettujen olioiden tyyppi‰ ei tarkisteta suoritettavassa funktiossa. Jos parametrina ollut olio ei toteuta funktion parametrilta kutsuttavia metodeja, funktio signaloi suorituksenaikaisen virhetilanteen.
+Pythonissa k‰ytet‰‰n \textit{duck typing} -ohjelmointiparadigmaa \cite{ducktyping}. Olioiden tyyppi‰ t‰rke‰mp‰‰ ovat niiden toteuttamat ominaisuudet ja metodit. K‰yt‰nnˆss‰ t‰m‰ tarkoittaa sit‰, ett‰ funktioiden parametreina annettujen olioiden tyyppi‰ ei tarkisteta suoritettavassa funktiossa. Jos parametrina ollut olio ei toteuta funktion parametrilta kutsuttavia metodeja, funktio signaloi suorituksenaikaisen virhetilanteen.
 
 \begin{samepage}
 \begin{verbatim}
@@ -258,7 +258,7 @@ TypeError: tervehdi() got multiple values for keyword argument 'tervehdys'
 
 Suoritusaikaisen virheen sattuessa Python-tulkki nostaa poikkeuksen \cite{everythingreturnedexception}. Poikkeus voidaan nostaa myˆs ohjelmakoodissa k‰ytt‰m‰ll‰ \verb+raise+-lausetta. Poikkeusk‰sittelij‰ m‰‰ritell‰‰n \verb+try..except+-lauseella, joka muistuttaa Javan \verb+try..catch+-rakennetta. Poikkeusk‰sittelij‰ll‰ voi olla useita \verb+except+-haaroja, ja Javan tavoin tilanteeseen sopiva haara valitaan poikkeuksen luokan mukaan.
 
-Pythonissa on tuki rinnakkaiselle ohjelmoinnille. Kielen \verb+threading+-kirjasto tarjoaa t‰h‰n esimerkiksi s‰ikeet, lukot ja semaforit. \verb+Queue+-moduuli tarjoaa turvallisen tavan s‰ikeiden k‰sittelyyn.
+Pythonissa on tuki rinnakkaiselle ohjelmoinnille. Kielen standardikirjaston \verb+threading+-moduuli tarjoaa t‰h‰n esimerkiksi s‰ikeet, lukot ja semaforit \cite{threading}, ja \verb+Queue+-moduuli tarjoaa turvallisen tavan s‰ikeiden k‰sittelyyn \cite{queue}. CPythonissa, joka on laajimmin k‰ytetty Pythonin toteutus, s‰ikeet eiv‰t kuitenkaan voi olla suoritettavina samanaikaisesti, sill‰ CPythonin muistinhallinta ei ole s‰ieturvallinen \cite{gil}.
 
 \section{Etuja ja haittoja}
 
