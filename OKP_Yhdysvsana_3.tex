@@ -26,12 +26,13 @@
 \subsection{COBOL}
 
 \subsubsection{Alkeis- ja perustyypit}
+COBOLissa muuttujat ovat tyypilt‰‰n aakkosellisia (alphabetic), numeerisia (numeric), muokattu numeerinen (numeric-edited), aakkosnumeerinen (alphanumeric), kanji ja muokattu kanji (kanji-edited).
 
 Kielen eri toteutuksille yhten‰isten perustyyppien lis‰ksi COBOLin k‰‰nt‰jien toteuttajat ja levitt‰j‰t tarjoavat usein lis‰‰ valmiita perustyyppej‰ \cite{wikipediacobol}. Suurin osa tarjoaa esimerkiksi osoittimet ja bittikent‰t (bit field).
 
 \subsubsection{Tyypitys}
 
-COBOLin tyypityksest‰ on ristiriitaisia k‰sityksi‰. Wikipedian \cite{wikipediacobol} mukaan COBOL on vahvasti ja staattisesti tyypitetty kieli. Michael Coughlanin COBOL Tutorial \cite{cobolintro} kuitenkin v‰itt‰‰, ettei k‰‰nt‰j‰ tee tyyppitarkistuksia, ja COBOL olisi heikosti tyypitetty. Coughlanin mukaan esimerkiksi ei-numeerinen arvo on mahdollista sijoittaa numeerista tietoa sis‰lt‰v‰‰n muuttujaan. Kun v‰‰r‰‰ tietotyyppi‰ sis‰lt‰v‰ll‰ muuttujalla yritet‰‰n tehd‰ laskutoimituksia, COBOL-ohjelma kaatuu suorituksenaikaiseen virheeseen.
+Michael Coughlanin COBOL Tutorialin \cite{cobolintro} mukaan k‰‰nt‰j‰ ei tee tyyppitarkistuksia, joten COBOL on siis heikosti tyypitetty kieli. Esimerkiksi ei-numeerinen arvo on mahdollista sijoittaa numeerista tietoa sis‰lt‰v‰‰n muuttujaan. Kun v‰‰r‰‰ tietotyyppi‰ sis‰lt‰v‰ll‰ muuttujalla yritet‰‰n tehd‰ laskutoimituksia, COBOL-ohjelma kaatuu suorituksenaikaiseen virheeseen. Muuttujat m‰‰ritell‰‰nkin siten, ett‰ niist‰ annetaan ik‰‰n kuin kuva, milt‰ niiden pit‰isi n‰ytt‰‰ --- t‰t‰ kuvaa m‰‰rittelyss‰ k‰ytetty \verb+PICTURE+-lauseke, joka suomentuu kuvaksi.
 
 COBOLin oliolaajennos, Object-Oriented COBOL, sis‰lt‰‰ sek‰ vahvan ett‰ heikon tyypityksen piirteit‰ \cite{objectorientedcobol}.
 
@@ -165,6 +166,27 @@ tarkoittaa, ett‰ kutsutaan ohjelmaa \verb+TOINEN+ ja v‰litet‰‰n parametrina muut
 sen sijaan tarkoittaa, ett‰ samaiselle aliohjelmalle v‰litet‰‰n parametrina viite muuttujaan \verb+OMA+.
 
 \subsubsection{Poikkeusk‰sittely ja rinnakkaisuus}
+COBOLissa ei ole yleist‰ virheiden k‰sittelyyn k‰ytett‰v‰‰ rakennetta, kuten \verb+try...catch+-lausetta. Virheet on siis k‰sitelt‰v‰ toisin --- esimerkiksi n‰in:
+
+\begin{verbatim}
+   IDENTIFICATION DIVISION.
+   PROGRAM-ID. VIRHE.
+   ENVIRONMENT DIVISION.
+   DATA DIVISION.
+   WORKING-STORAGE SECTION.
+   77 NUMERO   PIC S9(3).
+   PROCEDURE DIVISION.
+       ACCEPT NUMERO FROM CONSOLE.
+       IF NUMERO IS NUMERIC
+           DISPLAY "ANNOIT NUMERON"
+       ELSE
+           DISPLAY "VIRHE: ET ANTANUT NUMEROA"
+           STOP RUN
+       END-IF.
+       STOP RUN.
+\end{verbatim}
+
+Esimerkiss‰ hyv‰ksyt‰‰n k‰ytt‰j‰lt‰ syˆte, mink‰ j‰lkeen tarkistetaan, onko syˆte numeerinen ja tulostetaan virheviesti, jos mik‰li syˆte ei ole numeerinen.
 
 COBOLista puuttuu luontainen tuki rinnakkaislaskennalle \cite{lawlis}. Osa COBOLin v‰litt‰jist‰ tarjoaa uudempiin COBOLin versioihin apuv‰lineit‰ rinnakkaisuuden toteuttamista varten. Yksi t‰llainen on Micro Focus \cite{mfocus}.
 
