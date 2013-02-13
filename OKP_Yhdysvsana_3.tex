@@ -22,9 +22,9 @@
 \mytableofcontents
 
 \section{Tyyppij‰rjestelm‰t}
-
+Ohjelmointikielen tyypitys on hyvin olennaista ohjelmointikielen k‰ytˆss‰. Vahvalla ja heikolla tyypityksell‰ on omat vahvuutensa ja heikkoutensa.
 \subsection{COBOL}
-
+Vaikka COBOL n‰ytt‰‰ ulkoap‰in vahvasti tyypitetylt‰ ja Pythonin voisi kuvitella olevan heikosti tyypitetty --- totuus on kuitenkin p‰invastainen.
 \subsubsection{Alkeis- ja perustyypit}
 COBOLissa muuttujat ovat tyypilt‰‰n aakkosellisia (alphabetic), numeerisia (numeric), muokattu numeerinen (numeric-edited), aakkosnumeerinen (alphanumeric), kanji ja muokattu kanji (kanji-edited) \cite{cobolintro}.
 
@@ -37,7 +37,7 @@ Michael Coughlanin COBOL Tutorialin \cite{cobolintro} mukaan k‰‰nt‰j‰ ei tee tyy
 COBOLin oliolaajennos, Object-Oriented COBOL, sis‰lt‰‰ sek‰ vahvan ett‰ heikon tyypityksen piirteit‰ \cite{objectorientedcobol}.
 
 \subsection{Python}
-
+Pythonin tyypit eroavat huomattavasti COBOLin tyypeist‰.
 \subsubsection{Alkeis- ja perustyypit}
 
 Pythonissa ei ole erikseen alkeistyyppej‰, vaan Pythonissa kaikki on ilmaistu olioina tai olioiden v‰lisin‰ suhteina \cite{python2ref}. Jokaisella oliolla on \textit{identiteetti} (identity), tyyppi ja arvo. Identiteetti on olion luonnin j‰lkeen muuttumaton. Identiteetti‰ voidaan ajatella olion osoitteena muistissa. Myˆs olion tyyppi on muuttumaton. Tietyiss‰ kontrolloiduissa tilanteissa tyyppi‰ on mahdollista muuttaa, mutta usein tyyppimuunnoksilla voi olla odottamattomia seurauksia.
@@ -104,9 +104,9 @@ Esimerkiss‰ m‰‰ritell‰‰n kaksi luokkaa, \verb+Ankka+ ja \verb+Ihminen+ sek‰ funk
 Duck typingin lis‰ksi Pythonissa k‰ytet‰‰n tyyppip‰‰ttely‰ ennen versiota 3 \cite{python2ref}. Tyyppip‰‰ttelyn s‰‰nnˆt vaihtelevat Pythonin varhaisempien versioiden v‰lill‰ suuresti, jonka vuoksi ohjelmointikielen referenssi ei tarjoa tarkkaa tyyppip‰‰ttelys‰‰nnˆstˆ‰, vaan ainoastaan ep‰virallisia ohjenuoria. Pythonin versiosta 3 tyyppip‰‰ttely on kokonaan karsittu.
 
 \section{Laskennan kapselointi}
-
+Ohjelmiston jaottelu eri funktioihin ja aliohjelmiin on t‰rke‰ osa ohjelmointia. Kapseloimalla laskentaa voidaan koodissa tuoda esiin erilaisia abstraktion tasoja.
 \subsection{COBOL}
-
+COBOLissa ohjelmiston struktuuri on hyvin yksinkertainen, eik‰ se tarjoa samanlaisia moderneja toiminnallisuuksia kuin Python.
 \subsubsection{Parametriv‰litys}
 COBOLissa parametreja voidaan v‰litt‰‰ joko arvo- tai viiteparametreina. Kutsuja m‰‰ritt‰‰, v‰litet‰‰nkˆ parametri arvo- vai viitesemantiikalla. Kuvassa 1 n‰hd‰‰n esimerkki aliohjelmakutsuista.
 
