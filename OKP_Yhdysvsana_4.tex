@@ -25,7 +25,24 @@
 
 \subsection{COBOL}
 
+COBOLissa tietoa voidaan ryhmitell‰ muodostamalla tietueita (record) ja ryhmi‰ (group). \verb+DATA DIVISION+ -osiossa k‰ytett‰v‰t muuttujien tasonumerot (level number) m‰‰ritt‰v‰t, mink‰laisia kokonaisuuksia muuttujat muodostavat.
 
+
+
+\begin{samepage}
+\begin{verbatim}
+    DATA DIVISION.
+    WORKING-STORAGE SECTION.
+    01 OPISKELIJA.
+       05 NIMI.
+           10 ETUNIMI  PIC A(20).
+           10 SUKUNIMI PIC A(20).
+       05 NUMERO       PIC 9(15).
+       05 SUKUPUOLI    PIC A.
+           88 MIES     VALUE "M".
+           88 NAINEN   VALUE "N".
+\end{verbatim}
+\end{samepage}
 
 \subsection{Python}
 
