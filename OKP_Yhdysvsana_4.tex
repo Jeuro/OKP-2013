@@ -25,9 +25,7 @@
 
 \subsection{COBOL}
 
-COBOLissa tietoa voidaan ryhmitell‰ muodostamalla tietueita (record) ja ryhmi‰ (group). \verb+DATA DIVISION+ -osiossa k‰ytett‰v‰t muuttujien tasonumerot (level number) m‰‰ritt‰v‰t, mink‰laisia kokonaisuuksia muuttujat muodostavat.
-
-
+COBOLissa tietoa voidaan ryhmitell‰ muodostamalla tietueita (record) ja ryhmi‰ (group). \verb+DATA DIVISION+ -osiossa k‰ytett‰v‰t muuttujien tasonumerot (level number) m‰‰ritt‰v‰t, mink‰laisia kokonaisuuksia muuttujat muodostavat. Seuraavassa esimerkiss‰ on kuvattu opiskelijatietue.
 
 \begin{samepage}
 \begin{verbatim}
@@ -43,6 +41,10 @@ COBOLissa tietoa voidaan ryhmitell‰ muodostamalla tietueita (record) ja ryhmi‰ (
            88 NAINEN   VALUE "N".
 \end{verbatim}
 \end{samepage}
+
+\verb+OPISKELIJA+ on tietue, joka koostuu nimest‰, opiskelijanumerosta ja sukupuolesta. Nimi on jaettu kahteen osaan: etunimi ja sukunimi.
+
+Tasonumerot kuvaavat tiedon hierarkian, mutta tietyill‰ numeroilla on erityismerkitys. Hierarkiaa kuvaavat tasonumerot 02-49. Tasonumero 01 tarkoittaa, ett‰ kyseess‰ on tietue. Merkitsem‰ll‰ tasonumeroksi 66 voidaan edelt‰v‰lle muuttujalle antaa toinen nimi. 77 kuvaa muuttujaa, joka ei ole osa mit‰‰n rakennetta. Tason 88 avulla voidaan m‰‰ritt‰‰ muuttujaan liittyvi‰ ehtoja: yll‰ olevassa esimerkiss‰ opiskelijan sukupuoli on mies, jos muuttujan \verb+SUKUPUOLI+ arvo on M, ja nainen, jos arvo on N \cite[s. I-84]{ansicobol74}.
 
 \subsection{Python}
 
