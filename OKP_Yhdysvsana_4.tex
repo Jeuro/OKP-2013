@@ -82,7 +82,38 @@ Teron muistilistaa ep‰m‰‰r‰isiin l‰hteisiin:
 
 \subsection{Python}
 
+Pythonissa muuttujien arvot ovat viitteit‰ olioihin, ja kaikki esitet‰‰n olioina tai olioiden v‰lisin‰ suhteina \cite{}. 
 
+Pythonin tarjoamia sekvenssityyppej‰ ovat muun muassa lista (list) ja monikko (tuple). Muita kielen tietorakenteita ovat esimerkiksi joukko (set) ja hajautustaulu (dictionary).
+ 
+\textit{Listan} alkiot erotellaan pilkuilla ja lista ymp‰rˆid‰‰n hakasuluilla. Listan alkioiden ei tarvitse olla kesken‰‰n samaa tyyppi‰ \cite{lists}. Listan sis‰ltˆ on muokattavissa sen luomisen j‰lkeen.
+
+Pythonissa on myˆs funktionaaliselle ohjelmoinnille tyypillisi‰ funktioita, jotka ovat hyˆdyllisi‰ listojen k‰sittelyss‰: \verb+map+, \verb+filter+ ja \verb+reduce+. Listakomprehensioilla (list comprehension) voidaan 
+
+\textit{Monikkoa} ymp‰rˆiv‰t kaarisulut, ja alkiot erotellaan toisistaan pilkuilla. Toisin kuin listan tapauksessa, kerran luotua monikkoa ei voi muokata \cite{data}. Monikko voi kuitenkin sis‰lt‰‰ muuttuvia tietotyyppej‰, kuten listoja. Monikon sis‰ll‰ voi myˆs olla toisia monikkoja.
+
+Seuraavassa esimerkiss‰ puretaan monikko:
+
+\begin{verbatim}
+>>> monikko = ("a", 123, 3.14)
+>>> x, y, z = monikko
+>>> x
+"a"
+>>> y
+123
+>>> z
+3.14
+\end{verbatim}
+
+Joukko on j‰rjest‰m‰tˆn tietorakenne, ja se voi sis‰lt‰‰ saman alkion korkeintaan kerran. Joukkojen k‰sittelemiseen k‰ytˆss‰ ovat matemaattiset joukko-operaatiot, kuten yhdiste, leikkaus ja erotus. Python tukee myˆs joukkokomprehensioita (set comprehension), jotka toimivat listakomprehensioiden tapaan: 
+
+\begin{verbatim}
+>>> joukko = {x for x in "nakkivanukas" if x not in "aeiouy‰ˆ"}
+>>> joukko
+set(['k', 'v', 's', 'n'])
+\end{verbatim}
+
+Esimerkiss‰ luodaan joukko, joka sis‰lt‰‰ merkkijonon \verb+nakkivanukas+ ne merkit, jotka eiv‰t ole pieni‰ vokaaleja. Kukin merkki esiintyy joukossa vain kerran.
 
 \section{Etuja ja haittoja}
 
