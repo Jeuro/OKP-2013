@@ -1,0 +1,103 @@
+\documentclass{tktltiki}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{caption}
+
+\begin{document}
+%\doublespacing
+%\singlespacing
+\onehalfspacing
+
+\title{COBOL ja Python: Datan kapselointi}
+\author{Erkki Heino, Tero Huomo, Eeva Terkki}
+\date{\today}
+
+\maketitle
+
+
+\mytableofcontents
+
+\section{Datan kapselointi}
+
+\subsection{COBOL}
+
+COBOLissa tietoa voidaan ryhmitell‰ muodostamalla tietueita (record) ja ryhmi‰ (group). \verb+DATA DIVISION+ -osiossa k‰ytett‰v‰t muuttujien tasonumerot (level number) m‰‰ritt‰v‰t, mink‰laisia kokonaisuuksia muuttujat muodostavat. Seuraavassa esimerkiss‰ on kuvattu opiskelijatietue.
+
+\begin{samepage}
+\begin{verbatim}
+    DATA DIVISION.
+    WORKING-STORAGE SECTION.
+    01 OPISKELIJA.
+       05 NIMI.
+           10 ETUNIMI  PIC A(10).
+           10 SUKUNIMI PIC A(10).
+       05 NUMERO       PIC 9(10).
+       05 SUKUPUOLI    PIC A.
+           88 MIES     VALUE "M".
+           88 NAINEN   VALUE "N".
+\end{verbatim}
+\end{samepage}
+
+\verb+OPISKELIJA+ on tietue, joka koostuu nimest‰, opiskelijanumerosta ja sukupuolesta. Nimi on jaettu kahteen osaan: etunimi ja sukunimi.
+
+Tasonumerot kuvaavat tiedon hierarkian, mutta tietyill‰ numeroilla on erityismerkitys. Hierarkiaa kuvaavat tasonumerot 02-49. Tasonumero 01 tarkoittaa, ett‰ kyseess‰ on tietue. Merkitsem‰ll‰ tasonumeroksi 66 voidaan edelt‰v‰lle muuttujalle antaa toinen nimi. 77 kuvaa muuttujaa, joka ei ole osa mit‰‰n rakennetta. Tason 88 avulla voidaan m‰‰ritt‰‰ muuttujaan liittyvi‰ ehtoja: yll‰ olevassa esimerkiss‰ opiskelijan sukupuoli on mies, jos muuttujan \verb+SUKUPUOLI+ arvo on M, ja nainen, jos arvo on N \cite[s. I-84]{ansicobol74}. Esimerkiksi voitaisiin tarkistaa, onko opiskelija mies:
+
+\verb+IF MIES OF OPISKELIJA+
+
+Todellisuudessa tietue ei ole juuri muuta kuin merkkijono, jonka eri osat kuvaavat tietueen kentti‰. Tietueelle voidan antaa arvot kentt‰ kerrallaan:
+
+\verb+MOVE "ARTO" TO ETUNIMI OF OPISKELIJA.+
+
+Toisaalta koko tietueelle voidaan antaa arvo kerralla:
+
+\verb+MOVE "ARTO      WIKLA     1234567890M" TO OPISKELIJA.+
+
+Esimerkin tietue sis‰lt‰‰ kerrallaan yhden opiskelijan tiedon --- t‰llaisenaan koodissa ei siis voida k‰sitell‰ useampaa opiskelijaa samanaikaisesti. Rakenne voidaan m‰‰ritell‰ taulukoksi (table), jolloin samaa rakennetta voidaan k‰ytt‰‰ useamman samanrakenteisen tiedon k‰sittelemiseen ilman saman rakenteen uudelleenm‰‰rittely‰.
+
+Muuttuja m‰‰ritell‰‰n taulukoksi \verb+OCCURS+-lauseen avulla. \verb+OPISKELIJA+ voitaisiin muuttaa taulukoksi muokkaamalla m‰‰rittely‰ seuraavasti:
+\begin{verbatim}
+01 OPISKELIJA OCCURS 5 TIMES.
+\end{verbatim}
+Esimerkiksi taulukon toiseen opiskelijaan viitattaisiin indeksill‰ 2: \verb+OPISKELIJA(2)+. Taulukon sis‰ll‰ voidaan myˆs m‰‰ritell‰ sis‰kk‰isi‰ taulukoita.
+
+\subsubsection{Olio-orientoitunut COBOL}
+
+COBOL ei alunperin ole olio-ohjelmointikielin, vaan tieto kapseloitiin tietueisiin ja ryhmiin. COBOLista on kuitenkin kehittynyt olio-ohjelmoinnin mahdollistava laajennos, Object-oriented COBOL, joka on lis‰nnyt kieleen olio-ohjelmoinnin t‰rkeimm‰t piirteet.
+
+Teron muistilistaa ep‰m‰‰r‰isiin l‰hteisiin:
+
+- http://supportline.microfocus.com/documentation/books/sx20books/opintr.htm
+
+-  http://www.objs.com/x3h7/oocobol.htm
+
+- http://supportline.microfocus.com/documentation/books/nx60/opconc.htm
+
+
+(IBM:n Enterprise COBOL tukee myˆs olioita, mutta OO COBOLista eroten est‰‰ moniperinn‰n.
+- http://pic.dhe.ibm.com/infocenter/pdthelp/v1r1/index.jsp?topic=%2Fcom.ibm.entcobol.doc_3.4%2Ftpoot30.htm
+
+\subsection{Python}
+
+
+
+\section{Etuja ja haittoja}
+
+
+\newpage
+ 
+\bibliographystyle{tktl}
+\bibliography{lahteet}
+
+\lastpage
+
+\appendices
+
+\pagestyle{empty}
+
+%\internalappendix{1}{Malli ABC}
+
+\end{document}
