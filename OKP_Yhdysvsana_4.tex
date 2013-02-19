@@ -64,26 +64,29 @@ Muuttuja m‰‰ritell‰‰n taulukoksi \verb+OCCURS+-lauseen avulla. \verb+OPISKELIJA+
 \end{verbatim}
 Esimerkiksi taulukon toiseen opiskelijaan viitattaisiin indeksill‰ 2: \verb+OPISKELIJA(2)+. Taulukon sis‰ll‰ voidaan myˆs m‰‰ritell‰ sis‰kk‰isi‰ taulukoita.
 
-\subsubsection{Olio-orientoitunut COBOL}
+\subsubsection{Object-Oriented COBOL}
 
-COBOL ei alunperin ole olio-ohjelmointikielin, vaan tieto kapseloitiin tietueisiin ja ryhmiin. COBOLista on kuitenkin kehittynyt olio-ohjelmoinnin mahdollistava laajennos, Object-oriented COBOL, joka on lis‰nnyt kieleen olio-ohjelmoinnin t‰rkeimm‰t piirteet.
+COBOL ei alunperin ole olio-ohjelmointikieli. COBOLista on kuitenkin kehitetty olio-ohjelmoinnin mahdollistava laajennus, Object-oriented COBOL. Ensimm‰iset oliolaajennukset COBOLiin tehtiin jo vuonna 1997 \cite{wikipediacobol}. Kielt‰ laajensivat esimerkiksi Micro Focus sek‰ IBM. Lopullinen ISO standardi Object-Oriented COBOLille tehtiin vuonna 2002.
 
-Teron muistilistaa ep‰m‰‰r‰isiin l‰hteisiin:
+Object-Oriented COBOL (jatkossa OO COBOL) lis‰‰ kieleen kolme olio-ohjelmointikielen perustavanlaatuista ominaisuutta - tiedon kapseloinnin, perinn‰n sek‰ polymorfismin. Olio-ohjelmoinnin lis‰yksien syntaksi sek‰ tarjotut ominaisuudet vaihtelevat suuresti eri toteuttajien v‰lill‰. Niiden yhten‰isyys vuoden 2002 ISO standardin kanssa on vaihteleva.
 
-- http://supportline.microfocus.com/documentation/books/sx20books/opintr.htm
+Olio-laajennoksen t‰rkeimpi‰ lis‰yksi‰ on mahdollisuus luokkien ja olioiden m‰‰rittelyyn. Kuten normaali COBOL-ohjelma, luokka m‰‰ritell‰‰n nelj‰n \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} ovat hyvin samankaltaisia. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sek‰ mahdolliset periytymisest‰ kertovat tiedot. Luokan yhteinen tietosis‰ltˆ ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosis‰ltˆ ja metodit \verb+OBJECT+-osiossa. \verb+FACTORY+ ja \verb+OBJECT+ -osiot jakautuvat edelleen vanhemmista COBOL-versioista tuttuihin \verb+DATA DIVISION+ ja \verb+PROCEDURE DIVISON+ osioihin.
 
--  http://www.objs.com/x3h7/oocobol.htm
+Olioiden metodien kutsumiseksi on OO COBOLiin lis‰tty avainsana \verb+INVOKE+.
 
-- http://supportline.microfocus.com/documentation/books/nx60/opconc.htm
+\begin{verbatim}
+INVOKE ARTONTILI "TALLETA" USING KATEINEN RETURNING KUITTI
+\end{verbatim}
 
+Esimerkiss‰ kutstutaan olion \verb+ARTONTILI+ metodia \verb+TALLETA+, jolle annetaan parametriksi muuttujan \verb+KATEINEN+ arvo. Metodin palauttama arvo sijoitetaan muuttujaan \verb+KUITTI+.
 
-(IBM:n Enterprise COBOL tukee myˆs olioita, mutta OO COBOLista eroten est‰‰ moniperinn‰n.
-- http://pic.dhe.ibm.com/infocenter/pdthelp/v1r1/index.jsp?topic=%2Fcom.ibm.entcobol.doc_3.4%2Ftpoot30.htm
+Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COBOL ei mahdollista moniperint‰‰, mutta luokat voivat toteuttaa Javan tyyliin usean rajapinnan \cite{mfcobol}. IBM:n Enterprise COBOL ei m‰‰rittele dokumentoinnissa rajapintoja lainkaan, mutta est‰‰ moniperinn‰n \cite{ibmcobol}. Michael Kastenin \cite{kasten} mukaan C++:n tavoin IBM:n OO COBOL kuitenkin  luettelisi erilaisia s‰‰ntˆj‰, joilla usean luokan yht‰aikaista perimisest‰ kumpuava niin kutsuttu timanttiongelma ratkaistaan. T‰st‰ voidaan p‰‰tell‰, ett‰ OO COBOL on myˆs tukenut moniperint‰‰. Myˆs Micro Focus'n varhainen dokumentaatio mainitsee moniperinn‰n tuen \cite{mfcobolold}.
 
 \subsection{Python}
 
 Pythonissa muuttujien arvot ovat viitteit‰ olioihin, ja kaikki esitet‰‰n olioina tai olioiden v‰lisin‰ suhteina \cite{}. 
 
+\subsubsection{Rakenteiset tyypit}
 Pythonin tarjoamia sekvenssityyppej‰ ovat muun muassa lista (list) ja monikko (tuple). Muita kielen tietorakenteita ovat esimerkiksi joukko (set) ja hajautustaulu (dictionary).
  
 \textit{Listan} alkiot erotellaan pilkuilla ja lista ymp‰rˆid‰‰n hakasuluilla. Listan alkioiden ei tarvitse olla kesken‰‰n samaa tyyppi‰ \cite{lists}. Listan sis‰ltˆ on muokattavissa sen luomisen j‰lkeen.
@@ -114,6 +117,32 @@ set(['k', 'v', 's', 'n'])
 \end{verbatim}
 
 Esimerkiss‰ luodaan joukko, joka sis‰lt‰‰ merkkijonon \verb+nakkivanukas+ ne merkit, jotka eiv‰t ole pieni‰ vokaaleja. Kukin merkki esiintyy joukossa vain kerran.
+
+\subsubsection{Oliot ja luokat}
+
+Ennen versiota 2.2 Pythonin luokat erosivat hieman nykyisist‰ luokista. Itse asiassa vanhanmalliset luokat olivat k‰ytˆss‰ rinnakkain uudenmallisten luokkien kanssa Python 3:een asti \cite{python2ref}. Seuraavassa k‰sitell‰‰n uudenmallisia luokkia, ellei toisin mainita.
+
+Python on dynaaminen kieli ja sen oliot ovat hyvin joustavia. Luokka m‰‰ritell‰‰n seuraavalla tavalla:
+
+\begin{verbatim}
+class Luokka(object):
+    def __init__(self, parametri):
+        self.muuttuja = parametri
+\end{verbatim}
+
+Yll‰ olevan esimerkin luokassa on m‰‰ritelty myˆs konstrukorinomainen \verb+__init__+-metodi. T‰t‰ metodia kutsutaan olion luomisen yhteydess‰. Esimerkin luokasta luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei m‰‰ritet‰ tyyppi‰, joten esimerkinkin metodi hyv‰ksyy mink‰ tyyppisen muuttujan tahansa --- t‰ss‰ tapauksessa merkkijonon. \verb+__init__+metodia ei kuitenkaan vaadita luokan m‰‰rittelyss‰.
+
+Muuttujille ja metodeille ei voi m‰‰ritt‰‰ n‰kyvyysalueita: kaikki luokan muuttujat ja metodit ovat k‰ytett‰viss‰ kaikkialla, miss‰ luokka on k‰ytett‰viss‰. Konvention mukaan muuttujat ja metodit, joita ei ole tarkoitettu k‰ytett‰v‰ksi luokan ulkopuolella, nimet‰‰n siten, ett‰ ne alkavat alaviivalla. T‰m‰ ei kuitenkaan est‰ niiden k‰yttˆ‰.
+
+Olion muuttujat sijaitsevat assosiaatiotaulussa. 
+
+- x.y() = X.y(x)
+
+\subsection{Periytyminen}
+
+Python tukee moniperint‰‰. 
+
+- yl‰luokan init pit‰‰ kutsua eksplisiittisesti
 
 \section{Etuja ja haittoja}
 
