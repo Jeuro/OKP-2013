@@ -84,7 +84,31 @@ Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COB
 
 \subsection{Python}
 
+\subsection{Oliot ja luokat}
 
+Ennen versiota 2.2 Pythonin luokat erosivat hieman nykyisist‰ luokista. Itse asiassa vanhanmalliset luokat olivat k‰ytˆss‰ rinnakkain uudenmallisten luokkien kanssa Python 3:een asti \cite{python2ref}. Seuraavassa k‰sitell‰‰n uudenmallisia luokkia, ellei toisin mainita.
+
+Python on dynaaminen kieli ja sen oliot ovat hyvin joustavia. Luokka m‰‰ritell‰‰n seuraavalla tavalla:
+
+\begin{verbatim}
+class Luokka(object):
+    def __init__(self, parametri):
+        self.muuttuja = parametri
+\end{verbatim}
+
+Yll‰ olevan esimerkin luokassa on m‰‰ritelty myˆs konstrukorinomainen \verb+__init__+-metodi. T‰t‰ metodia kutsutaan olion luomisen yhteydess‰. Esimerkin luokasta luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei m‰‰ritet‰ tyyppi‰, joten esimerkinkin metodi hyv‰ksyy mink‰ tyyppisen muuttujan tahansa --- t‰ss‰ tapauksessa merkkijonon. \verb+__init__+metodia ei kuitenkaan vaadita luokan m‰‰rittelyss‰.
+
+Muuttujille ja metodeille ei voi m‰‰ritt‰‰ n‰kyvyysalueita: kaikki luokan muuttujat ja metodit ovat k‰ytett‰viss‰ kaikkialla, miss‰ luokka on k‰ytett‰viss‰. Konvention mukaan muuttujat ja metodit, joita ei ole tarkoitettu k‰ytett‰v‰ksi luokan ulkopuolella, nimet‰‰n siten, ett‰ ne alkavat alaviivalla. T‰m‰ ei kuitenkaan est‰ niiden k‰yttˆ‰.
+
+Olion muuttujat sijaitsevat assosiaatiotaulussa. 
+
+- x.y() = X.y(x)
+
+\subsection{Periytyminen}
+
+Python tukee moniperint‰‰. 
+
+- yl‰luokan init pit‰‰ kutsua eksplisiittisesti
 
 \section{Etuja ja haittoja}
 
