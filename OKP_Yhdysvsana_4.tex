@@ -70,7 +70,7 @@ COBOL ei alunperin ole olio-ohjelmointikieli. COBOLista on kuitenkin kehitetty o
 
 Object-Oriented COBOL (jatkossa OO COBOL) lisää kieleen kolme olio-ohjelmointikielen perustavanlaatuista ominaisuutta - tiedon kapseloinnin, perinnän sekä polymorfismin. Olio-ohjelmoinnin lisäyksien syntaksi sekä tarjotut ominaisuudet vaihtelevat suuresti eri toteuttajien välillä. Niiden yhtenäisyys vuoden 2002 ISO standardin kanssa on vaihteleva.
 
-Olio-laajennoksen tärkeimpiä lisäyksiä on mahdollisuus luokkien ja olioiden määrittelyyn. Kuten normaali COBOL-ohjelma, luokka määritellään neljän \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} vastaavat pitkälti toisiaan. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sekä mahdolliset periytymisestä kertovat tiedot. Luokan yhteinen tietosisältö ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosisältö ja metodit \verb+OBJECT+-osiossa. Muihin luokkiin viittaamiseen on varattu erillinen \verb+REPOSITORY+-osio.
+Oliolaajennoksen tärkeimpiä lisäyksiä on mahdollisuus luokkien ja olioiden määrittelyyn. Kuten normaali COBOL-ohjelma, luokka määritellään neljän \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} vastaavat pitkälti toisiaan. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sekä mahdolliset periytymisestä kertovat tiedot. Luokan yhteinen tietosisältö ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosisältö ja metodit \verb+OBJECT+-osiossa. Muihin luokkiin viittaamiseen on varattu erillinen \verb+REPOSITORY+-osio.
 
 Olioiden metodien kutsumiseksi on OO COBOLiin lisätty avainsana \verb+INVOKE+.
 
@@ -78,7 +78,7 @@ Olioiden metodien kutsumiseksi on OO COBOLiin lisätty avainsana \verb+INVOKE+.
 INVOKE ARTONTILI "TALLETA" USING KATEINEN RETURNING KUITTI
 \end{verbatim}
 
-Esimerkissä kutstutaan olion \verb+ARTONTILI+ metodia \verb+TALLETA+, jolle annetaan parametriksi muuttujan \verb+KATEINEN+ arvo. Metodin palauttama arvo sijoitetaan muuttujaan \verb+KUITTI+.
+Esimerkissä kutsutaan olion \verb+ARTONTILI+ metodia \verb+TALLETA+, jolle annetaan parametriksi muuttujan \verb+KATEINEN+ arvo. Metodin palauttama arvo sijoitetaan muuttujaan \verb+KUITTI+.
 
 Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COBOL ei mahdollista moniperintää, mutta luokat voivat toteuttaa Javan tyyliin usean rajapinnan \cite{mfcobol}. IBM:n Enterprise COBOL ei määrittele dokumentoinnissa rajapintoja lainkaan, mutta estää moniperinnän \cite{ibmcobol}. Michael Kastenin \cite{kasten} mukaan C++:n tavoin IBM:n OO COBOL kuitenkin  luettelisi erilaisia sääntöjä, joilla usean luokan yhtäaikaista perimisestä kumpuava niin kutsuttu timanttiongelma ratkaistaan. Tästä voidaan päätellä, että OO COBOL on myös tukenut moniperintää. Myös Micro Focus'n varhainen dokumentaatio mainitsee moniperinnän tuen \cite{mfcobolold}.
 
@@ -91,7 +91,7 @@ Pythonin tarjoamia sekvenssityyppejä ovat muun muassa lista (\verb+list+) ja mon
  
 \textit{Lista} muistuttaa jossain määrin Javan \verb+ArrayList+ia. Listan alkioiden ei kuitenkaan tarvitse olla keskenään samaa tyyppiä \cite{lists}. Listan alkiot erotellaan toisistaan pilkuilla ja listaa ympäröivät hakasulut. Merkintä \verb+[]+ tarkoittaa tyhjää listaa. Listan sisältöä voi muokata sen luomisen jälkeen.
 
-Listoja voi käsitellä monella tavalla. Listaa voidaan esimerkiksi järjestää ja listan alkioita voi lisätä ja poistaa. Listan muokkaamiseen tarkoitettujen metodien lisäksi Pythonissa on listojen käsittelyyn myös funktionaaliselle ohjelmoinnille tyypillisiä funktioita, kuten \verb+map+ ja \verb+filter+. Funktio \verb+map+ saa parametrina funktion ja iteroitavan olion. Funktiota käytetään iteroitavan olion alkioihin, ja \verb+map+-funktio palauttaa näistä tuloksista koostuvan listan. Funktio \verb+filter+ saa myös parametreina funktion ja iteroitavan olion. Se muodostaa listan niistä alkioista, joille parametrina saatu funktio palauttaa arvon \verb+true+. Seuraavassa esimerkissä \verb+map+-funktiolla luodaan luvun kaksi potensseja sisältävä lista:
+Listoja voi käsitellä monella tavalla. Listaa voidaan esimerkiksi järjestää ja listan alkioita voi lisätä ja poistaa. Listan muokkaamiseen tarkoitettujen metodien lisäksi Pythonissa on listojen käsittelyyn myös funktionaaliselle ohjelmoinnille tyypillisiä funktioita, kuten \verb+map+ ja \verb+filter+. Funktio \verb+map+ saa parametrina funktion ja iteroitavan olion. Funktiota käytetään iteroitavan olion alkioihin, ja \verb+map+-funktio palauttaa näistä tuloksista koostuvan listan. Funktio \verb+filter+ saa myös parametreina funktion ja iteroitavan olion. Se muodostaa listan niistä alkioista, joille parametrina saatu funktio palauttaa arvon \verb+True+. Seuraavassa esimerkissä \verb+map+-funktiolla luodaan luvun kaksi potensseja sisältävä lista:
 
 \begin{verbatim}
 >>> map(lambda x: 2**x, range(0, 11))
@@ -229,9 +229,9 @@ Python tukee moniperintää.
 
 \section{Etuja ja haittoja}
 
-COBOLin olio-ohjelmoinnin mahdollistava laajennus on monimutkaistaa COBOLin syntaksia entisestään. Lisäksi COBOLille tyypillisesti jo yksinkertaisten luokkien määritteleminen tuottaa huomattavan paljon luettavaa koodia, jos vertailukohteena on esimerkiksi Javan tai varsinkin Pythonin tiivis ilmaisutapa.
+COBOLin olio-ohjelmoinnin mahdollistava laajennus on monimutkaistaa COBOLin syntaksia entisestään. Lisäksi COBOLille tyypillisesti jo yksinkertaisten luokkien määritteleminen tuottaa huomattavan paljon koodirivejä, jos vertailukohteena on esimerkiksi Javan tai varsinkin Pythonin tiivis ilmaisutapa.
 
-Object-Oriented COBOLin toteutukset ovat monimuotoisia ja poikkeavat toisistaan ominaisuuksiltaan. On mahdollista kiistellä, onko IBM:n toteutuksessa mahdollista käyttää polymorfismia kovinkaan laajasti, sillä kielen referenssissä ei ole lainkaan kuvailtu rajapintoja. Lisäksi muun muassa Micro Focus tukee COBOLin yhteistyötä C-kielen kanssa, kun taas IBM mahdollistaa Javan ja COBOLin yhdistämisen. Yhteistyötuki eri kielten välille muuttamat implementaatiota suuresti.
+Object-Oriented COBOLin toteutukset ovat monimuotoisia ja poikkeavat toisistaan ominaisuuksiltaan. Voidaan kiistellä, mahdollistaako IBM:n toteutus polymorfismia kovinkaan laajasti, sillä kielen referenssissä ei ole lainkaan kuvailtu rajapintoja. Lisäksi muun muassa Micro Focus tukee COBOLin yhteistyötä C-kielen kanssa, kun taas IBM mahdollistaa Javan ja COBOLin yhdistämisen. Yhteistyötuki eri kielten välille lisäävät eroja implementaatioiden välille.
 
 
 \newpage
