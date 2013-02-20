@@ -130,11 +130,35 @@ class Luokka(object):
         self.muuttuja = parametri
 \end{verbatim}
 
-Yllä olevan esimerkin luokassa on määritelty myös konstrukorinomainen \verb+__init__+-metodi. Tätä metodia kutsutaan olion luomisen yhteydessä. Esimerkin luokasta luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei määritetä tyyppiä, joten esimerkinkin metodi hyväksyy minkä tyyppisen muuttujan tahansa --- tässä tapauksessa merkkijonon. \verb+__init__+metodia ei kuitenkaan vaadita luokan määrittelyssä.
+Yllä olevan esimerkin luokassa on määritelty myös konstrukorinomainen \verb+__init__+-metodi. Tätä metodia kutsutaan olion luomisen yhteydessä. Metodi saa ensimmäisenä parametrinaan (self) luokan ilmentymän. Luokasta \verb+Luokka+ luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei määritetä tyyppiä, joten esimerkinkin metodi hyväksyy minkä tyyppisen muuttujan tahansa --- tässä tapauksessa merkkijonon. \verb+__init__+-metodia ei kuitenkaan vaadita luokan määrittelyssä.
+
+Muuttujaa \verb+muuttuja+ ei ole määritelty \verb+__init__+-metodin ulkopuolella. Muuttujia voidaan määritellä myös metodin ulkopuolella, mutta silloin ne ovat käytettävissä myös ilman luokan instanssia.
 
 Muuttujille ja metodeille ei voi määrittää näkyvyysalueita: kaikki luokan muuttujat ja metodit ovat käytettävissä kaikkialla, missä luokka on käytettävissä. Konvention mukaan muuttujat ja metodit, joita ei ole tarkoitettu käytettäväksi luokan ulkopuolella, nimetään siten, että ne alkavat alaviivalla. Tämä ei kuitenkaan estä niiden käyttöä.
 
-Olion muuttujat sijaitsevat assosiaatiotaulussa. 
+Itse asiassa luokkia tai niiden ilmentymiä ei ole mitenkään suojattu muutoksilta: niiden muuttujia ja metodeja voidaan korvata ja uusia lisätä täysin vapaasti. Jos esimerkiksi luokan \verb+Luokka+ \verb+__init__+-metodi ei miellytä, sen voi korvata vaikka seuraavasti:
+
+\begin{verbatim}
+>>> def uusi_init(self):
+        print "Uusi metodi!"
+
+>>> Luokka.__init__ = uusi_init
+>>> l = Luokka()
+Uusi metodi!
+\end{verbatim}
+
+Metodin tai muuttujan voi myös poistaa: \verb+del Luokka.__init__+. Toisaalta myös täysin uuden metodin lisääminen onnistuu helposti:
+
+\begin{verbatim}
+>>> Luokka.puhu = uusi_init
+>>> l = Luokka()
+>>> l.puhu()
+Uusi metodi!
+\end{verbatim}
+
+- name mangling
+
+Olion muuttujat sijaitsevat assosiaatiotaulussa. Muuttu
 
 - x.y() = X.y(x)
 
