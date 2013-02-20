@@ -21,9 +21,9 @@
 
 \mytableofcontents
 
-\section{Datan kapselointi}
+\section{COBOL}
 
-\subsection{COBOL}
+\subsection{Perinteinen COBOL}
 
 COBOLissa tietoa voidaan ryhmitellä muodostamalla tietueita (record) ja ryhmiä (group). \verb+DATA DIVISION+ -osiossa käytettävät muuttujien tasonumerot (level number) määrittävät, minkälaisia kokonaisuuksia muuttujat muodostavat. Seuraavassa esimerkissä on kuvattu opiskelijatietue.
 
@@ -64,13 +64,13 @@ Muuttuja määritellään taulukoksi \verb+OCCURS+-lauseen avulla. \verb+OPISKELIJA+
 \end{verbatim}
 Esimerkiksi taulukon toiseen opiskelijaan viitattaisiin indeksillä 2: \verb+OPISKELIJA(2)+. Taulukon sisällä voidaan myös määritellä sisäkkäisiä taulukoita.
 
-\subsubsection{Object-Oriented COBOL}
+\subsection{COBOLin oliolaajennus}
 
 COBOL ei alunperin ole olio-ohjelmointikieli. COBOLista on kuitenkin kehitetty olio-ohjelmoinnin mahdollistava laajennus, Object-oriented COBOL. Ensimmäiset oliolaajennukset COBOLiin tehtiin jo vuonna 1997 \cite{wikipediacobol}. Kieltä laajensivat esimerkiksi Micro Focus sekä IBM. Lopullinen ISO standardi Object-Oriented COBOLille tehtiin vuonna 2002.
 
 Object-Oriented COBOL (jatkossa OO COBOL) lisää kieleen kolme olio-ohjelmointikielen perustavanlaatuista ominaisuutta - tiedon kapseloinnin, perinnän sekä polymorfismin. Olio-ohjelmoinnin lisäyksien syntaksi sekä tarjotut ominaisuudet vaihtelevat suuresti eri toteuttajien välillä. Niiden yhtenäisyys vuoden 2002 ISO standardin kanssa on vaihteleva.
 
-Olio-laajennoksen tärkeimpiä lisäyksiä on mahdollisuus luokkien ja olioiden määrittelyyn. Kuten normaali COBOL-ohjelma, luokka määritellään neljän \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} ovat hyvin samankaltaisia. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sekä mahdolliset periytymisestä kertovat tiedot. Luokan yhteinen tietosisältö ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosisältö ja metodit \verb+OBJECT+-osiossa. \verb+FACTORY+ ja \verb+OBJECT+ -osiot jakautuvat edelleen vanhemmista COBOL-versioista tuttuihin \verb+DATA DIVISION+ ja \verb+PROCEDURE DIVISON+ osioihin.
+Olio-laajennoksen tärkeimpiä lisäyksiä on mahdollisuus luokkien ja olioiden määrittelyyn. Kuten normaali COBOL-ohjelma, luokka määritellään neljän \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} vastaavat pitkälti toisiaan. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sekä mahdolliset periytymisestä kertovat tiedot. Luokan yhteinen tietosisältö ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosisältö ja metodit \verb+OBJECT+-osiossa. Muihin luokkiin viittaamiseen on varattu erillinen \verb+REPOSITORY+-osio.
 
 Olioiden metodien kutsumiseksi on OO COBOLiin lisätty avainsana \verb+INVOKE+.
 
@@ -82,11 +82,11 @@ Esimerkissä kutstutaan olion \verb+ARTONTILI+ metodia \verb+TALLETA+, jolle anne
 
 Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COBOL ei mahdollista moniperintää, mutta luokat voivat toteuttaa Javan tyyliin usean rajapinnan \cite{mfcobol}. IBM:n Enterprise COBOL ei määrittele dokumentoinnissa rajapintoja lainkaan, mutta estää moniperinnän \cite{ibmcobol}. Michael Kastenin \cite{kasten} mukaan C++:n tavoin IBM:n OO COBOL kuitenkin  luettelisi erilaisia sääntöjä, joilla usean luokan yhtäaikaista perimisestä kumpuava niin kutsuttu timanttiongelma ratkaistaan. Tästä voidaan päätellä, että OO COBOL on myös tukenut moniperintää. Myös Micro Focus'n varhainen dokumentaatio mainitsee moniperinnän tuen \cite{mfcobolold}.
 
-\subsection{Python}
+\section{Python}
 
 Pythonissa muuttujien arvot ovat viitteitä olioihin, ja kaikki esitetään olioina tai olioiden välisinä suhteina \cite{}. 
 
-\subsubsection{Rakenteiset tyypit}
+\subsection{Rakenteiset tyypit}
 Pythonin tarjoamia sekvenssityyppejä ovat muun muassa lista (list) ja monikko (tuple). Muita kielen tietorakenteita ovat esimerkiksi joukko (set) ja hajautustaulu (dictionary).
  
 \textit{Listan} alkiot erotellaan pilkuilla ja lista ympäröidään hakasuluilla. Listan alkioiden ei tarvitse olla keskenään samaa tyyppiä \cite{lists}. Listan sisältö on muokattavissa sen luomisen jälkeen.
@@ -118,7 +118,7 @@ set(['k', 'v', 's', 'n'])
 
 Esimerkissä luodaan joukko, joka sisältää merkkijonon \verb+nakkivanukas+ ne merkit, jotka eivät ole pieniä vokaaleja. Kukin merkki esiintyy joukossa vain kerran.
 
-\subsubsection{Oliot ja luokat}
+\subsection{Oliot ja luokat}
 
 Ennen versiota 2.2 Pythonin luokat erosivat hieman nykyisistä luokista. Itse asiassa vanhanmalliset luokat olivat käytössä rinnakkain uudenmallisten luokkien kanssa Python 3:een asti \cite{python2ref}. Seuraavassa käsitellään uudenmallisia luokkia, ellei toisin mainita.
 
