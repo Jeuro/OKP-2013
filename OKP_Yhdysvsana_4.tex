@@ -21,9 +21,9 @@
 
 \mytableofcontents
 
-\section{Datan kapselointi}
+\section{COBOL}
 
-\subsection{COBOL}
+\subsection{Perinteinen COBOL}
 
 COBOLissa tietoa voidaan ryhmitell‰ muodostamalla tietueita (record) ja ryhmi‰ (group). \verb+DATA DIVISION+ -osiossa k‰ytett‰v‰t muuttujien tasonumerot (level number) m‰‰ritt‰v‰t, mink‰laisia kokonaisuuksia muuttujat muodostavat. Seuraavassa esimerkiss‰ on kuvattu opiskelijatietue.
 
@@ -64,13 +64,13 @@ Muuttuja m‰‰ritell‰‰n taulukoksi \verb+OCCURS+-lauseen avulla. \verb+OPISKELIJA+
 \end{verbatim}
 Esimerkiksi taulukon toiseen opiskelijaan viitattaisiin indeksill‰ 2: \verb+OPISKELIJA(2)+. Taulukon sis‰ll‰ voidaan myˆs m‰‰ritell‰ sis‰kk‰isi‰ taulukoita.
 
-\subsubsection{Object-Oriented COBOL}
+\subsection{COBOLin oliolaajennus}
 
 COBOL ei alunperin ole olio-ohjelmointikieli. COBOLista on kuitenkin kehitetty olio-ohjelmoinnin mahdollistava laajennus, Object-oriented COBOL. Ensimm‰iset oliolaajennukset COBOLiin tehtiin jo vuonna 1997 \cite{wikipediacobol}. Kielt‰ laajensivat esimerkiksi Micro Focus sek‰ IBM. Lopullinen ISO standardi Object-Oriented COBOLille tehtiin vuonna 2002.
 
 Object-Oriented COBOL (jatkossa OO COBOL) lis‰‰ kieleen kolme olio-ohjelmointikielen perustavanlaatuista ominaisuutta - tiedon kapseloinnin, perinn‰n sek‰ polymorfismin. Olio-ohjelmoinnin lis‰yksien syntaksi sek‰ tarjotut ominaisuudet vaihtelevat suuresti eri toteuttajien v‰lill‰. Niiden yhten‰isyys vuoden 2002 ISO standardin kanssa on vaihteleva.
 
-Olio-laajennoksen t‰rkeimpi‰ lis‰yksi‰ on mahdollisuus luokkien ja olioiden m‰‰rittelyyn. Kuten normaali COBOL-ohjelma, luokka m‰‰ritell‰‰n nelj‰n \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} ovat hyvin samankaltaisia. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sek‰ mahdolliset periytymisest‰ kertovat tiedot. Luokan yhteinen tietosis‰ltˆ ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosis‰ltˆ ja metodit \verb+OBJECT+-osiossa. \verb+FACTORY+ ja \verb+OBJECT+ -osiot jakautuvat edelleen vanhemmista COBOL-versioista tuttuihin \verb+DATA DIVISION+ ja \verb+PROCEDURE DIVISON+ osioihin.
+Olio-laajennoksen t‰rkeimpi‰ lis‰yksi‰ on mahdollisuus luokkien ja olioiden m‰‰rittelyyn. Kuten normaali COBOL-ohjelma, luokka m‰‰ritell‰‰n nelj‰n \textit{osion} (division) avulla. IBM'n toteutus \cite{ibmcobol} ja Micro Focus'n toteutus \cite{mfcobol} vastaavat pitk‰lti toisiaan. \verb+IDENTIFICATION DIVISION+-osiossa ohjelman tunnuksen sijasta annetaan luokan tunnus, \verb+CLASS ID+, sek‰ mahdolliset periytymisest‰ kertovat tiedot. Luokan yhteinen tietosis‰ltˆ ja metodit luetellaan \verb+FACTORY+-osiossa, olioiden tietosis‰ltˆ ja metodit \verb+OBJECT+-osiossa. Muihin luokkiin viittaamiseen on varattu erillinen \verb+REPOSITORY+-osio.
 
 Olioiden metodien kutsumiseksi on OO COBOLiin lis‰tty avainsana \verb+INVOKE+.
 
@@ -82,12 +82,12 @@ Esimerkiss‰ kutstutaan olion \verb+ARTONTILI+ metodia \verb+TALLETA+, jolle anne
 
 Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COBOL ei mahdollista moniperint‰‰, mutta luokat voivat toteuttaa Javan tyyliin usean rajapinnan \cite{mfcobol}. IBM:n Enterprise COBOL ei m‰‰rittele dokumentoinnissa rajapintoja lainkaan, mutta est‰‰ moniperinn‰n \cite{ibmcobol}. Michael Kastenin \cite{kasten} mukaan C++:n tavoin IBM:n OO COBOL kuitenkin  luettelisi erilaisia s‰‰ntˆj‰, joilla usean luokan yht‰aikaista perimisest‰ kumpuava niin kutsuttu timanttiongelma ratkaistaan. T‰st‰ voidaan p‰‰tell‰, ett‰ OO COBOL on myˆs tukenut moniperint‰‰. Myˆs Micro Focus'n varhainen dokumentaatio mainitsee moniperinn‰n tuen \cite{mfcobolold}.
 
-\subsection{Python}
+\section{Python}
 
 Pythonissa muuttujien arvot ovat viitteit‰ olioihin, ja kieless‰ kaikki esitet‰‰n olioina tai olioiden v‰lisin‰ suhteina \cite{}. 
 
-\subsubsection{Rakenteiset tyypit}
-Pythonin tarjoamia sekvenssityyppej‰ ovat muun muassa lista (\verb+list+) ja monikko (\verb+tuple+). Muita kielen tietorakenteita ovat esimerkiksi joukko (\verb+set+) ja sanakirja (\verb+dict+). 
+\subsection{Rakenteiset tyypit}
+Pythonin tarjoamia sekvenssityyppej‰ ovat muun muassa lista (\verb+list+) ja monikko (\verb+tuple+). Muita kielen tietorakenteita ovat esimerkiksi joukko (\verb+set+) ja sanakirja (\verb+dict+).
  
 \textit{Lista} muistuttaa jossain m‰‰rin Javan \verb+ArrayList+ia. Listan alkioiden ei kuitenkaan tarvitse olla kesken‰‰n samaa tyyppi‰ \cite{lists}. Listan alkiot erotellaan toisistaan pilkuilla ja listaa ymp‰rˆiv‰t hakasulut. Merkint‰ \verb+[]+ tarkoittaa tyhj‰‰ listaa. Listan sis‰ltˆ‰ voi muokata sen luomisen j‰lkeen.
 
@@ -102,22 +102,27 @@ Pythonissa \verb+lambda+ m‰‰rittelee anonyymin funktion, jolla on t‰ss‰ esimerki
 
 Listakomprehensiot (list comprehension) ovat n‰pp‰r‰ tapa luoda listoja. Listakomprehensioita k‰ytet‰‰n samaan tarkoitukseen kuin \verb+map+- ja \verb+filter+-funktioita, mutta ne ilmaisevat asian tiiviimmin ja selke‰mmin. Listakomprehensioita voi olla myˆs sis‰kk‰in. Seuraavassa esimerkiss‰ luodaan listakomprehensiolla samanlainen lista, joka yll‰ luotiin \verb+map+-funktion avulla:
 
+\begin{samepage}
 \begin{verbatim}
 >>> [2**x for x in range(0, 11)]
 [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
 \end{verbatim}
+\end{samepage}
 
 Kun edellisen esimerkin listakomprehensioon lis‰t‰‰n ehtolause, voidaan luoda lista, joka sis‰lt‰‰ vain ne luvut, joissa eksponentti on parillinen:
 
+\begin{samepage}
 \begin{verbatim}
 >>> [2**x for x in range(0,11) if x % 2 == 0]
 [1, 4, 16, 64, 256, 1024]
 \end{verbatim}
+\end{samepage}
 
 \textit{Monikkoa} ymp‰rˆiv‰t kaarisulut, ja alkiot erotellaan toisistaan pilkuilla. Monikot muistuttavat hieman listoja, mutta niit‰ k‰ytet‰‰n yleens‰ eri tarkoituksiin. Toisin kuin listan tapauksessa, kerran luotua monikkoa ei voi muokata \cite{data}. Monikko voi kuitenkin sis‰lt‰‰ muuttuvia tietotyyppej‰, kuten listoja. Monikon alkiot voivat olla myˆs toisia monikkoja.
 
 Seuraava esimerkki esittelee monikon purkamista:
 
+\begin{samepage}
 \begin{verbatim}
 >>> monikko = ("a", 123, 3.14)
 >>> x, y, z = monikko
@@ -128,16 +133,19 @@ Seuraava esimerkki esittelee monikon purkamista:
 >>> z
 3.14
 \end{verbatim}
+\end{samepage}
 
 Esimerkiss‰ monikon alkiot sidotaan j‰rjestyksess‰ muuttujiin \verb+x+, \verb+y+ ja \verb+z+. Kun monikko puretaan, vasemmalla puolella on oltava yht‰ monta muuttujaa kuin monikossa on alkioita. Muussa tapauksessa tapahtuu suoritusaikainen virhe.
 
 \textit{Joukko} on j‰rjest‰m‰tˆn tietorakenne, ja se voi sis‰lt‰‰ saman alkion korkeintaan kerran. Joukkoihin voi k‰ytt‰‰ matemaattisia joukko-operaatioita, kuten yhdistett‰, leikkausta ja erotusta.  Python tukee myˆs joukkokomprehensioita (set comprehension), jotka toimivat listakomprehensioiden tapaan: 
 
+\begin{samepage}
 \begin{verbatim}
 >>> joukko = {x for x in "nakkivanukas" if x not in "aeiouy‰ˆ"}
 >>> joukko
 set(['k', 'v', 's', 'n'])
 \end{verbatim}
+\end{samepage}
 
 Esimerkiss‰ luodaan joukko, joka sis‰lt‰‰ merkkijonon \verb+nakkivanukas+ ne merkit, jotka eiv‰t ole pieni‰ vokaaleja. Esimerkist‰ huomataan, ett‰ kukin ehdon t‰ytt‰v‰ merkki esiintyy luodussa joukossa vain kerran.
 
@@ -145,6 +153,7 @@ Esimerkiss‰ luodaan joukko, joka sis‰lt‰‰ merkkijonon \verb+nakkivanukas+ ne mer
 
 Avaimen ja siihen liittyv‰n arvon v‰liss‰ on kaksoispiste, ja parit erotetaan toisistaan pilkuilla. Sanakirjaa ymp‰rˆiv‰t aaltosulut, ja merkint‰ \verb+{}+ tarkoittaa tyhj‰‰ sanakirjaa. Seuraavassa esimerkiss‰ k‰ytet‰‰n sanakirjaa el‰inten ja niiden ‰‰ntelyn tallentamiseen:
 
+\begin{samepage}
 \begin{verbatim}
 >>> elaimet = {"koira": "hau", "kissa": "miu"}
 >>> elaimet["seeprapeippo"] = "tˆˆt"
@@ -153,6 +162,7 @@ Avaimen ja siihen liittyv‰n arvon v‰liss‰ on kaksoispiste, ja parit erotetaan to
 >>> elaimet["seeprapeippo"]
 "tˆˆt"
 \end{verbatim}
+\end{samepage}
 
 Esimerkiss‰ luodaan aluksi sanakirja, jonka avaimet ja arvot ovat merkkijonoja. Sanakirjaan lis‰t‰‰n uusi avain-arvo-pari, ja lopuksi sielt‰ haetaan avaimeen \verb+seeprapeippo+ liittyv‰ arvo.
 
@@ -167,7 +177,7 @@ Esimerkiss‰ luodaan sanakirja, jonka avaimina ovat kokonaisluvut nollasta kolmee
 
 Yleisk‰yttˆisten kokoelmien lis‰ksi Pythonissa on myˆs tehokkaita, tiettyihin k‰yttˆtarkoituksiin erikoistuneita kokoelmatyyppej‰. Standardikirjaston \verb+collections+-moduulissa on muun muassa tehokas tietorakenne jonojen ja pinojen toteuttamiseen (\verb+deque+) sek‰ \verb+OrderedDict+, joka toimii kuten tavallinen sanakirja, mutta muistaa lis‰ksi, miss‰ j‰rjestyksess‰ alkiot on lis‰tty \cite{collections}.
 
-\subsubsection{Oliot ja luokat}
+\subsection{Oliot ja luokat}
 
 Ennen versiota 2.2 Pythonin luokat erosivat hieman nykyisist‰ luokista. Itse asiassa vanhanmalliset luokat olivat k‰ytˆss‰ rinnakkain uudenmallisten luokkien kanssa Python 3:een asti \cite{python2ref}. Seuraavassa k‰sitell‰‰n uudenmallisia luokkia, ellei toisin mainita.
 
@@ -179,11 +189,35 @@ class Luokka(object):
         self.muuttuja = parametri
 \end{verbatim}
 
-Yll‰ olevan esimerkin luokassa on m‰‰ritelty myˆs konstrukorinomainen \verb+__init__+-metodi. T‰t‰ metodia kutsutaan olion luomisen yhteydess‰. Esimerkin luokasta luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei m‰‰ritet‰ tyyppi‰, joten esimerkinkin metodi hyv‰ksyy mink‰ tyyppisen muuttujan tahansa --- t‰ss‰ tapauksessa merkkijonon. \verb+__init__+metodia ei kuitenkaan vaadita luokan m‰‰rittelyss‰.
+Yll‰ olevan esimerkin luokassa on m‰‰ritelty myˆs konstrukorinomainen \verb+__init__+-metodi. T‰t‰ metodia kutsutaan olion luomisen yhteydess‰. Metodi saa ensimm‰isen‰ parametrinaan (self) luokan ilmentym‰n. Luokasta \verb+Luokka+ luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei m‰‰ritet‰ tyyppi‰, joten esimerkinkin metodi hyv‰ksyy mink‰ tyyppisen muuttujan tahansa --- t‰ss‰ tapauksessa merkkijonon. \verb+__init__+-metodia ei kuitenkaan vaadita luokan m‰‰rittelyss‰.
+
+Muuttujaa \verb+muuttuja+ ei ole m‰‰ritelty \verb+__init__+-metodin ulkopuolella. Muuttujia voidaan m‰‰ritell‰ myˆs metodin ulkopuolella, mutta silloin ne ovat k‰ytett‰viss‰ myˆs ilman luokan instanssia.
 
 Muuttujille ja metodeille ei voi m‰‰ritt‰‰ n‰kyvyysalueita: kaikki luokan muuttujat ja metodit ovat k‰ytett‰viss‰ kaikkialla, miss‰ luokka on k‰ytett‰viss‰. Konvention mukaan muuttujat ja metodit, joita ei ole tarkoitettu k‰ytett‰v‰ksi luokan ulkopuolella, nimet‰‰n siten, ett‰ ne alkavat alaviivalla. T‰m‰ ei kuitenkaan est‰ niiden k‰yttˆ‰.
 
-Olion muuttujat sijaitsevat assosiaatiotaulussa. 
+Itse asiassa luokkia tai niiden ilmentymi‰ ei ole mitenk‰‰n suojattu muutoksilta: niiden muuttujia ja metodeja voidaan korvata ja uusia lis‰t‰ t‰ysin vapaasti. Jos esimerkiksi luokan \verb+Luokka+ \verb+__init__+-metodi ei miellyt‰, sen voi korvata vaikka seuraavasti:
+
+\begin{verbatim}
+>>> def uusi_init(self):
+        print "Uusi metodi!"
+
+>>> Luokka.__init__ = uusi_init
+>>> l = Luokka()
+Uusi metodi!
+\end{verbatim}
+
+Metodin tai muuttujan voi myˆs poistaa: \verb+del Luokka.__init__+. Toisaalta myˆs t‰ysin uuden metodin lis‰‰minen onnistuu helposti:
+
+\begin{verbatim}
+>>> Luokka.puhu = uusi_init
+>>> l = Luokka()
+>>> l.puhu()
+Uusi metodi!
+\end{verbatim}
+
+- name mangling
+
+Olion muuttujat sijaitsevat assosiaatiotaulussa. Muuttu
 
 - x.y() = X.y(x)
 
@@ -194,6 +228,10 @@ Python tukee moniperint‰‰.
 - yl‰luokan init pit‰‰ kutsua eksplisiittisesti
 
 \section{Etuja ja haittoja}
+
+COBOLin olio-ohjelmoinnin mahdollistava laajennus on monimutkaistaa COBOLin syntaksia entisest‰‰n. Lis‰ksi COBOLille tyypillisesti jo yksinkertaisten luokkien m‰‰ritteleminen tuottaa huomattavan paljon luettavaa koodia, jos vertailukohteena on esimerkiksi Javan tai varsinkin Pythonin tiivis ilmaisutapa.
+
+Object-Oriented COBOLin toteutukset ovat monimuotoisia ja poikkeavat toisistaan ominaisuuksiltaan. On mahdollista kiistell‰, onko IBM:n toteutuksessa mahdollista k‰ytt‰‰ polymorfismia kovinkaan laajasti, sill‰ kielen referenssiss‰ ei ole lainkaan kuvailtu rajapintoja. Lis‰ksi muun muassa Micro Focus tukee COBOLin yhteistyˆt‰ C-kielen kanssa, kun taas IBM mahdollistaa Javan ja COBOLin yhdist‰misen. Yhteistyˆtuki eri kielten v‰lille muuttamat implementaatiota suuresti.
 
 
 \newpage
