@@ -84,18 +84,39 @@ Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COB
 
 \subsection{Python}
 
-Pythonissa muuttujien arvot ovat viitteitä olioihin, ja kaikki esitetään olioina tai olioiden välisinä suhteina \cite{}. 
+Pythonissa muuttujien arvot ovat viitteitä olioihin, ja kielessä kaikki esitetään olioina tai olioiden välisinä suhteina \cite{}. 
 
 \subsubsection{Rakenteiset tyypit}
-Pythonin tarjoamia sekvenssityyppejä ovat muun muassa lista (list) ja monikko (tuple). Muita kielen tietorakenteita ovat esimerkiksi joukko (set) ja hajautustaulu (dictionary).
+Pythonin tarjoamia sekvenssityyppejä ovat muun muassa lista (\verb+list+) ja monikko (\verb+tuple+). Muita kielen tietorakenteita ovat esimerkiksi joukko (\verb+set+) ja sanakirja (\verb+dict+). 
  
-\textit{Listan} alkiot erotellaan pilkuilla ja lista ympäröidään hakasuluilla. Listan alkioiden ei tarvitse olla keskenään samaa tyyppiä \cite{lists}. Listan sisältö on muokattavissa sen luomisen jälkeen.
+\textit{Lista} muistuttaa jossain määrin Javan \verb+ArrayList+ia. Listan alkioiden ei kuitenkaan tarvitse olla keskenään samaa tyyppiä \cite{lists}. Listan alkiot erotellaan toisistaan pilkuilla ja listaa ympäröivät hakasulut. Merkintä \verb+[]+ tarkoittaa tyhjää listaa. Listan sisältöä voi muokata sen luomisen jälkeen.
 
-Pythonissa on myös funktionaaliselle ohjelmoinnille tyypillisiä funktioita, jotka ovat hyödyllisiä listojen käsittelyssä: \verb+map+, \verb+filter+ ja \verb+reduce+. Listakomprehensioilla (list comprehension) voidaan 
+Listoja voi käsitellä monella tavalla. Listaa voidaan esimerkiksi järjestää ja listan alkioita voi lisätä ja poistaa. Listan muokkaamiseen tarkoitettujen metodien lisäksi Pythonissa on listojen käsittelyyn myös funktionaaliselle ohjelmoinnille tyypillisiä funktioita, kuten \verb+map+ ja \verb+filter+. Funktio \verb+map+ tuottaa listan, jonka alkiot ovat tuloksia funktion parametrina saaman funktion soveltamisesta funktion listaparametrin alkioihin. Funktio \verb+filter+ puolestaan tuottaa listan suodattaen alkioita parametrina saamansa funktion mukaisesti listaparametrista. Seuraavassa esimerkissä \verb+map+-funktiolla luodaan luvun kaksi potensseja sisältävä lista:
 
-\textit{Monikkoa} ympäröivät kaarisulut, ja alkiot erotellaan toisistaan pilkuilla. Toisin kuin listan tapauksessa, kerran luotua monikkoa ei voi muokata \cite{data}. Monikko voi kuitenkin sisältää muuttuvia tietotyyppejä, kuten listoja. Monikon sisällä voi myös olla toisia monikkoja.
+\begin{verbatim}
+>>> map(lambda x: 2**x, range(0, 11))
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+\end{verbatim}
 
-Seuraavassa esimerkissä puretaan monikko:
+Pythonissa \verb+lambda+ määrittelee anonyymin funktion, jolla on tässä esimerkissä yksi parametri. \verb+range(0,11)+ palauttaa kokonaisluvut nollasta kymmeneen.
+
+Listakomprehensiot (list comprehension) ovat näppärä tapa luoda listoja. Listakomprehensioita käytetään samaan tarkoitukseen kuin \verb+map+- ja \verb+filter+-funktioita, mutta ne ilmaisevat asian tiiviimmin ja selkeämmin. Listakomprehensioita voi olla myös sisäkkäin. Seuraavassa esimerkissä luodaan listakomprehensiolla samanlainen lista, joka yllä luotiin \verb+map+-funktion avulla:
+
+\begin{verbatim}
+>>> [2**x for x in range(0, 11)]
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+\end{verbatim}
+
+Kun edellisen esimerkin listakomprehensioon lisätään ehtolause, voidaan luoda lista, joka sisältää vain ne luvut, joissa eksponentti on parillinen:
+
+\begin{verbatim}
+>>> [2**x for x in range(0,11) if x % 2 == 0]
+[1, 4, 16, 64, 256, 1024]
+\end{verbatim}
+
+\textit{Monikkoa} ympäröivät kaarisulut, ja alkiot erotellaan toisistaan pilkuilla. Monikot muistuttavat hieman listoja, mutta niitä käytetään yleensä eri tarkoituksiin. Toisin kuin listan tapauksessa, kerran luotua monikkoa ei voi muokata \cite{data}. Monikko voi kuitenkin sisältää muuttuvia tietotyyppejä, kuten listoja. Monikon alkiot voivat olla myös toisia monikkoja.
+
+Seuraava esimerkki esittelee monikon purkamista:
 
 \begin{verbatim}
 >>> monikko = ("a", 123, 3.14)
@@ -108,7 +129,9 @@ Seuraavassa esimerkissä puretaan monikko:
 3.14
 \end{verbatim}
 
-Joukko on järjestämätön tietorakenne, ja se voi sisältää saman alkion korkeintaan kerran. Joukkojen käsittelemiseen käytössä ovat matemaattiset joukko-operaatiot, kuten yhdiste, leikkaus ja erotus. Python tukee myös joukkokomprehensioita (set comprehension), jotka toimivat listakomprehensioiden tapaan: 
+Esimerkissä monikon alkiot sidotaan järjestyksessä muuttujiin \verb+x+, \verb+y+ ja \verb+z+. Kun monikko puretaan, vasemmalla puolella on oltava yhtä monta muuttujaa kuin monikossa on alkioita. Muussa tapauksessa tapahtuu suoritusaikainen virhe.
+
+\textit{Joukko} on järjestämätön tietorakenne, ja se voi sisältää saman alkion korkeintaan kerran. Joukkoihin voi käyttää matemaattisia joukko-operaatioita, kuten yhdistettä, leikkausta ja erotusta.  Python tukee myös joukkokomprehensioita (set comprehension), jotka toimivat listakomprehensioiden tapaan: 
 
 \begin{verbatim}
 >>> joukko = {x for x in "nakkivanukas" if x not in "aeiouyäö"}
@@ -116,7 +139,33 @@ Joukko on järjestämätön tietorakenne, ja se voi sisältää saman alkion korkeintaa
 set(['k', 'v', 's', 'n'])
 \end{verbatim}
 
-Esimerkissä luodaan joukko, joka sisältää merkkijonon \verb+nakkivanukas+ ne merkit, jotka eivät ole pieniä vokaaleja. Kukin merkki esiintyy joukossa vain kerran.
+Esimerkissä luodaan joukko, joka sisältää merkkijonon \verb+nakkivanukas+ ne merkit, jotka eivät ole pieniä vokaaleja. Esimerkistä huomataan, että kukin ehdon täyttävä merkki esiintyy luodussa joukossa vain kerran.
+
+\textit{Sanakirja} sisältää avain-arvo-pareja, ja se vastaa esimerkiksi Javan \verb+HashMap+ia. Sanakirjaan voi lisätä uuden avain-arvo-parin ja sieltä voi hakea arvoa avaimen perusteella. Pareja voi myös poistaa ja olemassa olevaan avaimeen liittyvää arvoa voi päivittää. Avaimena voi käyttää arvoa, joka ei ole muokattavaa tyyppiä; avaimiksi kelpaavat esimerkiksi merkkijonot, luvut sekä monikot, joiden alkiot eivät ole muokattavia. 
+
+Avaimen ja siihen liittyvän arvon välissä on kaksoispiste, ja parit erotetaan toisistaan pilkuilla. Sanakirjaa ympäröivät aaltosulut, ja merkintä \verb+{}+ tarkoittaa tyhjää sanakirjaa. Seuraavassa esimerkissä käytetään sanakirjaa eläinten ja niiden ääntelyn tallentamiseen:
+
+\begin{verbatim}
+>>> elaimet = {"koira": "hau", "kissa": "miu"}
+>>> elaimet["seeprapeippo"] = "tööt"
+>>> elaimet
+{"seeprapeippo": "tööt", "koira": "hau", "kissa": "miu"}
+>>> elaimet["seeprapeippo"]
+"tööt"
+\end{verbatim}
+
+Esimerkissä luodaan aluksi sanakirja, jonka avaimet ja arvot ovat merkkijonoja. Sanakirjaan lisätään uusi avain-arvo-pari, ja lopuksi sieltä haetaan avaimeen \verb+seeprapeippo+ liittyvä arvo.
+
+Myös sanakirjoja voi luoda käyttämällä komprehensioita (dict comprehension):
+
+\begin{verbatim}
+>>> {x: 2**x for x in (0,1,2,3)}
+{0: 1, 1: 2, 2: 4, 3: 8}
+\end{verbatim}
+
+Esimerkissä luodaan sanakirja, jonka avaimina ovat kokonaisluvut nollasta kolmeen, ja arvoina luku kaksi korotettuna avaimen osoittamaan potenssiin.
+
+Yleiskäyttöisten kokoelmien lisäksi Pythonissa on myös tehokkaita, tiettyihin käyttötarkoituksiin erikoistuneita kokoelmatyyppejä. Standardikirjaston \verb+collections+-moduulissa on muun muassa tehokas tietorakenne jonojen ja pinojen toteuttamiseen (\verb+deque+) sekä \verb+OrderedDict+, joka toimii kuten tavallinen sanakirja, mutta muistaa lisäksi, missä järjestyksessä alkiot on lisätty \cite{collections}.
 
 \subsubsection{Oliot ja luokat}
 
