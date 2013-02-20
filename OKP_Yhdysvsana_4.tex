@@ -56,6 +56,8 @@ Toisaalta koko tietueelle voidaan antaa arvo kerralla:
 
 \verb+MOVE "ARTO      WIKLA     1234567890M" TO OPISKELIJA.+
 
+
+
 Esimerkin tietue sis‰lt‰‰ kerrallaan yhden opiskelijan tiedon --- t‰llaisenaan koodissa ei siis voida k‰sitell‰ useampaa opiskelijaa samanaikaisesti. Rakenne voidaan m‰‰ritell‰ taulukoksi (table), jolloin samaa rakennetta voidaan k‰ytt‰‰ useamman samanrakenteisen tiedon k‰sittelemiseen ilman saman rakenteen uudelleenm‰‰rittely‰.
 
 Muuttuja m‰‰ritell‰‰n taulukoksi \verb+OCCURS+-lauseen avulla. \verb+OPISKELIJA+ voitaisiin muuttaa taulukoksi muokkaamalla m‰‰rittely‰ seuraavasti:
@@ -179,23 +181,25 @@ Yleisk‰yttˆisten kokoelmien lis‰ksi Pythonissa on myˆs tehokkaita, tiettyihin k‰
 
 \subsection{Oliot ja luokat}
 
-Ennen versiota 2.2 Pythonin luokat erosivat hieman nykyisist‰ luokista. Itse asiassa vanhanmalliset luokat olivat k‰ytˆss‰ rinnakkain uudenmallisten luokkien kanssa Python 3:een asti \cite{python2ref}. Seuraavassa k‰sitell‰‰n uudenmallisia luokkia, ellei toisin mainita.
+Ennen versiota 2.2 Pythonin luokat erosivat hieman nykyisist‰ luokista. Itse asiassa vanhanmalliset luokat olivat k‰ytˆss‰ rinnakkain uudenmallisten luokkien kanssa Python 3:een asti. Uudenmalliset luokat ovat uusia tyyppej‰ siin‰ miss‰ vanhanmallisten olioiden tyyppi on aina sama: \verb+instance+. \cite{python2ref}. Seuraavassa k‰sitell‰‰n uudenmallisia luokkia, ellei toisin mainita.
 
 Python on dynaaminen kieli ja sen oliot ovat hyvin joustavia. Luokka m‰‰ritell‰‰n seuraavalla tavalla:
 
+\begin{samepage}
 \begin{verbatim}
 class Luokka(object):
     def __init__(self, parametri):
         self.muuttuja = parametri
 \end{verbatim}
+\end{samepage}
 
-Yll‰ olevan esimerkin luokassa on m‰‰ritelty myˆs konstrukorinomainen \verb+__init__+-metodi. T‰t‰ metodia kutsutaan olion luomisen yhteydess‰. Metodi saa ensimm‰isen‰ parametrinaan (self) luokan ilmentym‰n. Luokasta \verb+Luokka+ luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei m‰‰ritet‰ tyyppi‰, joten esimerkinkin metodi hyv‰ksyy mink‰ tyyppisen muuttujan tahansa --- t‰ss‰ tapauksessa merkkijonon. \verb+__init__+-metodia ei kuitenkaan vaadita luokan m‰‰rittelyss‰.
+Yll‰ olevan esimerkin luokassa on m‰‰ritelty myˆs konstrukorinomainen \verb+__init__+-metodi. T‰t‰ metodia kutsutaan olion luomisen yhteydess‰. Metodi saa ensimm‰isen‰ parametrinaan (self) luokan ilmentym‰n. Luokasta \verb+Luokka+ luotaisiin instanssi seuraavalla tavalla: \verb+l = Luokka("arvo")+. Parametreille ja muuttujille ei m‰‰ritet‰ tyyppi‰, joten esimerkinkin metodi hyv‰ksyy mink‰ tyyppisen muuttujan tahansa --- t‰ss‰ tapauksessa merkkijonon. \verb+__init__+-metodia ei kuitenkaan vaadita luokan m‰‰rittelyss‰ \cite{pythonclass}.
 
-Muuttujaa \verb+muuttuja+ ei ole m‰‰ritelty \verb+__init__+-metodin ulkopuolella. Muuttujia voidaan m‰‰ritell‰ myˆs metodin ulkopuolella, mutta silloin ne ovat k‰ytett‰viss‰ myˆs ilman luokan instanssia.
+Muuttujaa \verb+muuttuja+ ei ole m‰‰ritelty \verb+__init__+-metodin ulkopuolella. Muuttujia voidaan m‰‰ritell‰ myˆs metodin ulkopuolella, mutta silloin ne ovat k‰ytett‰viss‰ luokan kautta myˆs ilman luokan instanssia.
 
-Muuttujille ja metodeille ei voi m‰‰ritt‰‰ n‰kyvyysalueita: kaikki luokan muuttujat ja metodit ovat k‰ytett‰viss‰ kaikkialla, miss‰ luokka on k‰ytett‰viss‰. Konvention mukaan muuttujat ja metodit, joita ei ole tarkoitettu k‰ytett‰v‰ksi luokan ulkopuolella, nimet‰‰n siten, ett‰ ne alkavat alaviivalla. T‰m‰ ei kuitenkaan est‰ niiden k‰yttˆ‰.
+Muuttujille ja metodeille ei voi m‰‰ritt‰‰ n‰kyvyysalueita: kaikki luokan muuttujat ja metodit ovat k‰ytett‰viss‰ kaikkialla, miss‰ luokka on k‰ytett‰viss‰. Konvention mukaan muuttujat ja metodit, joita ei ole tarkoitettu k‰ytett‰v‰ksi luokan ulkopuolella, nimet‰‰n siten, ett‰ ne alkavat alaviivalla. T‰m‰ ei kuitenkaan est‰ niiden k‰yttˆ‰. \cite{pythonclass}.
 
-Itse asiassa luokkia tai niiden ilmentymi‰ ei ole mitenk‰‰n suojattu muutoksilta: niiden muuttujia ja metodeja voidaan korvata ja uusia lis‰t‰ t‰ysin vapaasti. Jos esimerkiksi luokan \verb+Luokka+ \verb+__init__+-metodi ei miellyt‰, sen voi korvata vaikka seuraavasti:
+Itse asiassa luokkia tai niiden ilmentymi‰ ei ole mitenk‰‰n suojattu muutoksilta: niiden muuttujia ja metodeja voidaan korvata ja uusia lis‰t‰ t‰ysin vapaasti. Jos esimerkiksi luokan \verb+Luokka+ \verb+__init__+-metodi ei miellyt‰, sen voi korvata vaikka seuraavalla tavalla metodilla, joka ei tee muuta kuin tulostaa "Uusi metodi!":
 
 \begin{verbatim}
 >>> def uusi_init(self):
@@ -215,17 +219,34 @@ Metodin tai muuttujan voi myˆs poistaa: \verb+del Luokka.__init__+. Toisaalta my
 Uusi metodi!
 \end{verbatim}
 
-- name mangling
+\subsection{Perint‰}
 
-Olion muuttujat sijaitsevat assosiaatiotaulussa. Muuttu
+Edellisen kappaleen \verb+Luokka+-luokka on uudenmallinen ja t‰ten perii \verb+object+-luokan. Uudenmallinen luokka siis perii joko \verb+object+-luokan tai uudenmallisia luokkia. Vanhanmalliset luokat eiv‰t v‰ltt‰m‰tt‰ peri mit‰‰n luokkaa \cite{python2ref}. Kuvassa 1 n‰hd‰‰n vanhan- ja uudenmallisen luokan m‰‰rittelyn syntaktinen ero, kun luokka ei peri mit‰‰n "ylim‰‰r‰ist‰". Peritt‰v‰t luokat m‰‰ritell‰‰n siis suluissa luokan nimen j‰lkeen.
 
-- x.y() = X.y(x)
+\begin{minipage}[t]{0.5\textwidth}
+\begin{verbatim}
+class Uusi(object):
+    # Uudenmallinen luokka
+    pass
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{verbatim}
+class Vanha:
+    # Vanhanmallinen luokka
+    pass
+\end{verbatim}
+\end{minipage}
+\captionof{figure}{Uudenmallinen ja vanhanmallinen luokka Pythonissa}
 
-\subsection{Periytyminen}
+Python tukee myˆs moniperint‰‰. Seuraavassa esimerkiss‰ luokka \verb+C+ perii luokat \verb+A+ ja \verb+B+:
+\begin{verbatim}
+>>> class A(object): pass
+>>> class B(object): pass
+>>> class C(A, B): pass
+\end{verbatim}
 
-Python tukee moniperint‰‰. 
-
-- yl‰luokan init pit‰‰ kutsua eksplisiittisesti
+Koska uudenmallinen luokka perii aina v‰hint‰‰n \verb+object+-luokan, joudutaan aina moniperinn‰n yhteydess‰ tekemisiin timanttiongelman kanssa. Pythonissa perint‰j‰rjestys ratkaistaan vasemmalta oikealle, syvyyssuunta ensin.  Uudenmallisten luokkien yhteydess‰ k‰ytet‰‰n C3-linearisointia (C3 linearization), joka takaa, ettei yl‰luokkia kutsuta useampaan otteeseen perint‰j‰rjestyksess‰, eik‰ j‰rjestys muutu uusissa alaluokissa \cite{pythonclass}.
 
 \section{Etuja ja haittoja}
 
