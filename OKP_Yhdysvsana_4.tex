@@ -84,14 +84,14 @@ Periminen ja rajapintojen toteutus vaihtelee runsaasti. Micro Focus'n Visual COB
 
 \section{Python}
 
-Pythonissa muuttujien arvot ovat viitteitä olioihin, ja kielessä kaikki esitetään olioina tai olioiden välisinä suhteina \cite{}. 
+Pythonissa muuttujien arvot ovat viitteitä olioihin, ja kielessä kaikki esitetään olioina tai olioiden välisinä suhteina. 
 
 \subsection{Rakenteiset tyypit}
-Pythonin tarjoamia sekvenssityyppejä ovat muun muassa lista (\verb+list+) ja monikko (\verb+tuple+). Muita kielen tietorakenteita ovat esimerkiksi joukko (\verb+set+) ja sanakirja (\verb+dict+).
+Pythonin tarjoamia sekvenssityyppejä ovat muun muassa lista (\verb+list+) ja monikko (\verb+tuple+). Muita kielen tietorakenteita ovat esimerkiksi joukko (\verb+set+) ja sanakirja (\verb+dict+). Tämä luku pohjautuu pääosin Python-tutoriaalin osioon Data Structures \cite{data}.
  
 \textit{Lista} muistuttaa jossain määrin Javan \verb+ArrayList+ia. Listan alkioiden ei kuitenkaan tarvitse olla keskenään samaa tyyppiä \cite{lists}. Listan alkiot erotellaan toisistaan pilkuilla ja listaa ympäröivät hakasulut. Merkintä \verb+[]+ tarkoittaa tyhjää listaa. Listan sisältöä voi muokata sen luomisen jälkeen.
 
-Listoja voi käsitellä monella tavalla. Listaa voidaan esimerkiksi järjestää ja listan alkioita voi lisätä ja poistaa. Listan muokkaamiseen tarkoitettujen metodien lisäksi Pythonissa on listojen käsittelyyn myös funktionaaliselle ohjelmoinnille tyypillisiä funktioita, kuten \verb+map+ ja \verb+filter+. Funktio \verb+map+ tuottaa listan, jonka alkiot ovat tuloksia funktion parametrina saaman funktion soveltamisesta funktion listaparametrin alkioihin. Funktio \verb+filter+ puolestaan tuottaa listan suodattaen alkioita parametrina saamansa funktion mukaisesti listaparametrista. Seuraavassa esimerkissä \verb+map+-funktiolla luodaan luvun kaksi potensseja sisältävä lista:
+Listoja voi käsitellä monella tavalla. Listaa voidaan esimerkiksi järjestää ja listan alkioita voi lisätä ja poistaa. Listan muokkaamiseen tarkoitettujen metodien lisäksi Pythonissa on listojen käsittelyyn myös funktionaaliselle ohjelmoinnille tyypillisiä funktioita, kuten \verb+map+ ja \verb+filter+. Funktio \verb+map+ saa parametrina funktion ja iteroitavan olion. Funktiota käytetään iteroitavan olion alkioihin, ja \verb+map+-funktio palauttaa näistä tuloksista koostuvan listan. Funktio \verb+filter+ saa myös parametreina funktion ja iteroitavan olion. Se muodostaa listan niistä alkioista, joille parametrina saatu funktio palauttaa arvon \verb+true+. Seuraavassa esimerkissä \verb+map+-funktiolla luodaan luvun kaksi potensseja sisältävä lista:
 
 \begin{verbatim}
 >>> map(lambda x: 2**x, range(0, 11))
@@ -118,7 +118,7 @@ Kun edellisen esimerkin listakomprehensioon lisätään ehtolause, voidaan luoda li
 \end{verbatim}
 \end{samepage}
 
-\textit{Monikkoa} ympäröivät kaarisulut, ja alkiot erotellaan toisistaan pilkuilla. Monikot muistuttavat hieman listoja, mutta niitä käytetään yleensä eri tarkoituksiin. Toisin kuin listan tapauksessa, kerran luotua monikkoa ei voi muokata \cite{data}. Monikko voi kuitenkin sisältää muuttuvia tietotyyppejä, kuten listoja. Monikon alkiot voivat olla myös toisia monikkoja.
+\textit{Monikkoa} ympäröivät kaarisulut, ja alkiot erotellaan toisistaan pilkuilla. Monikot muistuttavat hieman listoja, mutta niitä käytetään yleensä eri tarkoituksiin. Toisin kuin listan tapauksessa, kerran luotua monikkoa ei voi muokata. Monikko voi kuitenkin sisältää muuttuvia tietotyyppejä, kuten listoja. Monikon alkiot voivat olla myös toisia monikkoja.
 
 Seuraava esimerkki esittelee monikon purkamista:
 
