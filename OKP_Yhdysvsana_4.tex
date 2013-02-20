@@ -48,7 +48,7 @@ Tasonumerot kuvaavat tiedon hierarkian, mutta tietyill‰ numeroilla on erityismer
 
 \verb+IF MIES OF OPISKELIJA+
 
-Todellisuudessa tietue ei ole juuri muuta kuin merkkijono, jonka eri osat kuvaavat tietueen kentti‰. Tietueelle voidan antaa arvot kentt‰ kerrallaan:
+Tietueelle voidan antaa arvot kentt‰ kerrallaan:
 
 \verb+MOVE "ARTO" TO ETUNIMI OF OPISKELIJA.+
 
@@ -56,15 +56,18 @@ Toisaalta koko tietueelle voidaan antaa arvo kerralla:
 
 \verb+MOVE "ARTO      WIKLA     1234567890M" TO OPISKELIJA.+
 
-
+V‰lilyˆntien m‰‰r‰ johtuu siit‰, ett‰ etu- ja sukunimikent‰t on m‰‰ritetty kymmenen merkin pituisiksi. Kuten n‰hd‰‰n, tietue on pohjimmiltaan vain merkkijono ja sen kent‰t t‰m‰n merkkijonon osia.
 
 Esimerkin tietue sis‰lt‰‰ kerrallaan yhden opiskelijan tiedon --- t‰llaisenaan koodissa ei siis voida k‰sitell‰ useampaa opiskelijaa samanaikaisesti. Rakenne voidaan m‰‰ritell‰ taulukoksi (table), jolloin samaa rakennetta voidaan k‰ytt‰‰ useamman samanrakenteisen tiedon k‰sittelemiseen ilman saman rakenteen uudelleenm‰‰rittely‰.
 
 Muuttuja m‰‰ritell‰‰n taulukoksi \verb+OCCURS+-lauseen avulla. \verb+OPISKELIJA+ voitaisiin muuttaa taulukoksi muokkaamalla m‰‰rittely‰ seuraavasti:
+
 \begin{verbatim}
 01 OPISKELIJA OCCURS 5 TIMES.
 \end{verbatim}
-Esimerkiksi taulukon toiseen opiskelijaan viitattaisiin indeksill‰ 2: \verb+OPISKELIJA(2)+. Taulukon sis‰ll‰ voidaan myˆs m‰‰ritell‰ sis‰kk‰isi‰ taulukoita.
+
+Esimerkiksi taulukon toiseen opiskelijaan viitattaisiin indeksill‰ 2: \verb+OPISKELIJA(2)+. 
+Taulukon sis‰ll‰ voidaan myˆs m‰‰ritell‰ sis‰kk‰isi‰ taulukoita \cite[s. III-3]{ansicobol74}.
 
 \subsection{COBOLin oliolaajennus}
 
