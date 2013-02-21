@@ -1,0 +1,32 @@
+Koeasioita:
+--------------------------
+
+- kurssikelmut luentojen pohjalta ja webbisivuilla mainittujen sivujen osilta
+
+- ei historiallisia kysymyksiä, "ei jippologiaa", ei matalaa/syvää sidontaa, "actoreista ei varmaan kysellä"
+
+- sulkeuman idea kuuluu
+
+- parametrien välityksen tyylit oleellista, parametrityypit
+
+- aktivaatiotietupinon avulla selittämisen taito on hyödyllinen
+
+- keskeisessä asemassa tietokokoelmat, miten tietokokoelmia eri kielissä, "geneerisyydestä ei ainakaan sellaisenaan mitään, voi olla syytä tietää jotain" 
+
+- Moni- ja yksittäisperiytyminen mielenkiintoista, perinnän päättelysäännöt ei. Timanttiongelma on hyvä tiedostaa. Piirreluokat/mixingin idea hyvä tietää
+
+- funktionaalista kielistä Eevan pdf on kurssimateriaalia, ei vielä varmaa tuleeko siitä tenttikysymystä
+
+- immutaabeleista olioista hyvä tietää, muut funktionaalisen kielien alla olevista linkeistä ei (eevan kandia lukuunottamatta) tule kysymyksiä
+
+- Thornin lause hyödyllinen, logic kalvot muuten kehnot
+
+- "Koealueeseen kuuluvat kielet": python, lua, javascript, c#, ruby (tod.näk. lueteltu kurssisivulla lopullinen lista)
+
+- C ja Java implisiittisiä vertailukohteita, joita arvostelijoiden uskotaan ymmärtävän suoraan ja saa käyttää. Myös itse käsiteltyjä kieliä voi käyttää esimerkkeinä.
+
+- "ehkä pohdintakysymyksiä, nin siitä arvostelusta on sitten vaikea valittaa, vaikka arpoisin pisteet hatusta"
+
+- kevät 2011 kokeen luonteisia kysymyksiä vois tulla, ehkä lisäten vertailun kielen välillä. (nelostehtävä liittyi silloin kurssin opiskelijoiden tekemiin töihin)
+
+
